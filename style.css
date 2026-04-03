@@ -1,0 +1,285 @@
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+/* Variables CSS para facilitar la gestión de colores y fuentes */
+:root {
+    --bg-color: #1a1a1a; /* Fondo oscuro */
+    --text-color: #e0e0e0; /* Texto claro */
+    --primary-color: #007bff; /* Azul primario (ej. para enlaces) */
+    --accent-color: #32CD32; /* Verde brillante para acentos (Minecraft/Discord) */
+    --card-bg-color: #2a2a2a; /* Fondo de tarjetas un poco más claro */
+    --border-color: #444; /* Borde sutil */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace; /* Para títulos o código */
+}
+
+/* Estilos básicos para el cuerpo de la página */
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contenedor principal para centrar el contenido y limitar el ancho */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--bg-color); /* El mismo color de fondo, pero útil si se le da un borde al container */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color); /* Borde sutil */
+}
+
+/* Estilos para encabezados y textos destacados */
+h1, h2, h3, h4 {
+    font-family: var(--font-secondary); /* Usa la fuente monospace para un toque distintivo */
+    color: var(--text-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.8em; text-align: center; color: var(--accent-color); } /* Grande y llamativo */
+h2 { font-size: 1.8em; text-align: center; color: var(--text-color); margin-top: 10px;}
+h3 { font-size: 1.5em; border-bottom: 2px solid var(--border-color); padding-bottom: 5px; margin-bottom: 20px;}
+h4 { font-size: 1.2em; }
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+ul {
+    list-style: none; /* Elimina los puntos predeterminados */
+    padding: 0;
+    margin: 0; /* Asegura que no haya margen superior en la lista */
+}
+
+ul li {
+    margin-bottom: 0.5em;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+ul li::before {
+    content: '▪'; /* Viñetas personalizadas */
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Header/Sección de Perfil */
+.profile-section {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4); /* Brillo verde */
+}
+
+.section-tag {
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 20px auto 0 auto;
+}
+
+/* Sección Sobre Mí */
+.about-section {
+    padding: 20px 0;
+}
+
+/* Sección de Proyectos */
+.projects-section {
+    padding: 20px 0;
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img.project-logo {
+    display: block; /* Para centrar la imagen */
+    max-width: 100%;
+    height: auto;
+    max-height: 150px; /* Limita la altura del logo */
+    margin: 0 auto 15px auto; /* Centra y añade espacio */
+    border-radius: 4px; /* Pequeño borde redondeado si el logo no es circular */
+}
+
+.project-card h4 {
+    margin-top: 0;
+    color: var(--accent-color);
+    text-align: center; /* Centrar el título del proyecto */
+}
+
+.project-card .role {
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-align: center; /* Centrar el rol */
+}
+
+.project-card .technologies {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* Sección de Habilidades */
+.skills-section {
+    padding: 20px 0;
+}
+
+.skill-category {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.skill-category h4 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category li {
+    margin-bottom: 0.8em;
+    padding-left: 1.8em;
+    position: relative;
+}
+
+.skill-category li::before {
+    content: '✦'; /* Viñetas más "gamer" */
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* Sección de Contacto */
+.contact-section {
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.contact-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap; /* Para que los elementos se ajusten en pantallas pequeñas */
+}
+
+.contact-list li {
+    margin: 5px 0;
+}
+
+.contact-list li::before {
+    content: none; /* Eliminar viñetas de lista normal */
+}
+
+.discord-tag {
+    background-color: #5865F2; /* Color de Discord */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-family: var(--font-secondary);
+    font-size: 0.9em;
+    white-space: nowrap; /* Previene que el tag se rompa */
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.3em; }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .section-tag {
+        font-size: 0.8em;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    .project-card, .skill-category {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .contact-list {
+        flex-direction: column; /* Apila los contactos verticalmente en móvil */
+        align-items: center;
+    }
+}
