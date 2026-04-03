@@ -6,21 +6,29 @@ body {
     margin: 0;
     padding: 0;
     
-    /* --- Estilos para el fondo de cuervos + gradiente animado --- */
-    background-image: url('images/cuervos_fondo.jpg'); /* ¡AQUÍ VA TU IMAGEN DE CUERVOS! */
-    background-size: cover; /* La imagen cubre todo el fondo */
-    background-position: center center; /* Centra la imagen */
-    background-repeat: no-repeat; /* La imagen no se repite */
-    background-attachment: fixed; /* La imagen de fondo no se mueve al hacer scroll */
-
-    position: relative; /* Necesario para el pseudo-elemento y z-index */
+    position: relative; /* Necesario para el video de fondo y pseudo-elemento */
     min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del viewport */
     display: flex;
     flex-direction: column;
     overflow-x: hidden; /* Evita barras de scroll horizontales por si acaso */
+    /* No se pone background-image aquí, porque el video lo manejamos aparte */
 }
 
-/* Pseudo-elemento para el gradiente animado que se superpone a la imagen de fondo */
+/* Estilos para el video de fondo */
+#background-video {
+    position: fixed; /* Fija el video al fondo */
+    right: 0;
+    bottom: 0;
+    min-width: 100%; /* Cubre todo el ancho */
+    min-height: 100%; /* Cubre todo el alto */
+    width: auto;
+    height: auto;
+    z-index: -2; /* Detrás de todo el contenido y el overlay */
+    background-size: cover; /* Asegura que el video cubra */
+    filter: brightness(0.4) grayscale(100%); /* Oscurece y desatura el video para que el texto resalte */
+}
+
+/* Pseudo-elemento para el gradiente animado que se superpone al video de fondo */
 body::before {
     content: '';
     position: absolute;
@@ -28,10 +36,10 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Detrás del contenido pero encima de la imagen */
+    z-index: -1; /* Encima del video, debajo del contenido */
 
     /* Gradiente animado en tonos grises y blancos */
-    background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(50,50,50,0.8), rgba(200,200,200,0.8), rgba(50,50,50,0.8));
+    background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(50,50,50,0.4), rgba(200,200,200,0.4), rgba(50,50,50,0.4)); /* Ajusta la opacidad */
     background-size: 400% 400%; /* Permite que el gradiente sea más grande que el viewport */
     animation: gradientShift 20s ease infinite; /* Aplica la animación */
 }
@@ -117,19 +125,4 @@ ul li {
 ul li::before {
     content: '—'; /* Guion personalizado para las listas */
     position: absolute;
-    left: 0;
-    color: #00bcd4; /* Color turquesa para el guion */
-    font-weight: bold;
-}
-
-/* Enlaces */
-a {
-    color: #00bcd4;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #008c9e; /* Color más oscuro al pasar el ratón */
-    text-
     
