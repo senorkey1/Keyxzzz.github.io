@@ -15,14 +15,13 @@ body {
     background-size: cover;
 }
 
-/* Pantalla inicial */
+/* Inicio */
 #inicio {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
 }
 
 .logo {
@@ -56,6 +55,12 @@ button {
     margin: 15px;
     padding: 20px;
     border-radius: 15px;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
 /* Servidores */
@@ -98,18 +103,17 @@ button {
 }
 
 @keyframes caer {
-    0% { transform: translateY(-50px); }
-    100% { transform: translateY(100vh); }
+    0% {transform: translateY(-50px);}
+    100% {transform: translateY(100vh);}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Música -->
 <audio id="music" src="music/eoo.mp3" loop></audio>
 
-<!-- Pantalla inicio -->
+<!-- Inicio -->
 <div id="inicio">
     <img src="images/keyxzzz_logo.png" class="logo">
     <h1>KEYXZZZ</h1>
@@ -126,8 +130,7 @@ button {
 Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
 +1 año como Builder creando mapas PvP optimizados.<br>
 +1.5 años como Configurador profesional.<br><br>
-Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.<br>
-Trabajo creando servidores competitivos con alto rendimiento y jugabilidad fluida.
+Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.
 </p>
 </div>
 
@@ -159,15 +162,33 @@ Trabajo creando servidores competitivos con alto rendimiento y jugabilidad fluid
 </div>
 </div>
 
+<!-- CONTACTO 🔥 -->
+<div class="card">
+<h2>📞 Contacto</h2>
+
+<div style="display:flex;flex-direction:column;gap:10px;">
+
+<a href="https://discord.com/users/1072608933249822720" target="_blank"
+style="background:#5865F2;padding:12px;border-radius:10px;color:white;text-decoration:none;">
+💬 Discord
+</a>
+
+<a href="mailto:senorkey1@gmail.com"
+style="background:#ff4d4d;padding:12px;border-radius:10px;color:white;text-decoration:none;">
+📧 Correo
+</a>
+
+</div>
 </div>
 
-<!-- Popups -->
+</div>
+
+<!-- POPUPS -->
 
 <div id="minedark" class="popup">
 <h2>MineDark</h2>
 <p>
-Soy el dueño de mi propio servidor MineDark, un proyecto enfocado en Box PvP competitivo.<br>
-Configuré completamente el sistema desde cero, incluyendo economía avanzada, kits y optimización total.<br><br>
+Soy el dueño de mi servidor MineDark enfocado en Box PvP competitivo.<br><br>
 ✔ BoxPvP<br>
 ✔ Economía<br>
 ✔ Kits<br>
@@ -179,8 +200,7 @@ Configuré completamente el sistema desde cero, incluyendo economía avanzada, k
 <div id="hyper" class="popup">
 <h2>HyperCommunity</h2>
 <p>
-En HyperCommunity trabajé como Developer, creando bots y sistemas personalizados para Discord.<br>
-Implementé sistemas de moderación avanzados y automatización completa.<br><br>
+Developer creando bots y sistemas personalizados.<br><br>
 ✔ Bots<br>
 ✔ Sistemas<br>
 ✔ Moderación
@@ -191,11 +211,10 @@ Implementé sistemas de moderación avanzados y automatización completa.<br><br
 <div id="tortrix" class="popup">
 <h2>TortrixLand</h2>
 <p>
-En TortrixLand fui Owner y configurador principal del servidor.<br>
-Desarrollé kits, protección completa del mundo y sistemas personalizados.<br><br>
+Owner y configurador del servidor.<br><br>
 ✔ Kits<br>
 ✔ Protección<br>
-✔ Configuración completa
+✔ Config completa
 </p>
 <button onclick="closePop()">Cerrar</button>
 </div>
@@ -203,8 +222,7 @@ Desarrollé kits, protección completa del mundo y sistemas personalizados.<br><
 <div id="warp" class="popup">
 <h2>WarpOnMC</h2>
 <p>
-En WarpOnMC fui Manager del servidor survival.<br>
-Me encargué de la optimización, economía y rendimiento general del servidor.<br><br>
+Manager de servidor survival.<br><br>
 ✔ Optimización<br>
 ✔ Rendimiento<br>
 ✔ Economía
@@ -219,7 +237,6 @@ function entrar() {
     document.getElementById("music").play();
 }
 
-/* Popups */
 function openServer(id) {
     document.getElementById(id).style.display = "block";
 }
