@@ -3,275 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Keyxzzz | Configurador</title>
+<title>Keyxzzz</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:Arial;
-  color:white;
-  background:black;
+    margin:0;
+    font-family: Arial, sans-serif;
+    color:white;
+    background:url('images/mi_fondo.jpg') no-repeat center center/cover;
 }
 
-/* FONDO REAL */
-body::before{
-  content:"";
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:url("fondo.jpg") center/cover;
-  filter:brightness(0.35);
-  z-index:-1;
+/* OSCURECER FONDO */
+.overlay{
+    background:rgba(0,0,0,0.7);
+    min-height:100vh;
 }
 
 /* HERO */
 .hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-
-.hero img{
-  width:120px;
-  margin-bottom:15px;
+    text-align:center;
+    padding-top:120px;
 }
 
 .hero h1{
-  font-size:50px;
-  color:#00ffd5;
+    font-size:50px;
+    color:#00ffc3;
+    text-shadow:0 0 20px #00ffc3;
 }
 
 .hero p{
-  margin:10px;
-  opacity:0.7;
+    opacity:0.8;
 }
 
 .btn{
-  margin-top:20px;
-  padding:12px 30px;
-  background:#00ffd5;
-  color:black;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:10px;
+    background:#00ffc3;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* SECCIONES */
 .section{
-  padding:40px 20px;
-  max-width:1000px;
-  margin:auto;
+    padding:40px;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
 .card{
-  background:rgba(0,0,0,0.7);
-  padding:25px;
-  border-radius:15px;
-  margin-bottom:20px;
+    background:rgba(0,0,0,0.8);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
+.card:hover{
+    transform:scale(1.05);
 }
 
-.server{
-  background:#111;
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-  cursor:pointer;
-}
-
-.server img{
-  width:60px;
-  margin-bottom:10px;
+.card img{
+    width:80px;
 }
 
 /* MODAL */
 .modal{
-  display:none;
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;
-  align-items:center;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
 }
 
-.modal-box{
-  background:#111;
-  padding:20px;
-  border-radius:12px;
-  width:320px;
+.modal-content{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    max-width:90%;
+}
+
+.close{
+    float:right;
+    cursor:pointer;
+}
+
+/* BILLETES */
+.money{
+    position:fixed;
+    width:40px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{transform:translateY(-100px);}
+    to{transform:translateY(100vh);}
 }
 </style>
 
 </head>
+
 <body>
+
+<div class="overlay">
 
 <!-- HERO -->
 <div class="hero">
-
-<img src="skin.png">
-
 <h1>KEYXZZZ</h1>
 <p>Keyxzzz | Configurador</p>
-
-<button class="btn" onclick="enter()">ENTRAR</button>
-
+<button class="btn" onclick="scrollToSection()">ENTRAR</button>
 </div>
 
-<!-- CONTENIDO -->
-<div id="main" class="section">
-
-<div class="card">
+<!-- SOBRE MI -->
+<div class="section" id="main">
 <h2>📌 Sobre mí</h2>
-
 <p>
-Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
-
+Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br>
 +1 año como Builder creando mapas PvP optimizados.<br>
-+1.5 años como Configurador profesional.<br><br>
-
-✔ Especialista en Box PvP<br>
-✔ Economía avanzada<br>
-✔ Sistemas personalizados<br>
-✔ Optimización extrema<br>
-✔ Configuración completa de servidores<br>
-✔ Seguridad y protección<br>
-✔ Plugins desde 0<br>
-✔ Experiencia en redes grandes<br>
-✔ Balance perfecto de jugabilidad<br>
-✔ Automatización de sistemas<br>
++1.5 años como Configurador profesional.<br>
+Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.<br>
+Trabajo creando servidores competitivos con rendimiento alto y jugabilidad fluida.<br>
+Optimizo TPS, configuro plugins desde cero y hago sistemas únicos.<br>
 </p>
-
 </div>
 
-<div class="card">
+<!-- SERVIDORES -->
+<div class="section">
 <h2>🔥 Servidores</h2>
 
 <div class="grid">
 
-<div class="server" onclick="openModal('minedark')">
-<img src="minedark.png">
-<p>MineDark</p>
+<div class="card" onclick="openModal('minedark')">
+<img src="images/minedark_logo.png">
+<h3>MineDark</h3>
 </div>
 
-<div class="server" onclick="openModal('hyper')">
-<img src="hyper.png">
-<p>HyperCommunity</p>
+<div class="card" onclick="openModal('hyper')">
+<img src="images/hypercommunity_logo.png">
+<h3>HyperCommunity</h3>
 </div>
 
-<div class="server" onclick="openModal('tortrix')">
-<img src="tortrix.png">
-<p>TortrixLand</p>
+<div class="card" onclick="openModal('tortrix')">
+<img src="images/tortrixland_logo.png">
+<h3>TortrixLand</h3>
 </div>
 
-<div class="server" onclick="openModal('warpon')">
-<img src="warpon.png">
-<p>WarpOnMC</p>
+<div class="card" onclick="openModal('warpon')">
+<img src="images/warponmc_logo.png">
+<h3>WarpOnMC</h3>
 </div>
 
 </div>
-
 </div>
 
 </div>
 
 <!-- MODAL -->
-<div id="modal" class="modal" onclick="closeModal()">
-<div class="modal-box" id="modalText"></div>
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<div id="modal-text"></div>
+</div>
 </div>
 
-<!-- MUSICA REAL -->
-<audio id="music" loop>
-<source src="music.mp3">
+<!-- MUSICA -->
+<audio autoplay loop>
+<source src="audio/eoo.mp3" type="audio/mp3">
 </audio>
 
 <script>
-
-function enter(){
-document.getElementById("main").scrollIntoView({behavior:"smooth"});
-document.getElementById("music").play();
+function scrollToSection(){
+    document.getElementById("main").scrollIntoView({behavior:"smooth"});
 }
 
-/* MODAL FULL INFO */
-function openModal(s){
+function openModal(server){
+    let text = document.getElementById("modal-text");
 
-let t="";
+    if(server==="minedark"){
+        text.innerHTML = `
+        <h2>MineDark</h2>
+        ✔ Box PvP completo<br>
+        ✔ Economía avanzada balanceada<br>
+        ✔ Sistema de kits configurado<br>
+        ✔ Progresión personalizada<br>
+        ✔ Optimización extrema<br>
+        ✔ Plugins configurados desde 0<br>
+        ✔ Sistema anti-lag<br>
+        ✔ Balance de combate PvP<br>
+        ✔ Eventos automáticos<br>
+        ✔ Sistema de ranks<br>
+        ✔ Integración con Discord<br>
+        ✔ Protección total del servidor<br>
+        ✔ Sistema de recompensas<br>
+        ✔ Scoreboards personalizados<br>
+        ✔ Menús configurados<br>
+        ✔ Rendimiento alto TPS<br>
+        ✔ Configuración profesional<br>
+        `;
+    }
 
-if(s=="minedark"){
-t=`<h2>MineDark</h2>
-✔ Box PvP completo<br>
-✔ Economía avanzada<br>
-✔ Sistema de kits<br>
-✔ Progresión personalizada<br>
-✔ Plugins desde 0<br>
-✔ Optimización total<br>
-✔ Protección completa del servidor<br>
-✔ Configuración de ranks<br>
-✔ Sistema de eventos<br>
-✔ Balance de PvP profesional`;
-}
+    if(server==="hyper"){
+        text.innerHTML = `
+        <h2>HyperCommunity</h2>
+        ✔ Bots Discord avanzados<br>
+        ✔ Sistemas automáticos<br>
+        ✔ Moderación profesional<br>
+        ✔ Comandos personalizados<br>
+        ✔ Logs completos<br>
+        ✔ Anti-spam avanzado<br>
+        ✔ Integración Minecraft<br>
+        ✔ Panel de control<br>
+        ✔ Automatización total<br>
+        `;
+    }
 
-if(s=="hyper"){
-t=`<h2>HyperCommunity</h2>
-✔ Bots avanzados<br>
-✔ Sistemas automáticos<br>
-✔ Moderación completa<br>
-✔ Logs personalizados<br>
-✔ Comandos únicos<br>
-✔ Seguridad anti raid<br>
-✔ Integración con servidor<br>
-✔ Panel administrativo<br>
-✔ Automatización total<br>
-✔ Sistema de tickets`;
-}
+    if(server==="tortrix"){
+        text.innerHTML = `
+        <h2>TortrixLand</h2>
+        ✔ Configuración de kits PvP<br>
+        ✔ Protección completa del servidor<br>
+        ✔ Sistema de economía<br>
+        ✔ Optimización de rendimiento<br>
+        ✔ Configuración de plugins<br>
+        ✔ Setup de BungeeCord<br>
+        ✔ Sistema de ranks<br>
+        ✔ Menús personalizados<br>
+        ✔ Seguridad anti exploits<br>
+        ✔ Balance PvP<br>
+        ✔ Integración con Discord<br>
+        ✔ Sistemas automáticos<br>
+        `;
+    }
 
-if(s=="tortrix"){
-t=`<h2>TortrixLand</h2>
-✔ Configuración de kits PvP<br>
-✔ Protección completa del spawn<br>
-✔ Sistema de warps<br>
-✔ Configuración de economía<br>
-✔ Plugins optimizados<br>
-✔ Red con Velocity<br>
-✔ Bungeecord setup<br>
-✔ Seguridad anti exploits<br>
-✔ Balance de juego<br>
-✔ Optimización de rendimiento`;
-}
+    if(server==="warpon"){
+        text.innerHTML = `
+        <h2>WarpOnMC</h2>
+        ✔ Optimización extrema<br>
+        ✔ Mejor rendimiento TPS<br>
+        ✔ Sistema económico balanceado<br>
+        ✔ Configuración avanzada<br>
+        ✔ Plugins optimizados<br>
+        ✔ Reducción de lag<br>
+        ✔ Servidor fluido<br>
+        `;
+    }
 
-if(s=="warpon"){
-t=`<h2>WarpOnMC</h2>
-✔ Optimización extrema<br>
-✔ Reducción de lag<br>
-✔ Configuración avanzada<br>
-✔ Sistema económico balanceado<br>
-✔ Plugins optimizados<br>
-✔ Seguridad del servidor<br>
-✔ Mejor rendimiento TPS<br>
-✔ Configuración profesional<br>
-✔ Ajustes de rendimiento<br>
-✔ Estabilidad total`;
-}
-
-document.getElementById("modalText").innerHTML=t;
-document.getElementById("modal").style.display="flex";
+    document.getElementById("modal").style.display="flex";
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+    document.getElementById("modal").style.display="none";
 }
 
+/* BILLETES */
+for(let i=0;i<15;i++){
+    let img = document.createElement("img");
+    img.src="images/money.png";
+    img.className="money";
+    img.style.left=Math.random()*100+"%";
+    img.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(img);
+}
 </script>
 
 </body>
