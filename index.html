@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,12 +8,12 @@
 <title>Keyxzzz | Configurador</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: black;
+  font-family:Arial;
+  background:black;
   color:white;
-  overflow-x:hidden;
 }
 
 /* FONDO */
@@ -21,8 +22,8 @@ body::before{
   position:fixed;
   width:100%;
   height:100%;
-  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") no-repeat center/cover;
-  filter:brightness(0.4);
+  background:url("https://images.unsplash.com/photo-1614850523060-8da3f0c0b7a3") center/cover;
+  filter:brightness(0.3);
   z-index:-1;
 }
 
@@ -34,6 +35,17 @@ body::before{
   justify-content:center;
   align-items:center;
   text-align:center;
+}
+
+.hero img{
+  width:120px;
+  margin-bottom:15px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
 }
 
 .hero h1{
@@ -48,42 +60,47 @@ body::before{
 }
 
 .btn{
-  margin-top:20px;
-  padding:12px 30px;
+  margin-top:25px;
+  padding:14px 35px;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
   background:#00ffd5;
   color:black;
   font-weight:bold;
   cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
 }
 
 /* SECCIONES */
 .section{
   padding:40px 20px;
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
 }
 
 .card{
   background:rgba(0,0,0,0.7);
-  padding:20px;
+  padding:25px;
   border-radius:15px;
-  margin-bottom:20px;
+  margin-bottom:25px;
   box-shadow:0 0 20px rgba(0,255,200,0.2);
 }
 
-/* SERVERS */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:15px;
+  gap:20px;
 }
 
 .server{
   background:#111;
   padding:20px;
-  border-radius:10px;
+  border-radius:15px;
   text-align:center;
   cursor:pointer;
   transition:0.3s;
@@ -92,39 +109,41 @@ body::before{
 .server:hover{
   background:#00ffd5;
   color:black;
+  transform:scale(1.05);
 }
 
 /* MODAL */
 .modal{
   display:none;
   position:fixed;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.8);
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
 }
 
-.modal-content{
+.modal-box{
   background:#111;
-  padding:20px;
+  padding:25px;
   border-radius:15px;
-  max-width:300px;
+  width:300px;
 }
 
 /* BILLETES */
 .money{
   position:fixed;
   top:-50px;
-  font-size:20px;
+  width:30px;
+  opacity:0.7;
   animation:fall linear infinite;
 }
 
 @keyframes fall{
   to{
-    transform:translateY(110vh);
+    transform:translateY(110vh) rotate(360deg);
   }
 }
 </style>
@@ -134,42 +153,52 @@ body::before{
 
 <!-- HERO -->
 <div class="hero">
-  <h1>KEYXZZZ</h1>
-  <p>Keyxzzz | Configurador</p>
-  <button class="btn" onclick="scrollToContent()">ENTRAR</button>
+
+<img src="https://mc-heads.net/avatar/Notch/100">
+
+<h1>KEYXZZZ</h1>
+<p>Keyxzzz | Configurador</p>
+
+<button class="btn" onclick="enter()">ENTRAR</button>
+
 </div>
 
 <!-- CONTENIDO -->
-<div id="content" class="section">
+<div id="main" class="section">
 
 <div class="card">
 <h2>📌 Sobre mí</h2>
-<p>
-Desarrollador de 16 años de Ecuador especializado en Minecraft.<br><br>
-+1 año como Builder creando mapas PvP.<br>
-+1.5 años como Configurador profesional.<br><br>
 
-✔ Experto en Box PvP competitivo<br>
-✔ Economía avanzada<br>
-✔ Sistemas personalizados<br>
-✔ Optimización extrema<br>
-✔ Plugins desde 0<br>
-✔ Servidores estables y sin lag<br>
-✔ Configuración avanzada de redes<br>
+<p>
+Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
+
++1 año como Builder creando mapas PvP profesionales.<br>
++1.5 años como Configurador trabajando con plugins avanzados.<br><br>
+
+✔ Especialista en Box PvP competitivo<br>
+✔ Economía avanzada y balanceada<br>
+✔ Sistemas personalizados desde 0<br>
+✔ Optimización extrema (sin lag)<br>
+✔ Configuración de Velocity y BungeeCord<br>
 ✔ Automatización de sistemas<br>
-✔ Balance de jugabilidad<br>
-✔ Experiencia en comunidades grandes<br>
+✔ Experiencia en servidores grandes<br>
+✔ Seguridad y anti exploits<br>
+✔ Diseño de jugabilidad profesional<br>
+✔ Soporte y mantenimiento constante<br>
 </p>
+
 </div>
 
 <div class="card">
 <h2>🔥 Servidores</h2>
 
 <div class="grid">
+
 <div class="server" onclick="openModal('MineDark')">MineDark</div>
 <div class="server" onclick="openModal('Hyper')">HyperCommunity</div>
 <div class="server" onclick="openModal('Tortrix')">TortrixLand</div>
 <div class="server" onclick="openModal('Warp')">WarpOnMC</div>
+
 </div>
 
 </div>
@@ -178,60 +207,59 @@ Desarrollador de 16 años de Ecuador especializado en Minecraft.<br><br>
 
 <!-- MODAL -->
 <div id="modal" class="modal" onclick="closeModal()">
-<div class="modal-content" id="modalText"></div>
+<div class="modal-box" id="modalText"></div>
 </div>
 
-<!-- AUDIO -->
+<!-- MUSICA -->
 <audio id="music" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+<source src="https://files.catbox.moe/3z6w9p.mp3">
 </audio>
 
 <script>
 
-/* SCROLL */
-function scrollToContent(){
-  document.getElementById("content").scrollIntoView({behavior:"smooth"});
+/* ENTRAR */
+function enter(){
+  document.getElementById("main").scrollIntoView({behavior:"smooth"});
   document.getElementById("music").play();
 }
 
 /* MODAL */
-function openModal(server){
-  let text = "";
+function openModal(s){
+let t="";
 
-  if(server=="MineDark"){
-    text = "MineDark<br>✔ Box PvP<br>✔ Economía<br>✔ Optimización";
-  }
+if(s=="MineDark"){
+t="MineDark<br>✔ Box PvP completo<br>✔ Economía avanzada<br>✔ Plugins desde 0";
+}
+if(s=="Hyper"){
+t="HyperCommunity<br>✔ Bots Discord<br>✔ Sistemas automáticos";
+}
+if(s=="Tortrix"){
+t="TortrixLand<br>✔ Velocity<br>✔ Red escalable";
+}
+if(s=="Warp"){
+t="WarpOnMC<br>✔ Optimización extrema<br>✔ Rendimiento";
+}
 
-  if(server=="Hyper"){
-    text = "HyperCommunity<br>✔ Bots<br>✔ Sistemas<br>✔ Moderación";
-  }
-
-  if(server=="Tortrix"){
-    text = "TortrixLand<br>✔ Velocity<br>✔ Bungee<br>✔ Red";
-  }
-
-  if(server=="Warp"){
-    text = "WarpOnMC<br>✔ Rendimiento<br>✔ Optimización<br>✔ Economía";
-  }
-
-  document.getElementById("modalText").innerHTML = text;
-  document.getElementById("modal").style.display="flex";
+document.getElementById("modalText").innerHTML=t;
+document.getElementById("modal").style.display="flex";
 }
 
 function closeModal(){
-  document.getElementById("modal").style.display="none";
+document.getElementById("modal").style.display="none";
 }
 
-/* BILLETES */
+/* BILLETES PRO */
 function createMoney(){
-  let money = document.createElement("div");
-  money.classList.add("money");
-  money.innerHTML="💵";
-  money.style.left = Math.random()*100+"vw";
-  money.style.animationDuration = (Math.random()*3+2)+"s";
-  document.body.appendChild(money);
+let img=document.createElement("img");
+img.src="https://pngimg.com/uploads/dollar/dollar_PNG216.png";
+img.classList.add("money");
 
-  setTimeout(()=>{money.remove()},5000);
+img.style.left=Math.random()*100+"vw";
+img.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(img);
+
+setTimeout(()=>{img.remove()},6000);
 }
 
 setInterval(createMoney,300);
