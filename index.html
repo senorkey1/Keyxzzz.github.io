@@ -13,16 +13,19 @@ body{
     background:url('images/mi_fondo.jpg') no-repeat center center/cover;
 }
 
-/* OSCURECER FONDO */
+/* OSCURECER */
 .overlay{
     background:rgba(0,0,0,0.7);
-    min-height:100vh;
 }
 
-/* HERO */
+/* INTRO */
 .hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding-top:120px;
 }
 
 .hero h1{
@@ -33,25 +36,28 @@ body{
 
 .hero p{
     opacity:0.8;
+    margin-top:10px;
 }
 
+/* BOTON */
 .btn{
-    margin-top:20px;
-    padding:12px 30px;
+    margin-top:25px;
+    padding:14px 35px;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     background:#00ffc3;
     color:black;
     font-weight:bold;
+    font-size:16px;
     cursor:pointer;
 }
 
 /* SECCIONES */
 .section{
-    padding:40px;
+    padding:60px 20px;
 }
 
-/* CARDS */
+/* SERVIDORES */
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -119,27 +125,31 @@ body{
 
 <div class="overlay">
 
-<!-- HERO -->
+<!-- INTRO -->
 <div class="hero">
 <h1>KEYXZZZ</h1>
 <p>Keyxzzz | Configurador</p>
-<button class="btn" onclick="scrollToSection()">ENTRAR</button>
+<button class="btn" onclick="entrar()">ENTRAR</button>
 </div>
 
-<!-- SOBRE MI -->
-<div class="section" id="main">
+<!-- CONTENIDO -->
+<div id="main">
+
+<div class="section">
 <h2>📌 Sobre mí</h2>
 <p>
-Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br>
+Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
 +1 año como Builder creando mapas PvP optimizados.<br>
-+1.5 años como Configurador profesional.<br>
-Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.<br>
-Trabajo creando servidores competitivos con rendimiento alto y jugabilidad fluida.<br>
-Optimizo TPS, configuro plugins desde cero y hago sistemas únicos.<br>
++1.5 años como Configurador profesional.<br><br>
+
+Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.<br><br>
+
+Trabajo creando servidores competitivos con alto rendimiento, buena jugabilidad y sin lag.<br><br>
+
+Optimizo TPS, configuro plugins desde 0, creo sistemas únicos y dejo todo listo para producción.<br>
 </p>
 </div>
 
-<!-- SERVIDORES -->
 <div class="section">
 <h2>🔥 Servidores</h2>
 
@@ -170,6 +180,8 @@ Optimizo TPS, configuro plugins desde cero y hago sistemas únicos.<br>
 
 </div>
 
+</div>
+
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content">
@@ -178,16 +190,23 @@ Optimizo TPS, configuro plugins desde cero y hago sistemas únicos.<br>
 </div>
 </div>
 
-<!-- MUSICA -->
-<audio autoplay loop>
-<source src="audio/eoo.mp3" type="audio/mp3">
+<!-- MUSICA (CORRECTA) -->
+<audio id="music" loop>
+<source src="music/eoo.mp3" type="audio/mp3">
 </audio>
 
 <script>
-function scrollToSection(){
-    document.getElementById("main").scrollIntoView({behavior:"smooth"});
+
+/* BOTON ENTRAR */
+function entrar(){
+    document.getElementById("music").play();
+
+    document.getElementById("main").scrollIntoView({
+        behavior:"smooth"
+    });
 }
 
+/* MODALES */
 function openModal(server){
     let text = document.getElementById("modal-text");
 
@@ -195,22 +214,18 @@ function openModal(server){
         text.innerHTML = `
         <h2>MineDark</h2>
         ✔ Box PvP completo<br>
-        ✔ Economía avanzada balanceada<br>
-        ✔ Sistema de kits configurado<br>
+        ✔ Economía avanzada<br>
+        ✔ Sistema de kits<br>
         ✔ Progresión personalizada<br>
-        ✔ Optimización extrema<br>
-        ✔ Plugins configurados desde 0<br>
-        ✔ Sistema anti-lag<br>
-        ✔ Balance de combate PvP<br>
-        ✔ Eventos automáticos<br>
+        ✔ Optimización total<br>
+        ✔ Plugins desde 0<br>
+        ✔ Anti lag<br>
+        ✔ Eventos<br>
+        ✔ Scoreboards<br>
+        ✔ Menús<br>
         ✔ Sistema de ranks<br>
-        ✔ Integración con Discord<br>
-        ✔ Protección total del servidor<br>
-        ✔ Sistema de recompensas<br>
-        ✔ Scoreboards personalizados<br>
-        ✔ Menús configurados<br>
-        ✔ Rendimiento alto TPS<br>
-        ✔ Configuración profesional<br>
+        ✔ Integración Discord<br>
+        ✔ Seguridad completa<br>
         `;
     }
 
@@ -218,14 +233,12 @@ function openModal(server){
         text.innerHTML = `
         <h2>HyperCommunity</h2>
         ✔ Bots Discord avanzados<br>
-        ✔ Sistemas automáticos<br>
         ✔ Moderación profesional<br>
+        ✔ Anti spam<br>
+        ✔ Logs<br>
+        ✔ Automatización<br>
         ✔ Comandos personalizados<br>
-        ✔ Logs completos<br>
-        ✔ Anti-spam avanzado<br>
         ✔ Integración Minecraft<br>
-        ✔ Panel de control<br>
-        ✔ Automatización total<br>
         `;
     }
 
@@ -233,17 +246,13 @@ function openModal(server){
         text.innerHTML = `
         <h2>TortrixLand</h2>
         ✔ Configuración de kits PvP<br>
-        ✔ Protección completa del servidor<br>
-        ✔ Sistema de economía<br>
-        ✔ Optimización de rendimiento<br>
-        ✔ Configuración de plugins<br>
-        ✔ Setup de BungeeCord<br>
+        ✔ Protección del servidor<br>
+        ✔ Economía<br>
+        ✔ Optimización<br>
+        ✔ Plugins configurados<br>
         ✔ Sistema de ranks<br>
-        ✔ Menús personalizados<br>
-        ✔ Seguridad anti exploits<br>
-        ✔ Balance PvP<br>
-        ✔ Integración con Discord<br>
-        ✔ Sistemas automáticos<br>
+        ✔ Seguridad<br>
+        ✔ Integración Discord<br>
         `;
     }
 
@@ -251,12 +260,10 @@ function openModal(server){
         text.innerHTML = `
         <h2>WarpOnMC</h2>
         ✔ Optimización extrema<br>
-        ✔ Mejor rendimiento TPS<br>
-        ✔ Sistema económico balanceado<br>
-        ✔ Configuración avanzada<br>
+        ✔ Mejor rendimiento<br>
+        ✔ Economía balanceada<br>
         ✔ Plugins optimizados<br>
         ✔ Reducción de lag<br>
-        ✔ Servidor fluido<br>
         `;
     }
 
@@ -269,13 +276,14 @@ function closeModal(){
 
 /* BILLETES */
 for(let i=0;i<15;i++){
-    let img = document.createElement("img");
+    let img=document.createElement("img");
     img.src="images/money.png";
     img.className="money";
     img.style.left=Math.random()*100+"%";
     img.style.animationDuration=(3+Math.random()*5)+"s";
     document.body.appendChild(img);
 }
+
 </script>
 
 </body>
