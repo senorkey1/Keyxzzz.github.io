@@ -54,14 +54,16 @@ body{
   grid-template-columns:repeat(2,1fr);
   gap:15px;
   margin-top:20px;
+  align-items:center;
 }
 
 .server{
   background:rgba(0,0,0,0.6);
   border-radius:10px;
-  padding:10px;
+  padding:15px;
   text-align:center;
   transition:0.3s;
+  overflow:hidden;
 }
 
 .server:hover{
@@ -70,16 +72,26 @@ body{
 }
 
 .server img{
-  width:70px;
-  height:70px;
+  width:100%;
+  max-width:90px;
+  height:90px;
+  object-fit:contain;
+  display:block;
+  margin:auto;
 }
 
 .server h4{
   color:#00ffcc;
-  margin:5px 0;
+  margin:8px 0;
+  font-size:14px;
 }
 
 .server p{
-  font-size:12px;
+  font-size:11px;
   color:#ccc;
+}
+
+/* FIX ESPECIAL PARA IMÁGENES GRANDES */
+.server img[src*="minedark"]{
+  max-width:70px;
 }
