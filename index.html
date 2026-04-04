@@ -1,357 +1,136 @@
-/* Estilos Generales */
-body {
-    font-family: 'Inter', sans-serif;
-    color: #e0e0e0; /* Color de texto general */
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    
-    position: relative; /* Necesario para el video de fondo y pseudo-elemento */
-    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del viewport */
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden; /* Evita barras de scroll horizontales por si acaso */
-    width: 100%; /* Asegura que el body ocupe todo el ancho */
-    /* Alinea el contenido del body al centro horizontalmente */
-    align-items: center; /* Esto centrará el .container */
-    /* Eliminamos justify-content: center; aquí para que el contenido fluya verticalmente sin forzarlo al centro de la pantalla */
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyxzzz - Desarrollador Box PVP & Discord</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Enlace a Font Awesome para los iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/keyxzzz_logo.png" type="image/png">
+</head>
+<body>
+    <!-- VIDEO DE FONDO -->
+    <video autoplay muted loop id="background-video">
+        <source src="images/cuervos_fondo.mp4" type="video/mp4">
+        Tu navegador no soporta el video de fondo.
+    </video>
 
-/* Estilos para el video de fondo */
-#background-video {
-    position: fixed; /* Fija el video al fondo */
-    right: 0;
-    bottom: 0;
-    min-width: 100%; /* Cubre todo el ancho */
-    min-height: 100%; /* Cubre todo el alto */
-    width: auto;
-    height: auto;
-    z-index: -2; /* Detrás de todo el contenido y el overlay */
-    background-size: cover; /* Asegura que el video cubra */
-    filter: brightness(0.4) grayscale(100%); /* Oscurece y desatura el video para que el texto resalte */
-}
+    <div class="container">
 
-/* Pseudo-elemento para el gradiente animado que se superpone al video de fondo */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Encima del video, debajo del contenido */
+        <!-- Sección de Perfil y Hero -->
+        <header class="profile-section">
+            <img src="images/keyxzzz_logo.png" alt="Logo personal de Keyxzzz" class="profile-avatar">
+            <p class="section-tag">PORTAFOLIO DESARROLLADOR & MANAGER</p>
+            <h1>Keyxzzz</h1>
+            <h2>Especialista en Box PVP y Soluciones Discord</h2>
+            <p class="description">Desarrollando experiencias competitivas en Minecraft y potenciando comunidades con bots y configuraciones avanzadas de Discord.</p>
+        </header>
 
-    /* Gradiente animado en tonos grises y blancos */
-    background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(50,50,50,0.4), rgba(200,200,200,0.4), rgba(50,50,50,0.4)); /* Ajusta la opacidad */
-    background-size: 400% 400%; /* Permite que el gradiente sea más grande que el viewport */
-    animation: gradientShift 20s ease infinite; /* Aplica la animación */
-}
+        <!-- Sección Sobre Mí -->
+        <section class="about-section">
+            <h3>¡Hola! Soy Keyxzzz</h3>
+            <p>Soy un desarrollador de **16 años** de **Ecuador**, apasionado por crear y optimizar entornos digitales que prosperan. Mi pasión se centra en dos áreas clave: el desarrollo de experiencias de juego altamente competitivas, especialmente en <strong>servidores Box PVP de Minecraft</strong>, y la construcción de comunidades sólidas a través de soluciones innovadoras en <strong>Discord</strong>.</p>
+            <p>Con una sólida base en <strong>Paper, Velocity y Bungeecord</strong> para Minecraft, y <strong>discord.js</strong> para bots, combino mis habilidades técnicas con una visión estratégica para liderar proyectos desde la concepción hasta el éxito. No solo programo; diseño la jugabilidad y la interacción comunitaria que mantiene a los usuarios comprometidos y activos.</p>
 
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 0%; /* Posición inicial del gradiente */
-    }
-    50% {
-        background-position: 100% 100%; /* Posición media del gradiente */
-    }
-    100% {
-        background-position: 0% 0%; /* Posición final (vuelve al inicio) */
-    }
-}
+            <h4>Experiencia y Roles:</h4>
+            <ul>
+                <li>**Semi-Builder:** Más de **1 año** de experiencia en diseño y construcción de mapas y estructuras en Minecraft.</li>
+                <li>**Configurador de Servidores:** Más de **1 año y medio** configurando servidores de Minecraft (tanto Aternos como de paga), optimizando plugins y rendimiento.</li>
+            </ul>
 
+            <h4>Tecnologías y Herramientas Destacadas:</h4>
+            <ul>
+                <li><strong>Minecraft (Especialidad Box PVP):</strong> Paper, Velocity, Bungeecord, Spigot API, Java.</li>
+                <li><strong>Discord (Bots & Gestión):</strong> discord.js, JavaScript, Node.js.</li>
+                <li><strong>Otras Herramientas:</strong> Git, Herramientas de optimización y gestión de servidores.</li>
+            </ul>
+        </section>
 
-/* Contenedor principal de contenido */
-.container {
-    width: 90%; /* Ancho relativo para el contenedor */
-    max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
-    margin: 30px auto; /* Centrar el contenedor y darle margen */
-    padding: 30px;
-    background-color: rgba(29, 29, 29, 0.9); /* Fondo semitransparente para ver la animación */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    position: relative; /* Asegura que esté por encima del pseudo-elemento */
-    z-index: 0;
-    /* Ya no necesitamos display: flex y align-items: center aquí si los elementos de sección son bloques normales */
-}
+        <!-- Sección de Proyectos -->
+        <section class="projects-section">
+            <h3>Mis Proyectos y Experiencia</h3>
 
-/* Estilos de las secciones para que se vean bien sobre el fondo semitransparente del container */
-section {
-    padding: 0 20px; /* Añade padding horizontal a las secciones para que el texto no se pegue a los bordes del .container */
-    margin-bottom: 30px; /* Espacio entre secciones */
-    text-align: left; /* Asegura que el texto se alinee a la izquierda dentro de la sección */
-}
+            <div class="project-card">
+                <img src="images/minedark_logo.png" alt="Logo de MineDark" class="project-logo">
+                <h4>🎮 MineDark</h4>
+                <p class="role">Creador y Desarrollador Principal</p>
+                <p>Mi proyecto estrella, una plataforma <strong>Box PVP</strong> diseñada desde cero para ofrecer la máxima competitividad y diversión. He desarrollado e implementado sistemas únicos de combate, economía, kits, niveles y recompensas personalizadas. El enfoque ha sido siempre en la experiencia del jugador y el rendimiento óptimo en un entorno de alta demanda.</p>
+                <p class="technologies"><strong>Tecnologías:</strong> Paper, Velocity (para red), Plugins personalizados (Java).</p>
+            </div>
 
-/* Resetear estilos para el header.profile-section porque ya está centrado por los H1/H2 */
-header.profile-section {
-    text-align: center; /* Centrar elementos específicos del header */
-    padding: 0; /* Eliminar padding extra del header si lo hubiera */
-}
+            <div class="project-card">
+                <img src="images/hypercomunity_logo.png" alt="Logo de HyperComunity" class="project-logo">
+                <h4>🌐 HyperComunity</h4>
+                <p class="role">Desarrollador de Discord y Administrador de Comunidad</p>
+                <p>Contribuí activamente a esta comunidad desarrollando <strong>bots de Discord a medida con discord.js</strong>. Esto incluyó sistemas de moderación automatizada, gestión de roles, herramientas de interacción, y funcionalidades personalizadas para mejorar la experiencia de los miembros. Además, me encargué de la estructuración y configuración integral del servidor para fomentar un ambiente organizado y activo.</p>
+                <p class="technologies"><strong>Tecnologías:</strong> discord.js, JavaScript, Node.js, API de Discord.</p>
+            </div>
 
-/* Encabezados */
-h1, h2, h3, h4 {
-    font-family: 'Roboto Mono', monospace;
-    color: #00bcd4; /* Color turquesa para los títulos */
-    margin-top: 0;
-    text-align: left; /* Por defecto los títulos dentro de secciones se alinean a la izquierda */
-}
+            <div class="project-card">
+                <img src="images/tortrixland_logo.png" alt="Logo de TortrixLand" class="project-logo">
+                <h4>🛡️ TortrixLand</h4>
+                <p class="role">Owner (Propietario y Administrador General)</p>
+                <p>Como dueño, lideré el diseño y la implementación de una red de servidores robusta, donde la estabilidad y la escalabilidad fueron clave. Mi rol abarcó desde la planificación técnica con <strong>Velocity/Bungeecord</strong> hasta la gestión de equipos y estrategias de crecimiento para asegurar una experiencia fluida y atractiva para los usuarios.</p>
+                <p class="technologies"><strong>Tecnologías:</strong> Velocity/Bungeecord, Paper (varios servidores), Sistemas de plugins avanzados.</p>
+            </div>
 
-h1 {
-    font-size: 3em;
-    text-align: center; /* h1 se mantiene centrado */
-    margin-bottom: 5px;
-}
+            <div class="project-card">
+                <img src="images/warponmc_logo.png" alt="Logo de WarponMC" class="project-logo">
+                <h4>⚔️ WarponMC</h4>
+                <p class="role">Manager y Especialista en Configuración</p>
+                <p>En este servidor Survival, mi objetivo fue la optimización y el fomento de una comunidad activa. Trabajé en la configuración detallada de plugins, balance de economía, eventos y la gestión de la experiencia de usuario, logrando un crecimiento sostenido hasta <strong>30 usuarios estables</strong>. Mi experiencia aquí demuestra mi capacidad para mantener un servidor optimizado y una comunidad comprometida.</p>
+                <p class="technologies"><strong>Tecnologías:</strong> Paper, Plugins de gestión de Survival, optimización de rendimiento.</p>
+            </div>
+        </section>
 
-h2 {
-    font-size: 1.5em;
-    text-align: center; /* h2 se mantiene centrado */
-    color: #e0e0e0;
-    margin-top: 0;
-}
+        <!-- Sección de Habilidades -->
+        <section class="skills-section">
+            <h3>Habilidades Clave</h3>
 
-h3 {
-    font-size: 1.8em;
-    border-bottom: 2px solid #00bcd4;
-    padding-bottom: 5px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
+            <div class="skill-category">
+                <h4>🚀 Especialización Box PVP</h4>
+                <ul>
+                    <li><strong>Diseño de Mecánicas:</strong> Creación y balance de sistemas de combate, Kits, Minas, Recompensas por racha, Eventos PVE/PVP.</li>
+                    <li><strong>Configuración Avanzada:</strong> Optimización de Paper para alto rendimiento en arenas, configuración de plugins de protección y monetización.</li>
+                    <li><strong>Infraestructura:</strong> Implementación de redes con Velocity y Bungeecord para escalabilidad y gestión de múltiples arenas.</li>
+                </ul>
+            </div>
 
-h4 {
-    font-size: 1.3em;
-    color: #e0e0e0;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
+            <div class="skill-category">
+                <h4>🤖 Bots y Comunidad Discord</h4>
+                <ul>
+                    <li><strong>Desarrollo de Bots (discord.js):</strong> Creación de bots personalizados para moderación, economía interna, sistemas de tickets, encuestas, estadísticas de servidor.</li>
+                    <li><strong>Configuración de Servidores:</strong> Estructuración de roles y permisos, canales, automatización de bienvenida/despedida, integración de bots externos.</li>
+                    <li><strong>Gestión Comunitaria:</strong> Estrategias para engagement, resolución de conflictos, soporte a usuarios y fomento de un ambiente positivo.</li>
+                </ul>
+            </div>
+        </section>
 
-/* Párrafos */
-p {
-    margin-bottom: 15px;
-    text-align: left; /* Asegurar que los párrafos se alineen a la izquierda */
-}
+        <!-- Sección de Contacto - CON ICONOS Y ENLACES -->
+        <section class="contact-section centered-icons">
+            <h3>¡Conectemos!</h3>
+            <p>Encuéntrame y explora más de mi trabajo:</p>
+            <div class="social-links">
+                <!-- Enlace a Discord con icono -->
+                <a href="discord://-/users/1072608933249822720" target="_blank" rel="noopener noreferrer" class="social-icon discord-icon">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <!-- Enlace a GitHub con icono (TU PERFIL DE GITHUB) -->
+                <a href="https://github.com/senorkey1" target="_blank" rel="noopener noreferrer" class="social-icon github-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p class="email-info">O envíame un correo directamente: <a href="mailto:senorkey1@gmail.com">senorkey1@gmail.com</a></p>
+        </section>
 
-/* Listas */
-ul {
-    list-style: none; /* Eliminar viñetas predeterminadas */
-    padding: 0;
-    margin-bottom: 20px;
-    text-align: left; /* Asegurar que las listas se alineen a la izquierda */
-}
+    </div>
 
-ul li {
-    padding-left: 25px; /* Espacio para el guion personalizado */
-    position: relative;
-    margin-bottom: 8px;
-}
+    <footer>
+        <p>&copy; 2026 Keyxzzz. Todos los derechos reservados.</p>
+    </footer>
 
-ul li::before {
-    content: '—'; /* Guion personalizado para las listas */
-    position: absolute;
-    left: 0;
-    color: #00bcd4; /* Color turquesa para el guion */
-    font-weight: bold;
-}
-
-/* Enlaces */
-a {
-    color: #00bcd4;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #008c9e; /* Color más oscuro al pasar el ratón */
-    text-decoration: underline; /* Subrayar al pasar el ratón */
-}
-
-/* Avatar de perfil */
-.profile-avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #00bcd4;
-    box-shadow: 0 0 15px #00bcd4; /* Efecto de brillo */
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-/* Etiquetas de sección (PORTAFOLIO DESARROLLADOR & MANAGER) */
-.section-tag {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.9em;
-    color: #00bcd4;
-    text-align: center;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-/* Descripción general */
-.description {
-    text-align: center;
-    font-size: 1.1em;
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-}
-
-/* Secciones de Habilidades y Proyectos */
-.about-section, .projects-section, .skills-section, .contact-section {
-    padding: 20px; /* Mantenemos el padding interno de las secciones */
-    background-color: rgba(45, 45, 45, 0.7); /* Fondo un poco más oscuro para las secciones */
-    border-radius: 6px;
-    margin-top: 20px; /* Espacio entre el .container y las secciones */
-    /* IMPORTANTE: Añadir un ancho máximo y centrar el contenido de texto dentro de estas secciones */
-    /* Esto es lo que va a hacer que el texto no se extienda por toda la pantalla */
-    max-width: 700px; /* Limita el ancho del contenido de texto dentro de la sección */
-    margin-left: auto; /* Centrar el bloque de contenido de la sección */
-    margin-right: auto; /* Centrar el bloque de contenido de la sección */
-}
-
-/* Tarjetas de Proyecto */
-.project-card {
-    background-color: rgba(60, 60, 60, 0.8); /* Fondo más claro para las tarjetas de proyecto */
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espacio entre el logo y el texto */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.project-card:last-child {
-    margin-bottom: 0;
-}
-
-.project-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain; /* Ajustar el logo sin recortar */
-    border-radius: 4px; /* Pequeño radio para el logo */
-    flex-shrink: 0; /* Evita que el logo se encoja */
-}
-
-.project-card h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: #e0e0e0;
-}
-
-.project-card .role {
-    font-style: italic;
-    color: #bbb;
-    margin-bottom: 10px;
-}
-
-.project-card .technologies {
-    font-size: 0.9em;
-    color: #aaa;
-}
-
-/* Contacto e Iconos Sociales */
-.contact-section {
-    text-align: center;
-}
-
-.social-links {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.social-icon {
-    font-size: 3em; /* Tamaño grande para los iconos */
-    margin: 0 15px;
-    color: #00bcd4;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block; /* Para aplicar transformaciones */
-}
-
-.social-icon:hover {
-    color: #00e5ff; /* Color más brillante al pasar el ratón */
-    transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
-}
-
-.social-icon.discord-icon:hover {
-    color: #7289da; /* Color oficial de Discord */
-}
-
-.social-icon.github-icon:hover {
-    color: #ffffff; /* Color de GitHub */
-}
-
-
-.email-info {
-    font-size: 1.1em;
-    margin-top: 20px;
-}
-
-/* Footer */
-footer {
-    margin-top: auto; /* Empuja el footer al final de la página */
-    padding: 20px 0;
-    text-align: center;
-    color: #bbb;
-    background-color: rgba(29, 29, 29, 0.9); /* Fondo semitransparente para el footer */
-    position: relative;
-    z-index: 0;
-    width: 100%; /* Asegura que el footer ocupe todo el ancho */
-}
-
-/* Media Queries para Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 95%; /* Un poco más de ancho en pantallas pequeñas */
-        margin: 15px auto;
-        padding: 20px;
-    }
-
-    /* Ajustar las secciones para que el contenido no sea demasiado estrecho */
-    .about-section, .projects-section, .skills-section, .contact-section {
-        padding: 15px; /* Reducir el padding interno en pantallas pequeñas */
-        max-width: 100%; /* Que ocupe todo el ancho disponible si es pequeño */
-    }
-
-    h1 {
-        font-size: 2.5em;
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
-
-    h3 {
-        font-size: 1.5em;
-    }
-
-    .profile-avatar {
-        width: 120px;
-        height: 120px;
-    }
-
-    .project-card {
-        flex-direction: column; /* Apilar logo y texto en móviles */
-        text-align: center;
-    }
-
-    .project-logo {
-        margin-bottom: 10px;
-    }
-
-    .social-icon {
-        font-size: 2.5em;
-        margin: 0 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1em;
-    }
-
-    h3 {
-        font-size: 1.3em;
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
