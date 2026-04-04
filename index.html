@@ -7,283 +7,198 @@
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    color:white;
-    background:url('images/mi_fondo.jpg') no-repeat center center/cover;
+  margin:0;
+  font-family: Arial;
+  background: url("images/mi_fondo.jpg") no-repeat center center/cover;
+  color:white;
+  text-align:center;
 }
 
-/* OSCURECER */
-.overlay{
-    background:rgba(0,0,0,0.7);
+/* OVERLAY INICIO */
+#inicio{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.7);
 }
 
-/* INTRO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+/* FOTO PERFIL */
+.perfil{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  margin-bottom:15px;
+  border:3px solid #00ffc8;
+  box-shadow:0 0 20px #00ffc8;
 }
 
-.hero h1{
-    font-size:50px;
-    color:#00ffc3;
-    text-shadow:0 0 20px #00ffc3;
+/* TITULO */
+h1{
+  font-size:40px;
+  color:#00ffc8;
+  text-shadow:0 0 20px #00ffc8;
+  margin:10px;
 }
 
-.hero p{
-    opacity:0.8;
-    margin-top:10px;
+/* SUB */
+.sub{
+  color:#ccc;
+  margin-bottom:25px;
 }
 
 /* BOTON */
-.btn{
-    margin-top:25px;
-    padding:14px 35px;
-    border:none;
-    border-radius:12px;
-    background:#00ffc3;
-    color:black;
-    font-weight:bold;
-    font-size:16px;
-    cursor:pointer;
+button{
+  padding:12px 30px;
+  border:none;
+  border-radius:10px;
+  background:#00ffc8;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* SECCIONES */
-.section{
-    padding:60px 20px;
+/* CONTENIDO */
+#contenido{
+  display:none;
+  padding:20px;
 }
 
-/* SERVIDORES */
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
+/* CARDS */
 .card{
-    background:rgba(0,0,0,0.8);
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    cursor:pointer;
-    transition:0.3s;
+  background:rgba(0,0,0,0.6);
+  margin:20px;
+  padding:20px;
+  border-radius:15px;
 }
 
-.card:hover{
-    transform:scale(1.05);
+/* SERVERS */
+.servers{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
 
-.card img{
-    width:80px;
+.server{
+  background:#111;
+  padding:15px;
+  border-radius:10px;
 }
 
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    justify-content:center;
-    align-items:center;
-}
-
-.modal-content{
-    background:#111;
-    padding:20px;
-    border-radius:15px;
-    max-width:90%;
-}
-
-.close{
-    float:right;
-    cursor:pointer;
+.server img{
+  width:60px;
+  margin-bottom:10px;
 }
 
 /* BILLETES */
 .money{
-    position:fixed;
-    width:40px;
-    animation:fall linear infinite;
+  position:fixed;
+  top:-50px;
+  width:40px;
+  animation:caer 5s linear infinite;
 }
 
-@keyframes fall{
-    from{transform:translateY(-100px);}
-    to{transform:translateY(100vh);}
+@keyframes caer{
+  to{transform:translateY(120vh);}
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="overlay">
+<!-- MUSICA -->
+<audio id="musica" loop>
+  <source src="music/eoo.mp3" type="audio/mpeg">
+</audio>
 
-<!-- INTRO -->
-<div class="hero">
-<h1>KEYXZZZ</h1>
-<p>Keyxzzz | Configurador</p>
-<button class="btn" onclick="entrar()">ENTRAR</button>
+<!-- PANTALLA INICIO -->
+<div id="inicio">
+
+  <img src="images/keyxzzz_logo.png" class="perfil">
+
+  <h1>KEYXZZZ</h1>
+  <div class="sub">Keyxzzz | Configurador</div>
+
+  <button onclick="entrar()">ENTRAR</button>
+
 </div>
 
 <!-- CONTENIDO -->
-<div id="main">
+<div id="contenido">
 
-<div class="section">
-<h2>📌 Sobre mí</h2>
-<p>
-Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
-+1 año como Builder creando mapas PvP optimizados.<br>
-+1.5 años como Configurador profesional.<br><br>
+  <div class="card">
+    <h2>📌 Sobre mí</h2>
+    <p>
+    Soy Keyxzzz, configurador profesional de servidores de Minecraft enfocado en calidad extrema.<br><br>
+    ✔ +1 año creando mapas PvP optimizados<br>
+    ✔ +1.5 años configurando servidores completos<br>
+    ✔ Especialista en BoxPvP competitivo<br>
+    ✔ Sistemas de economía avanzada<br>
+    ✔ Configuración de kits profesionales<br>
+    ✔ Protección total con WorldGuard<br>
+    ✔ Optimización de TPS y rendimiento<br>
+    ✔ Plugins configurados desde 0<br>
+    ✔ Sistemas únicos personalizados<br>
+    ✔ Experiencia en redes con Velocity y Bungee<br>
+    ✔ Configuración de permisos avanzados<br>
+    ✔ Anti-lag extremo<br>
+    ✔ Setup competitivo listo para producción<br>
+    ✔ Desarrollo enfocado en estabilidad<br>
+    ✔ Experiencia real en servidores activos<br>
+    </p>
+  </div>
 
-Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.<br><br>
+  <div class="card">
+    <h2>🔥 Servidores</h2>
 
-Trabajo creando servidores competitivos con alto rendimiento, buena jugabilidad y sin lag.<br><br>
+    <div class="servers">
 
-Optimizo TPS, configuro plugins desde 0, creo sistemas únicos y dejo todo listo para producción.<br>
-</p>
+      <div class="server">
+        <img src="images/minedark_logo.png">
+        <p>MineDark<br>✔ BoxPvP<br>✔ Economía<br>✔ Kits</p>
+      </div>
+
+      <div class="server">
+        <img src="images/hypercommunity_logo.png">
+        <p>HyperCommunity<br>✔ Bots<br>✔ Sistemas<br>✔ Moderación</p>
+      </div>
+
+      <div class="server">
+        <img src="images/tortrixland_logo.png">
+        <p>TortrixLand<br>✔ Kits<br>✔ Protección<br>✔ Config completa</p>
+      </div>
+
+      <div class="server">
+        <img src="images/warponmc_logo.png">
+        <p>WarpOnMC<br>✔ Optimización<br>✔ Rendimiento<br>✔ Economía</p>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
-<div class="section">
-<h2>🔥 Servidores</h2>
-
-<div class="grid">
-
-<div class="card" onclick="openModal('minedark')">
-<img src="images/minedark_logo.png">
-<h3>MineDark</h3>
-</div>
-
-<div class="card" onclick="openModal('hyper')">
-<img src="images/hypercommunity_logo.png">
-<h3>HyperCommunity</h3>
-</div>
-
-<div class="card" onclick="openModal('tortrix')">
-<img src="images/tortrixland_logo.png">
-<h3>TortrixLand</h3>
-</div>
-
-<div class="card" onclick="openModal('warpon')">
-<img src="images/warponmc_logo.png">
-<h3>WarpOnMC</h3>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">X</span>
-<div id="modal-text"></div>
-</div>
-</div>
-
-<!-- MUSICA (CORRECTA) -->
-<audio id="music" loop>
-<source src="music/eoo.mp3" type="audio/mp3">
-</audio>
-
+<!-- SCRIPT -->
 <script>
-
-/* BOTON ENTRAR */
 function entrar(){
-    document.getElementById("music").play();
+  document.getElementById("inicio").style.display="none";
+  document.getElementById("contenido").style.display="block";
 
-    document.getElementById("main").scrollIntoView({
-        behavior:"smooth"
-    });
-}
-
-/* MODALES */
-function openModal(server){
-    let text = document.getElementById("modal-text");
-
-    if(server==="minedark"){
-        text.innerHTML = `
-        <h2>MineDark</h2>
-        ✔ Box PvP completo<br>
-        ✔ Economía avanzada<br>
-        ✔ Sistema de kits<br>
-        ✔ Progresión personalizada<br>
-        ✔ Optimización total<br>
-        ✔ Plugins desde 0<br>
-        ✔ Anti lag<br>
-        ✔ Eventos<br>
-        ✔ Scoreboards<br>
-        ✔ Menús<br>
-        ✔ Sistema de ranks<br>
-        ✔ Integración Discord<br>
-        ✔ Seguridad completa<br>
-        `;
-    }
-
-    if(server==="hyper"){
-        text.innerHTML = `
-        <h2>HyperCommunity</h2>
-        ✔ Bots Discord avanzados<br>
-        ✔ Moderación profesional<br>
-        ✔ Anti spam<br>
-        ✔ Logs<br>
-        ✔ Automatización<br>
-        ✔ Comandos personalizados<br>
-        ✔ Integración Minecraft<br>
-        `;
-    }
-
-    if(server==="tortrix"){
-        text.innerHTML = `
-        <h2>TortrixLand</h2>
-        ✔ Configuración de kits PvP<br>
-        ✔ Protección del servidor<br>
-        ✔ Economía<br>
-        ✔ Optimización<br>
-        ✔ Plugins configurados<br>
-        ✔ Sistema de ranks<br>
-        ✔ Seguridad<br>
-        ✔ Integración Discord<br>
-        `;
-    }
-
-    if(server==="warpon"){
-        text.innerHTML = `
-        <h2>WarpOnMC</h2>
-        ✔ Optimización extrema<br>
-        ✔ Mejor rendimiento<br>
-        ✔ Economía balanceada<br>
-        ✔ Plugins optimizados<br>
-        ✔ Reducción de lag<br>
-        `;
-    }
-
-    document.getElementById("modal").style.display="flex";
-}
-
-function closeModal(){
-    document.getElementById("modal").style.display="none";
+  const audio = document.getElementById("musica");
+  audio.play();
 }
 
 /* BILLETES */
-for(let i=0;i<15;i++){
-    let img=document.createElement("img");
-    img.src="images/money.png";
-    img.className="money";
-    img.style.left=Math.random()*100+"%";
-    img.style.animationDuration=(3+Math.random()*5)+"s";
-    document.body.appendChild(img);
-}
+setInterval(()=>{
+  let img=document.createElement("img");
+  img.src="images/money.png";
+  img.className="money";
+  img.style.left=Math.random()*100+"vw";
+  document.body.appendChild(img);
 
+  setTimeout(()=>img.remove(),5000);
+},500);
 </script>
 
 </body>
