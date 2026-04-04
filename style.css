@@ -1,61 +1,136 @@
-function openModal(server){
-  const modal = document.getElementById("modal");
-  const text = document.getElementById("modal-text");
-
-  if(server === "minedark"){
-    text.innerHTML = `
-    <h2>MineDark</h2>
-    <p>
-    ✔ Box PvP completo<br>
-    ✔ Economía avanzada<br>
-    ✔ Sistema de kits<br>
-    ✔ Progresión personalizada<br>
-    ✔ Optimización total<br>
-    ✔ Plugins desde 0
-    </p>`;
-  }
-
-  if(server === "hyper"){
-    text.innerHTML = `
-    <h2>HyperCommunity</h2>
-    <p>
-    ✔ Bots Discord avanzados<br>
-    ✔ Sistemas automáticos<br>
-    ✔ Moderación avanzada<br>
-    ✔ Comandos personalizados
-    </p>`;
-  }
-
-  if(server === "tortrix"){
-    text.innerHTML = `
-    <h2>TortrixLand</h2>
-    <p>
-    ✔ Red con Velocity<br>
-    ✔ Bungeecord setup<br>
-    ✔ Infraestructura escalable
-    </p>`;
-  }
-
-  if(server === "warpon"){
-    text.innerHTML = `
-    <h2>WarpOnMC</h2>
-    <p>
-    ✔ Optimización extrema<br>
-    ✔ Mejor rendimiento<br>
-    ✔ Economía balanceada
-    </p>`;
-  }
-
-  modal.style.display = "block";
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
 }
 
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
+body{
+  background:url("images/mi_fondo.jpg") no-repeat center/cover;
+  color:white;
+  overflow-x:hidden;
 }
 
-window.onclick = function(e){
-  const modal = document.getElementById("modal");
-  if(e.target == modal){
-    modal.style.display = "none";
-  }
+/* 💸 BILLETES */
+.money{
+  position:fixed;
+  width:100%;
+  height:100%;
+  pointer-events:none; /* 🔥 CLAVE */
+  z-index:1;
+}
+
+.money img{
+  position:absolute;
+  width:60px;
+  animation:fall 10s linear infinite;
+}
+
+.money img:nth-child(1){left:10%; animation-delay:0s;}
+.money img:nth-child(2){left:30%; animation-delay:2s;}
+.money img:nth-child(3){left:50%; animation-delay:4s;}
+.money img:nth-child(4){left:70%; animation-delay:6s;}
+.money img:nth-child(5){left:90%; animation-delay:8s;}
+
+@keyframes fall{
+  0%{top:-10%; transform:rotate(0deg);}
+  100%{top:110%; transform:rotate(360deg);}
+}
+
+/* 🎬 INICIO */
+.inicio{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:rgba(0,0,0,0.7);
+  position:relative;
+  z-index:2;
+}
+
+.contenido-inicio h1{
+  font-size:60px;
+  color:#00ffc8;
+  text-shadow:0 0 20px #00ffc8;
+}
+
+.contenido-inicio p{
+  margin:15px 0;
+  color:#ccc;
+}
+
+.btn-entrar{
+  margin-top:30px;
+  padding:15px 35px;
+  background:#00ffc8;
+  color:black;
+  font-weight:bold;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+/* MAIN */
+.main{
+  padding:40px 20px;
+  position:relative;
+  z-index:2;
+}
+
+.card{
+  background:rgba(0,0,0,0.7);
+  padding:25px;
+  border-radius:15px;
+  margin-bottom:30px;
+}
+
+/* SERVERS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.server{
+  background:#111;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.server:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00ffc8;
+}
+
+.server img{
+  width:80px;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  top:0;
+  left:0;
+  z-index:999;
+}
+
+.modal-content{
+  background:#111;
+  margin:15% auto;
+  padding:20px;
+  width:80%;
+  border-radius:10px;
+}
+
+.close{
+  float:right;
+  font-size:30px;
+  cursor:pointer;
 }
