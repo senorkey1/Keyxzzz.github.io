@@ -1,1 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyxzzz GOD 5.0</title>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
+
+body{
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+/* LOADER */
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.loader-box{
+text-align:center;
+}
+
+.loader{
+width:60px;
+height:60px;
+border:5px solid #333;
+border-top:5px solid cyan;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:auto;
+}
+
+@keyframes spin{
+to{transform:rotate(360deg);}
+}
+
+/* FONDO */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:url("images/mi_fondo.jpg") center/cover no-repeat;
+filter:brightness(0.3);
+z-index:-2;
+}
+
+/* NAV */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:10;
+}
+
+.nav button{
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+.nav button:hover{
+color:cyan;
+}
+
+/* SECCIONES */
+.section{
+padding:100px 20px;
+text-align:center;
+}
+
+/* CARD */
+.card{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:20px;
+margin:20px auto;
+max-width:500px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px cyan;
+}
+
+/* SERVERS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+}
+
+.server{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.server:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px cyan;
+}
+
+.server img{
+width:80px;
+}
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#111;
+padding:20px;
+border-radius:20px;
+width:90%;
+max-width:400px;
+z-index:1000;
+box-shadow:0 0 40px cyan;
+}
+
+/* BOTÓN */
+button{
+margin-top:10px;
+padding:10px;
+border:none;
+border-radius:10px;
+background:cyan;
+color:black;
+}
+
+/* ANIMACIÓN */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade.visible{
+opacity:1;
+transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<div class="loader-box">
+<div class="loader"></div>
+<p>Cargando experiencia...</p>
+</div>
+</div>
+
+<div class="bg"></div>
+
+<div class="nav">
+<button onclick="scrollToSection('about')">Sobre mí</button>
+<button onclick="scrollToSection('staff')">Staff</button>
+<button onclick="scrollToSection('servers')">Servidores</button>
+</div>
+
+<!-- SOBRE MI -->
+<div class="section fade" id="about">
+<h2>🔥 Sobre mí</h2>
+
+<div class="card">
+<p>
+Soy configurador profesional con más de 1 año de experiencia en servidores Minecraft, especializado en BoxPvP, economía avanzada y optimización extrema.
+</p>
+
+<p>
+Tengo 16 años, soy de Ecuador 🇪🇨 y trabajo creando servidores desde cero, optimizando rendimiento y ofreciendo experiencias únicas.
+</p>
+</div>
+</div>
+
+<!-- STAFF -->
+<div class="section fade" id="staff">
+<h2>🛡️ Staff</h2>
+
+<div class="card">
+✔ Moderación<br>
+✔ Control<br>
+✔ Organización<br>
+✔ Resolución de conflictos<br>
+✔ Gestión completa
+</div>
+</div>
+
+<!-- SERVERS -->
+<div class="section fade" id="servers">
+<h2>🔥 Servidores</h2>
+
+<div class="grid">
+
+<div class="server" onclick="openServer('mine')">
+<img src="images/minedark_logo.png">
+<p>MineDark</p>
+</div>
+
+<div class="server" onclick="openServer('hyper')">
+<img src="images/hypercommunity_logo.png">
+<p>HyperCommunity</p>
+</div>
+
+<div class="server" onclick="openServer('tortrix')">
+<img src="images/tortrixland_logo.png">
+<p>TortrixLand</p>
+</div>
+
+<div class="server" onclick="openServer('warp')">
+<img src="images/warponmc_logo.png">
+<p>WarpOnMC</p>
+</div>
+
+</div>
+</div>
+
+<!-- POPUPS CON INFO PRO -->
+
+<div id="mine" class="popup">
+<h2>MineDark</h2>
+<p>
+Soy dueño de MineDark, donde desarrollé un sistema completo de BoxPvP con economía avanzada, kits personalizados y optimización extrema.
+</p>
+<p>
+Configuré plugins desde cero, protegí el mundo y creé una experiencia competitiva estable y fluida.
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<div id="hyper" class="popup">
+<h2>HyperCommunity</h2>
+<p>
+Fui developer creando bots y sistemas personalizados para la comunidad.
+</p>
+<p>
+Optimicé rendimiento y desarrollé herramientas para mejorar la gestión del servidor.
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<div id="tortrix" class="popup">
+<h2>TortrixLand</h2>
+<p>
+Fui Owner configurando kits, protección y sistemas completos desde cero.
+</p>
+<p>
+Optimicé el servidor para estabilidad y rendimiento profesional.
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<div id="warp" class="popup">
+<h2>WarpOnMC</h2>
+<p>
+Fui Manager en un servidor survival, gestionando economía y rendimiento.
+</p>
+<p>
+Me enfoqué en mejorar la estabilidad y la experiencia de juego.
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<script>
+
+/* LOADER */
+window.onload = ()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},1500);
+};
+
+/* SCROLL */
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* POPUPS */
+function openServer(id){
+document.getElementById(id).style.display="block";
+}
+
+function closePop(){
+document.querySelectorAll(".popup").forEach(p=>p.style.display="none");
+}
+
+/* ANIMACIÓN */
+const fades=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-50){
+el.classList.add("visible");
+}
+});
+});
+
+</script>
+
+</body>
+</html>
