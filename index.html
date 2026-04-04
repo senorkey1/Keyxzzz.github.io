@@ -9,222 +9,220 @@
 body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:url("fondo.png") no-repeat center center/cover;
     color:white;
+    background:url('fondo.jpg') no-repeat center center/cover;
 }
 
-/* ENTRADA */
-#home{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    backdrop-filter: blur(6px);
+/* Animaciones */
+.fade{
+    animation:fadeIn 1s ease;
+}
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-h1{
-    font-size:50px;
-}
-
-.btn{
-    margin-top:30px;
-    padding:15px 40px;
-    border:none;
-    border-radius:15px;
-    background:linear-gradient(45deg, cyan, blue);
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    box-shadow:0 0 20px cyan;
-}
-
-/* CONTENIDO */
-#contenido{
-    display:none;
-    padding:20px;
-}
-
-/* CARDS */
+/* Tarjetas */
 .card{
     background:rgba(0,0,0,0.6);
+    margin:20px;
     padding:20px;
-    margin:20px 0;
     border-radius:20px;
+    backdrop-filter: blur(10px);
 }
 
-/* HABILIDADES */
-.skill{margin:15px 0;}
-.bar{
-    width:100%;
-    height:10px;
-    background:rgba(255,255,255,0.1);
-    border-radius:10px;
-}
-.bar div{
-    height:100%;
-    background:linear-gradient(90deg, cyan, blue);
-    box-shadow:0 0 10px cyan;
-}
-
-/* SERVERS */
-.servers{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
+/* Botones servers */
 .server{
     background:#111;
     padding:15px;
     border-radius:15px;
     text-align:center;
+    margin:10px;
     cursor:pointer;
+    transition:0.3s;
+}
+.server:hover{
+    box-shadow:0 0 15px cyan;
+    transform:scale(1.05);
 }
 
-/* MODAL */
+/* Habilidades PRO */
+.bar{
+    background:rgba(255,255,255,0.1);
+    border-radius:20px;
+    margin:10px 0;
+    overflow:hidden;
+}
+.bar div{
+    height:10px;
+    background:linear-gradient(90deg, cyan, blue);
+    box-shadow:0 0 10px cyan;
+}
+
+/* Modal */
 .modal{
-    display:none;
     position:fixed;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.9);
+    display:none;
     justify-content:center;
     align-items:center;
+    text-align:center;
+    padding:20px;
 }
-
 .modal-content{
     background:#111;
     padding:20px;
     border-radius:20px;
-    max-width:320px;
+}
+
+/* Botón */
+.btn{
+    background:linear-gradient(90deg, cyan, blue);
+    padding:15px 30px;
+    border-radius:20px;
+    border:none;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎵 Música -->
 <audio id="music" loop>
-<source src="eoo.mp3">
+  <source src="eoo.mp3" type="audio/mpeg">
 </audio>
 
-<div id="home">
-<h1>Bienvenido</h1>
+<!-- Entrada -->
+<div class="card fade" style="text-align:center;">
+    <h1>Bienvenido</h1>
+    <p>
+        Tengo 16 años, soy de Ecuador y soy configurador profesional con más de 1 año de experiencia.  
+        Me especializo en crear servidores optimizados, estables y listos para producción.
+    </p>
 
-<p>
-Tengo 16 años, soy de Ecuador y soy configurador profesional.<br><br>
-Más de 1 año creando servidores optimizados, estables y únicos.<br><br>
-Especialista en BoxPvP y sistemas avanzados.
-</p>
-
-<button class="btn" onclick="entrar()">ENTRAR</button>
+    <button class="btn" onclick="entrar()">ENTRAR</button>
 </div>
 
-<div id="contenido">
+<!-- Contenido -->
+<div id="contenido" style="display:none;">
 
-<div class="card">
-<h2>⚡ Habilidades</h2>
+    <div class="card fade">
+        <h2>⚡ Habilidades</h2>
 
-<div class="skill">Configuración
-<div class="bar"><div style="width:95%"></div></div>
-</div>
+        Configuración
+        <div class="bar"><div style="width:95%"></div></div>
 
-<div class="skill">Optimización
-<div class="bar"><div style="width:90%"></div></div>
-</div>
+        Optimización
+        <div class="bar"><div style="width:90%"></div></div>
 
-<div class="skill">Plugins
-<div class="bar"><div style="width:85%"></div></div>
-</div>
+        Plugins
+        <div class="bar"><div style="width:85%"></div></div>
 
-<div class="skill">Builder
-<div class="bar"><div style="width:80%"></div></div>
-</div>
+        Builder
+        <div class="bar"><div style="width:80%"></div></div>
+    </div>
 
-</div>
+    <div class="card fade">
+        <h2>🛡️ Staff</h2>
+        ✔ Moderación<br>
+        ✔ Control<br>
+        ✔ Organización<br>
+        ✔ Resolución de conflictos<br>
+        ✔ Gestión completa
+    </div>
 
-<div class="card">
-<h2>🛡️ Staff</h2>
-✔ Moderación<br>
-✔ Control<br>
-✔ Organización<br>
-✔ Resolución de conflictos<br>
-✔ Gestión completa
-</div>
+    <div class="card fade">
+        <h2>🔥 Servidores</h2>
 
-<div class="card">
-<h2>🔥 Servidores</h2>
+        <div class="server" onclick="info('minedark')">MineDark</div>
+        <div class="server" onclick="info('hyper')">HyperCommunity</div>
+        <div class="server" onclick="info('tortrix')">TortrixLand</div>
+        <div class="server" onclick="info('warp')">WarpOnMC</div>
 
-<div class="servers">
+    </div>
 
-<div class="server" onclick="info('minedark')">MineDark</div>
-<div class="server" onclick="info('hyper')">HyperCommunity</div>
-<div class="server" onclick="info('tortrix')">TortrixLand</div>
-<div class="server" onclick="info('warp')">WarpOnMC</div>
-
-</div>
-</div>
-
-<div class="card">
-<h2>📩 Contacto</h2>
-💬 Discord: 1072608933249822720<br>
-📧 senorkey1@gmail.com
-</div>
+    <div class="card fade">
+        <h2>📩 Contacto</h2>
+        💬 Discord: 1072608933249822720<br>
+        📧 senorkey1@gmail.com
+    </div>
 
 </div>
 
+<!-- Modal info -->
 <div class="modal" id="modal">
-<div class="modal-content" id="modal-content"></div>
+    <div class="modal-content" id="modal-text"></div>
 </div>
 
 <script>
 function entrar(){
-    document.getElementById("home").style.display="none";
     document.getElementById("contenido").style.display="block";
-    document.getElementById("music").play();
+    document.querySelector(".card").style.display="none";
+
+    let music = document.getElementById("music");
+    music.play().catch(()=>{});
 }
 
-function info(s){
-let c=document.getElementById("modal-content");
+function info(server){
+    let text = "";
 
-if(s=="minedark"){
-c.innerHTML=`<h2 style="color:cyan">MineDark</h2>
-<p>Servidor configurado completamente por mí con enfoque en PvP competitivo.</p>
-<p>Optimización extrema y sistemas personalizados para máximo rendimiento.</p>
-<p>Experiencia fluida, estable y profesional.</p>
-<ul><li>✔ BoxPvP</li><li>✔ Plugins personalizados</li><li>✔ Alto rendimiento</li></ul>`;
+    if(server=="minedark"){
+        text = `
+        <h2>🔥 MineDark</h2>
+        <p>Servidor trabajado desde cero con sistemas completamente personalizados, optimización extrema y estabilidad total para PvP intenso.</p>
+        <p>Diseñado para ofrecer una experiencia fluida, rápida y competitiva, ideal para jugadores exigentes.</p>
+        ✔ Sistema optimizado<br>
+        ✔ Eventos activos<br>
+        ✔ Configuración profesional
+        `;
+    }
+
+    if(server=="hyper"){
+        text = `
+        <h2>⚡ HyperCommunity</h2>
+        <p>Servidor enfocado en comunidad activa con configuraciones avanzadas y rendimiento alto.</p>
+        <p>Cuenta con sistemas bien estructurados para garantizar jugabilidad estable y atractiva.</p>
+        ✔ Comunidad activa<br>
+        ✔ Buen rendimiento<br>
+        ✔ Sistemas únicos
+        `;
+    }
+
+    if(server=="tortrix"){
+        text = `
+        <h2>🌍 TortrixLand</h2>
+        <p>Servidor con enfoque en diversión y estabilidad, con configuraciones bien equilibradas.</p>
+        <p>Ideal para jugadores que buscan una experiencia completa sin bugs ni caídas.</p>
+        ✔ Estable<br>
+        ✔ Optimizado<br>
+        ✔ Experiencia fluida
+        `;
+    }
+
+    if(server=="warp"){
+        text = `
+        <h2>🔥 WarpOnMC</h2>
+        <p>Servidor con configuraciones profesionales y optimización avanzada para alto rendimiento.</p>
+        <p>Preparado para soportar múltiples jugadores sin perder estabilidad.</p>
+        ✔ Alto rendimiento<br>
+        ✔ Configuración avanzada<br>
+        ✔ Sistema sólido
+        `;
+    }
+
+    document.getElementById("modal-text").innerHTML = text;
+    document.getElementById("modal").style.display="flex";
 }
 
-if(s=="hyper"){
-c.innerHTML=`<h2 style="color:lime">HyperCommunity</h2>
-<p>Configuración completa enfocada en estabilidad.</p>
-<p>Sistemas limpios y optimizados.</p>
-<p>Experiencia fluida para todos los jugadores.</p>
-<ul><li>✔ Rendimiento alto</li><li>✔ Estabilidad</li></ul>`;
-}
-
-if(s=="tortrix"){
-c.innerHTML=`<h2 style="color:magenta">TortrixLand</h2>
-<p>Trabajo como configurador y builder.</p>
-<p>Mapas optimizados y sistemas organizados.</p>
-<p>Equilibrio entre estética y rendimiento.</p>
-<ul><li>✔ Mapas</li><li>✔ Organización</li></ul>`;
-}
-
-if(s=="warp"){
-c.innerHTML=`<h2 style="color:orange">WarpOnMC</h2>
-<p>Servidor rápido y optimizado.</p>
-<p>Sistema de warps eficiente.</p>
-<p>Alta estabilidad y rendimiento.</p>
-<ul><li>✔ Warp system</li><li>✔ Rendimiento</li></ul>`;
-}
-
-document.getElementById("modal").style.display="flex";
-}
-
-document.getElementById("modal").onclick=()=>{
-document.getElementById("modal").style.display="none";
+document.getElementById("modal").onclick = function(){
+    this.style.display="none";
 }
 </script>
 
