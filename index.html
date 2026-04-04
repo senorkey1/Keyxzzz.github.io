@@ -1,134 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keyxzzz Legend</title>
-
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyxzzz - Leyenda BoxPvP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- 🎬 INTRO NETFLIX -->
-<div id="intro">
-    <h1 class="intro-text">KEYXZZZ</h1>
-    <p class="intro-sub">THE WORLD IS YOURS</p>
-    <button onclick="enterSite()">ENTRAR</button>
-</div>
-
-<!-- 🎵 AUDIO -->
-<audio id="bgMusic" loop>
+<!-- 🎧 MÚSICA -->
+<audio autoplay loop>
     <source src="music/eoo.mp3" type="audio/mpeg">
 </audio>
 
-<div id="mainContent">
-
-<div class="overlay"></div>
-<div class="money-rain"></div>
-
-<div class="hud">🔴 LIVE • LEGEND MODE</div>
-
 <div class="container">
 
-<header>
-<img src="images/keyxzzz_logo.png" class="avatar">
-<h1 class="glow">KEYXZZZ</h1>
-<h2>Desarrollador Box PvP & Discord</h2>
-<p>Especialista en servidores competitivos y comunidades avanzadas</p>
-</header>
+    <img src="images/keyxzzz_logo.png" class="profile-avatar">
 
-<section>
-<h3>💼 Sobre mí</h3>
-<p>
-Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.
-Creo experiencias competitivas Box PvP y sistemas avanzados para comunidades.
-</p>
-</section>
+    <h1>KEYXZZZ</h1>
+    <h2>Desarrollador Box PvP & Discord</h2>
 
-<section>
-<h3>🔥 Experiencia</h3>
+    <p>
+        Desarrollador de 16 años de Ecuador especializado en servidores Box PvP de alto nivel.
+        Experto en sistemas avanzados, economía, kits y optimización de rendimiento.
+    </p>
 
-<div class="card">
-<h4>🎮 MineDark</h4>
-<p>Servidor Box PvP completo con sistemas personalizados, economía, kits y progresión avanzada.</p>
-</div>
+    <h3>🔥 Experiencia</h3>
+    <ul>
+        <li><b>MineDark:</b> Sistema completo BoxPvP (economía, kits, progresión)</li>
+        <li><b>HyperComunity:</b> Bots Discord + sistemas automatizados</li>
+        <li><b>TortrixLand:</b> Red con Velocity/Bungeecord</li>
+        <li><b>WarponMC:</b> Optimización + crecimiento activo</li>
+    </ul>
 
-<div class="card">
-<h4>🌐 HyperComunity</h4>
-<p>Desarrollo de bots Discord con moderación automática, roles, sistemas personalizados y herramientas comunitarias.</p>
-</div>
+    <h3>⚡ Habilidades</h3>
+    <ul>
+        <li>Box PvP avanzado</li>
+        <li>Paper / Velocity / Bungeecord</li>
+        <li>Discord Bots (discord.js)</li>
+        <li>Optimización extrema</li>
+    </ul>
 
-<div class="card">
-<h4>🛡️ TortrixLand</h4>
-<p>Owner de red de servidores con infraestructura escalable usando Velocity y Bungeecord.</p>
-</div>
+    <h3>🎮 Proyectos</h3>
 
-<div class="card">
-<h4>⚔️ WarponMC</h4>
-<p>Manager especializado en optimización, economía y crecimiento de comunidad activa.</p>
-</div>
+    <div class="gallery">
+        <div class="card">
+            <img src="images/minedark_logo.png">
+            <p>MineDark</p>
+        </div>
 
-</section>
+        <div class="card">
+            <img src="images/warponmc_logo.png">
+            <p>WarponMC</p>
+        </div>
 
-<section>
-<h3>🚀 Habilidades</h3>
-<ul>
-<li>⚔️ Box PvP avanzado</li>
-<li>⚙️ Paper / Velocity / Bungeecord</li>
-<li>🤖 Bots Discord (discord.js)</li>
-<li>📊 Optimización y rendimiento</li>
-</ul>
-</section>
+        <div class="card">
+            <img src="images/tortrixland_logo.png">
+            <p>TortrixLand</p>
+        </div>
 
-</div>
-
-<button id="musicBtn">🔊</button>
+        <div class="card">
+            <img src="images/hypercomunity_logo.png">
+            <p>HyperComunity</p>
+        </div>
+    </div>
 
 </div>
 
-<script>
-const music = document.getElementById("bgMusic");
-const main = document.getElementById("mainContent");
-main.style.display = "none";
-
-function enterSite() {
-document.getElementById("intro").style.display = "none";
-main.style.display = "block";
-
-music.currentTime = 40;
-music.volume = 0;
-music.play();
-
-let vol = 0;
-let fade = setInterval(() => {
-if (vol < 1) {
-vol += 0.05;
-music.volume = vol;
-} else clearInterval(fade);
-}, 200);
-
-document.body.classList.add("boom");
-setTimeout(()=>document.body.classList.remove("boom"),400);
-}
-
-/* 💸 LLUVIA */
-const rain = document.querySelector(".money-rain");
-setInterval(()=>{
-const m = document.createElement("div");
-m.classList.add("money");
-m.innerText="💵";
-m.style.left=Math.random()*100+"vw";
-rain.appendChild(m);
-setTimeout(()=>m.remove(),5000);
-},200);
-
-/* 🎵 BOTON */
-document.getElementById("musicBtn").onclick=()=>{
-if(music.paused){music.play()}else{music.pause()}
-}
-</script>
+<footer>
+    © 2026 Keyxzzz
+</footer>
 
 </body>
 </html>
