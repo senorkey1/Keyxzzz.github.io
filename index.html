@@ -4,81 +4,235 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keyxzzz</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    color:white;
+    background:black;
+    overflow-x:hidden;
+}
+
+/* Fondo */
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("fondo.jpg") center/cover no-repeat;
+    filter:brightness(0.4);
+    z-index:-1;
+}
+
+/* Entrada */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:50px;
+    color:#00ffd5;
+    text-shadow:0 0 20px #00ffd5;
+    margin:0;
+}
+
+.hero p{
+    margin:10px 0 20px;
+    color:#ccc;
+}
+
+.btn{
+    padding:12px 25px;
+    background:#00ffd5;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* Contenido */
+.section{
+    padding:30px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(0,0,0,0.7);
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+/* Servidores */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.server{
+    background:#111;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+}
+
+/* Modal */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+    background:#111;
+    margin:20% auto;
+    padding:20px;
+    width:80%;
+    border-radius:10px;
+}
+
+/* Billetes */
+.money{
+    position:fixed;
+    width:30px;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(-100px);}
+    100%{transform:translateY(100vh);}
+}
+</style>
 </head>
 
 <body>
 
-<!-- 💸 BILLETES -->
-<div class="money">
-  <img src="images/billetes.png">
-  <img src="images/billetes.png">
-  <img src="images/billetes.png">
-  <img src="images/billetes.png">
-  <img src="images/billetes.png">
-</div>
+<div class="bg"></div>
 
-<!-- 🎬 INICIO -->
-<section class="inicio">
-  <div class="contenido-inicio">
+<!-- MUSICA -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ENTRADA -->
+<div class="hero">
     <h1>KEYXZZZ</h1>
-    <p>Configurador & Developer</p>
-    <a href="#main" class="btn-entrar">ENTRAR</a>
-  </div>
-</section>
-
-<!-- MAIN -->
-<section id="main" class="main">
-
-  <div class="card">
-    <h2>📌 Sobre mí</h2>
-    <p>
-      Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
-      🔹 +1 año como Builder creando mapas PvP.<br>
-      🔹 +1.5 años como Configurador profesional.<br><br>
-      Especialista en Box PvP, economía avanzada, optimización y sistemas personalizados.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>🔥 Servidores</h2>
-
-    <div class="grid">
-
-      <div class="server" onclick="openModal('minedark')">
-        <img src="images/minedark_logo.png">
-        <h3>MineDark</h3>
-      </div>
-
-      <div class="server" onclick="openModal('hyper')">
-        <img src="images/hypercommunity_logo.png">
-        <h3>HyperCommunity</h3>
-      </div>
-
-      <div class="server" onclick="openModal('tortrix')">
-        <img src="images/tortrixland_logo.png">
-        <h3>TortrixLand</h3>
-      </div>
-
-      <div class="server" onclick="openModal('warpon')">
-        <img src="images/warponmc_logo.png">
-        <h3>WarpOnMC</h3>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-<!-- 🧠 MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span onclick="closeModal()" class="close">&times;</span>
-    <div id="modal-text"></div>
-  </div>
+    <p>Keyxzzz | Configurador</p>
+    <button class="btn" onclick="entrar()">ENTRAR</button>
 </div>
 
-<script src="script.js"></script>
+<!-- CONTENIDO -->
+<div id="contenido" style="display:none;">
+
+<div class="section">
+<div class="card">
+<h2>📌 Sobre mí</h2>
+<p>
+Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
+
++1 año como Builder creando mapas PvP optimizados.<br>
++1.5 años como Configurador profesional.<br><br>
+
+Especialista en:
+- Box PvP competitivo<br>
+- Economía avanzada<br>
+- Sistemas personalizados<br>
+- Optimización extrema<br>
+</p>
+</div>
+
+<div class="card">
+<h2>🔥 Servidores</h2>
+
+<div class="grid">
+
+<div class="server" onclick="openModal('minedark')">
+MineDark
+</div>
+
+<div class="server" onclick="openModal('hyper')">
+HyperCommunity
+</div>
+
+<div class="server" onclick="openModal('tortrix')">
+TortrixLand
+</div>
+
+<div class="server" onclick="openModal('warpon')">
+WarpOnMC
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-content">
+<span onclick="closeModal()">X</span>
+<div id="modal-text"></div>
+</div>
+</div>
+
+<script>
+
+function entrar(){
+    document.querySelector(".hero").style.display="none";
+    document.getElementById("contenido").style.display="block";
+}
+
+/* MODAL */
+function openModal(server){
+let text = document.getElementById("modal-text");
+
+if(server=="minedark"){
+text.innerHTML="MineDark<br>✔ Box PvP<br>✔ Economía avanzada<br>✔ Kits<br>✔ Optimización";
+}
+
+if(server=="hyper"){
+text.innerHTML="HyperCommunity<br>✔ Bots Discord<br>✔ Sistemas<br>✔ Moderación";
+}
+
+if(server=="tortrix"){
+text.innerHTML="TortrixLand<br>✔ Velocity<br>✔ Bungeecord<br>✔ Red escalable";
+}
+
+if(server=="warpon"){
+text.innerHTML="WarpOnMC<br>✔ Optimización<br>✔ Rendimiento<br>✔ Economía";
+}
+
+document.getElementById("modal").style.display="block";
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* BILLETES */
+setInterval(()=>{
+let img = document.createElement("img");
+img.src="billete.png";
+img.className="money";
+img.style.left=Math.random()*100+"%";
+document.body.appendChild(img);
+
+setTimeout(()=>img.remove(),5000);
+
+},500);
+
+</script>
 
 </body>
 </html>
