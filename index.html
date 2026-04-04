@@ -9,29 +9,34 @@
 
 <body>
 
-<!-- ===== PANTALLA INICIO ===== -->
+<!-- 💸 BILLETES -->
+<div class="money">
+  <img src="images/billetes.png">
+  <img src="images/billetes.png">
+  <img src="images/billetes.png">
+  <img src="images/billetes.png">
+  <img src="images/billetes.png">
+</div>
+
+<!-- 🎬 INICIO -->
 <section class="inicio">
   <div class="contenido-inicio">
     <h1>KEYXZZZ</h1>
     <p>Configurador & Developer</p>
-
-    <!-- BOTÓN SEPARADO -->
     <a href="#main" class="btn-entrar">ENTRAR</a>
   </div>
 </section>
 
-<!-- ===== CONTENIDO ===== -->
+<!-- MAIN -->
 <section id="main" class="main">
 
   <div class="card">
     <h2>📌 Sobre mí</h2>
     <p>
       Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
-
-      🔹 +1 año como Builder creando mapas PvP profesionales.<br>
-      🔹 +1.5 años como Configurador con plugins avanzados.<br><br>
-
-      Especialista en Box PvP competitivo, economía avanzada, sistemas personalizados y optimización de servidores.
+      🔹 +1 año como Builder creando mapas PvP.<br>
+      🔹 +1.5 años como Configurador profesional.<br><br>
+      Especialista en Box PvP, economía avanzada, optimización y sistemas personalizados.
     </p>
   </div>
 
@@ -40,34 +45,40 @@
 
     <div class="grid">
 
-      <div class="server">
+      <div class="server" onclick="openModal('minedark')">
         <img src="images/minedark_logo.png">
         <h3>MineDark</h3>
-        <p>Box PvP completo</p>
       </div>
 
-      <div class="server">
+      <div class="server" onclick="openModal('hyper')">
         <img src="images/hypercommunity_logo.png">
         <h3>HyperCommunity</h3>
-        <p>Bots y sistemas</p>
       </div>
 
-      <div class="server">
+      <div class="server" onclick="openModal('tortrix')">
         <img src="images/tortrixland_logo.png">
         <h3>TortrixLand</h3>
-        <p>Red con Velocity</p>
       </div>
 
-      <div class="server">
+      <div class="server" onclick="openModal('warpon')">
         <img src="images/warponmc_logo.png">
         <h3>WarpOnMC</h3>
-        <p>Optimización</p>
       </div>
 
     </div>
   </div>
 
 </section>
+
+<!-- 🧠 MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">&times;</span>
+    <div id="modal-text"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
