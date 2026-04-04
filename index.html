@@ -3,322 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keyxzzz Ultra Pro++</title>
+<title>Keyxzzz</title>
 
 <style>
-
-body {
-    margin:0;
-    font-family:Arial;
-    color:white;
-    background: url("images/mi_fondo.jpg") no-repeat center/cover;
-    overflow-x:hidden;
+body{
+margin:0;
+font-family:Arial;
+overflow:hidden;
+color:white;
 }
 
-/* Oscuro + blur */
+/* FONDO */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:url("images/mi_fondo.jpg") center/cover no-repeat;
+filter:brightness(0.4);
+z-index:-2;
+}
+
+/* OVERLAY */
 .overlay{
-    background:rgba(0,0,0,0.75);
-    backdrop-filter:blur(10px);
-    min-height:100vh;
-    padding:20px;
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:-1;
 }
 
-/* CARTAS */
-.card{
-    background:rgba(0,0,0,0.6);
-    padding:20px;
-    border-radius:20px;
-    margin:20px 0;
-    box-shadow:0 0 25px rgba(0,255,255,0.2);
-    animation:fadeUp 1s ease;
+/* CONTENIDO */
+.container{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
-/* ANIMACIÓN */
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
+/* TITULO */
+h1{
+font-size:38px;
+margin-bottom:20px;
+text-shadow:0 0 20px cyan;
 }
 
-/* TITULOS */
-h2{
-    margin-top:0;
-    text-shadow:0 0 10px cyan;
+/* TEXTO */
+p{
+max-width:600px;
+line-height:1.6;
 }
 
-/* SERVERS */
-.servers{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+/* BOTÓN */
+.btn{
+margin-top:25px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:15px;
+background:linear-gradient(45deg,cyan,blue);
+color:white;
+cursor:pointer;
+box-shadow:0 0 25px cyan;
+transition:0.3s;
 }
 
-.server{
-    background:rgba(0,0,0,0.7);
-    padding:15px;
-    border-radius:15px;
-    text-align:center;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 0 10px rgba(0,255,255,0.2);
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 50px cyan;
 }
 
-.server:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 25px cyan;
+/* PORTAL */
+.portal{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+opacity:0;
+pointer-events:none;
+z-index:10;
+transition:1s;
 }
 
-.server img{
-    width:70px;
+.portal.active{
+opacity:1;
 }
-
-/* POPUP */
-.popup{
-    display:none;
-    position:fixed;
-    top:10%;
-    left:5%;
-    width:90%;
-    background:#111;
-    padding:20px;
-    border-radius:15px;
-    z-index:999;
-    box-shadow:0 0 30px cyan;
-}
-
-/* BOTON */
-button{
-    margin-top:10px;
-    padding:10px;
-    border:none;
-    border-radius:10px;
-    background:cyan;
-    color:black;
-}
-
-/* BARRAS */
-.bar{
-    background:#222;
-    border-radius:10px;
-    overflow:hidden;
-    margin:10px 0;
-}
-
-.bar div{
-    height:10px;
-    background:linear-gradient(90deg,cyan,blue);
-}
-
-/* DIAMANTE */
-.diamond{
-    width:90px;
-    display:block;
-    margin:auto;
-    animation:girar 4s linear infinite;
-    filter:drop-shadow(0 0 10px cyan);
-}
-
-@keyframes girar{
-    from{transform:rotateY(0deg);}
-    to{transform:rotateY(360deg);}
-}
-
-/* ENTRADA */
-#inicio{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:black;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:1000;
-}
-
-#inicio button{
-    font-size:25px;
-    padding:20px;
-    background:linear-gradient(45deg,cyan,blue);
-}
-
-/* FUEGO */
-.fire{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    height:120px;
-    background:linear-gradient(transparent,orange,red);
-    opacity:0.6;
-    animation:fireMove 2s infinite alternate;
-}
-
-@keyframes fireMove{
-    from{transform:translateY(0);}
-    to{transform:translateY(10px);}
-}
-
-/* PARTICULAS */
-.particle{
-    position:fixed;
-    width:5px;
-    height:5px;
-    background:cyan;
-    border-radius:50%;
-    opacity:0.7;
-    animation:float 6s linear infinite;
-}
-
-@keyframes float{
-    from{transform:translateY(100vh);}
-    to{transform:translateY(-10vh);}
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ENTRADA -->
-<div id="inicio">
-<button onclick="entrar()">ENTRAR</button>
-</div>
+<div class="bg"></div>
+<div class="overlay"></div>
 
-<audio id="music" src="eoo.mp3"></audio>
-
-<div id="contenido" class="overlay" style="display:none;">
-
-<!-- SOBRE MI -->
-<div class="card">
-<h2>📌 Sobre mí</h2>
-
-<img src="images/keyxzzz_logo.png" class="diamond">
+<div class="container">
+<h1>🔥 Bienvenido a Keyxzzz 🔥</h1>
 
 <p>
-Especialista en servidores Minecraft con experiencia en BoxPvP competitivo, economía avanzada y optimización extrema.
-Me enfoco en crear sistemas únicos, configuraciones profesionales y servidores estables.
+Tengo 16 años, soy de Ecuador 🇪🇨 y me especializo en la creación y configuración de servidores Minecraft.
+Cuento con más de 1 año de experiencia como configurador y builder.
 </p>
 
 <p>
-Trabajo optimizando rendimiento, configurando plugins desde cero y creando experiencias fluidas.
-Cada servidor que hago está diseñado para ser competitivo, estable y profesional.
+Trabajo creando servidores optimizados, estables y profesionales,
+con sistemas avanzados, economía balanceada y experiencias únicas.
 </p>
 
-<h3>⚡ Habilidades</h3>
-
-Configuración
-<div class="bar"><div style="width:95%"></div></div>
-
-Optimización
-<div class="bar"><div style="width:90%"></div></div>
-
-Plugins
-<div class="bar"><div style="width:92%"></div></div>
-
+<button class="btn" onclick="entrar()">ENTRAR</button>
 </div>
 
-<!-- STAFF -->
-<div class="card">
-<h2>🛡️ Staff</h2>
-✔ Moderación<br>
-✔ Control<br>
-✔ Organización<br>
-✔ Resolución de conflictos<br>
-✔ Gestión completa de servidores
-</div>
+<div class="portal" id="portal"></div>
 
-<!-- SERVERS -->
-<div class="card">
-<h2>🔥 Servidores</h2>
-
-<div class="servers">
-
-<div class="server" onclick="openServer('mine')">
-<img src="images/minedark_logo.png">
-<p>MineDark</p>
-</div>
-
-<div class="server" onclick="openServer('hyper')">
-<img src="images/hypercommunity_logo.png">
-<p>HyperCommunity</p>
-</div>
-
-<div class="server" onclick="openServer('tortrix')">
-<img src="images/tortrixland_logo.png">
-<p>TortrixLand</p>
-</div>
-
-<div class="server" onclick="openServer('warp')">
-<img src="images/warponmc_logo.png">
-<p>WarpOnMC</p>
-</div>
-
-</div>
-</div>
-
-<!-- CONTACTO -->
-<div class="card">
-<h2>📩 Contacto</h2>
-<a href="https://discord.com/users/1072608933249822720" target="_blank">💬 Discord</a><br><br>
-<a href="mailto:senorkey1@gmail.com">📧 Correo</a>
-</div>
-
-</div>
-
-<!-- FUEGO -->
-<div class="fire"></div>
-
-<!-- POPUPS -->
-<div id="mine" class="popup">
-<h2>MineDark</h2>
-<p>Servidor BoxPvP creado desde cero con economía balanceada y sistemas avanzados.</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
-
-<div id="hyper" class="popup">
-<h2>HyperCommunity</h2>
-<p>Desarrollo de bots y sistemas personalizados para comunidades.</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
-
-<div id="tortrix" class="popup">
-<h2>TortrixLand</h2>
-<p>Servidor completo con kits, protección y configuraciones optimizadas.</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
-
-<div id="warp" class="popup">
-<h2>WarpOnMC</h2>
-<p>Manager de survival con optimización y economía avanzada.</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
+<!-- AUDIO -->
+<audio id="music" src="eoo.mp3" loop></audio>
+<audio id="click" src="eoo.mp3"></audio>
 
 <script>
+const music = document.getElementById("music");
+const click = document.getElementById("click");
+const portal = document.getElementById("portal");
+
+/* ACTIVAR MÚSICA */
+document.body.addEventListener("click", ()=>{
+music.play();
+},{once:true});
 
 /* ENTRAR */
 function entrar(){
-document.getElementById("inicio").style.display="none";
-document.getElementById("contenido").style.display="block";
-document.getElementById("music").play();
+click.play();
+portal.classList.add("active");
+
+setTimeout(()=>{
+window.location.href="home.html";
+},1000);
 }
-
-/* POPUPS */
-function openServer(id){
-document.getElementById(id).style.display="block";
-}
-
-function closePop(){
-document.querySelectorAll(".popup").forEach(p=>p.style.display="none");
-}
-
-/* PARTICULAS */
-setInterval(()=>{
-let p=document.createElement("div");
-p.className="particle";
-p.style.left=Math.random()*100+"vw";
-document.body.appendChild(p);
-
-setTimeout(()=>p.remove(),6000);
-},200);
-
 </script>
 
 </body>
