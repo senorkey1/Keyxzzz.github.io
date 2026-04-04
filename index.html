@@ -23,21 +23,20 @@ align-items:center;
 background:rgba(0,0,0,0.7);
 }
 
-.cuadro{
+.entrada-box{
 background:rgba(120,120,120,0.6);
 padding:30px;
 border-radius:20px;
 text-align:center;
 max-width:400px;
-backdrop-filter:blur(10px);
 }
 
-.cuadro h1{
+.entrada-box h1{
 font-size:40px;
 margin-bottom:15px;
 }
 
-.cuadro p{
+.entrada-box p{
 margin-bottom:15px;
 }
 
@@ -89,6 +88,25 @@ margin:auto;
 margin-bottom:10px;
 }
 
+/* HABILIDADES BONITAS */
+.skill{
+margin-bottom:10px;
+}
+
+.bar{
+width:100%;
+height:10px;
+background:#333;
+border-radius:10px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(90deg,#00f2ff,#0066ff);
+box-shadow:0 0 10px cyan;
+}
+
 /* SERVERS */
 .servers{
 display:grid;
@@ -111,7 +129,7 @@ box-shadow:0 0 20px cyan;
 width:70px;
 }
 
-/* INFO SERVER */
+/* INFO */
 #info{
 display:none;
 margin-top:20px;
@@ -125,27 +143,6 @@ from{opacity:0;transform:translateY(20px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* BARRAS PRO */
-.barra{
-margin-bottom:15px;
-}
-.barra span{
-display:block;
-margin-bottom:5px;
-}
-.progreso{
-height:10px;
-background:#333;
-border-radius:10px;
-overflow:hidden;
-}
-.progreso div{
-height:100%;
-background:linear-gradient(90deg,#00f2ff,#0066ff);
-box-shadow:0 0 10px cyan;
-}
-
-/* CONTACTO */
 a{color:cyan;text-decoration:none;}
 </style>
 </head>
@@ -159,7 +156,7 @@ a{color:cyan;text-decoration:none;}
 
 <!-- ENTRADA -->
 <div id="entrada">
-<div class="cuadro">
+<div class="entrada-box">
 <h1>Bienvenido</h1>
 
 <p>
@@ -188,24 +185,20 @@ Trabajo creando sistemas profesionales, optimizados y listos para producción.
 <div class="card fade">
 <h2>⚡ Habilidades</h2>
 
-<div class="barra">
-<span>Configuración</span>
-<div class="progreso"><div style="width:95%"></div></div>
+<div class="skill">Configuración
+<div class="bar"><div class="fill" style="width:100%"></div></div>
 </div>
 
-<div class="barra">
-<span>Optimización</span>
-<div class="progreso"><div style="width:90%"></div></div>
+<div class="skill">Optimización
+<div class="bar"><div class="fill" style="width:90%"></div></div>
 </div>
 
-<div class="barra">
-<span>Plugins</span>
-<div class="progreso"><div style="width:92%"></div></div>
+<div class="skill">Plugins
+<div class="bar"><div class="fill" style="width:95%"></div></div>
 </div>
 
-<div class="barra">
-<span>Builder</span>
-<div class="progreso"><div style="width:85%"></div></div>
+<div class="skill">Builder
+<div class="bar"><div class="fill" style="width:85%"></div></div>
 </div>
 
 </div>
@@ -260,10 +253,13 @@ Trabajo creando sistemas profesionales, optimizados y listos para producción.
 function entrar(){
 document.getElementById("entrada").style.display="none";
 document.getElementById("contenido").style.display="block";
-document.getElementById("musica").play().catch(()=>{});
+
+let audio = document.getElementById("musica");
+audio.volume = 0.5;
+audio.play().catch(()=>{});
 }
 
-/* ANIMACION */
+/* SCROLL */
 window.addEventListener("scroll",()=>{
 document.querySelectorAll(".fade").forEach(el=>{
 let top=el.getBoundingClientRect().top;
@@ -281,18 +277,20 @@ info.innerHTML=`
 <h2 style="color:#00ffe1">🔥 MineDark</h2>
 
 <p>
-Servidor desarrollado completamente por mí con enfoque en PvP competitivo.
-Optimización extrema para estabilidad total.
+Servidor PvP configurado completamente por mí, enfocado en rendimiento extremo y estabilidad total.
+Cada sistema fue optimizado para evitar lag incluso con muchos jugadores activos.
 </p>
 
 <p>
-Sistema trabajado a nivel profesional para garantizar rendimiento y fluidez.
+Se implementaron configuraciones avanzadas y ajustes profesionales para lograr una experiencia fluida,
+rápida y competitiva.
 </p>
 
 <ul style="color:#00ffe1">
 <li>✔ BoxPvP avanzado</li>
 <li>✔ Optimización extrema</li>
-<li>✔ Plugins personalizados</li>
+<li>✔ Plugins configurados</li>
+<li>✔ Rendimiento alto</li>
 </ul>`;
 }
 
@@ -301,17 +299,19 @@ info.innerHTML=`
 <h2 style="color:#00ff99">⚡ HyperCommunity</h2>
 
 <p>
-Servidor enfocado en estabilidad y jugabilidad limpia.
+Servidor optimizado con enfoque en estabilidad y jugabilidad limpia.
+Todo fue configurado para evitar errores y mejorar la experiencia del usuario.
 </p>
 
 <p>
-Optimización avanzada para una experiencia fluida.
+Ideal para comunidades activas que buscan rendimiento constante y sistemas funcionales.
 </p>
 
 <ul style="color:#00ff99">
-<li>✔ Sistemas personalizados</li>
-<li>✔ Rendimiento alto</li>
-<li>✔ Estabilidad</li>
+<li>✔ Sistemas optimizados</li>
+<li>✔ Configuración limpia</li>
+<li>✔ Estabilidad total</li>
+<li>✔ Buen rendimiento</li>
 </ul>`;
 }
 
@@ -320,17 +320,18 @@ info.innerHTML=`
 <h2 style="color:#ff00ff">💎 TortrixLand</h2>
 
 <p>
-Proyecto trabajado como builder y configurador.
+Proyecto donde trabajé como configurador y builder, mejorando mapas y rendimiento general.
 </p>
 
 <p>
-Optimizado para equilibrio entre estética y rendimiento.
+Se logró una experiencia equilibrada entre estética y optimización del servidor.
 </p>
 
 <ul style="color:#ff00ff">
 <li>✔ Mapas optimizados</li>
-<li>✔ Organización</li>
-<li>✔ Fluidez</li>
+<li>✔ Organización mejorada</li>
+<li>✔ Buen rendimiento</li>
+<li>✔ Experiencia fluida</li>
 </ul>`;
 }
 
@@ -339,20 +340,22 @@ info.innerHTML=`
 <h2 style="color:#ff6600">🔥 WarpOnMC</h2>
 
 <p>
-Servidor enfocado en rapidez y eficiencia.
+Servidor enfocado en rapidez y eficiencia en sistemas de warps.
 </p>
 
 <p>
-Configuración optimizada para alto rendimiento.
+Configurado para mantener estabilidad y velocidad en todo momento.
 </p>
 
 <ul style="color:#ff6600">
-<li>✔ Sistema warp</li>
-<li>✔ Rendimiento alto</li>
-<li>✔ Estabilidad</li>
+<li>✔ Sistema warp rápido</li>
+<li>✔ Rendimiento estable</li>
+<li>✔ Configuración pro</li>
+<li>✔ Fluidez total</li>
 </ul>`;
 }
 }
+
 </script>
 
 </body>
