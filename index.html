@@ -1,133 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyxzzz - Desarrollador Box PVP & Discord</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Enlace a Font Awesome para los iconos de redes sociales -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="images/keyxzzz_logo.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyxzzz Cartel</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- ESTE ES EL DIV PARA EL OVERLAY OSCURO -->
-    <div class="background-overlay"></div>
 
-    <div class="container">
+<!-- 🎬 INTRO -->
+<div id="intro">
+    <h1 class="intro-text">KEYXZZZ CARTEL</h1>
+    <p class="intro-sub">THE WORLD IS YOURS</p>
+    <button onclick="enterSite()">ENTRAR</button>
+</div>
 
-        <!-- Sección de Perfil y Hero -->
-        <header class="profile-section">
-            <img src="images/keyxzzz_logo.png" alt="Logo personal de Keyxzzz" class="profile-avatar">
-            <p class="section-tag">PORTAFOLIO DESARROLLADOR & MANAGER</p>
-            <h1>Keyxzzz</h1>
-            <h2>Especialista en Box PVP y Soluciones Discord</h2>
-            <p class="description">Desarrollando experiencias competitivas en Minecraft y potenciando comunidades con bots y configuraciones avanzadas de Discord.</p>
-        </header>
+<!-- 🎵 MÚSICA -->
+<audio id="bgMusic" loop>
+    <source src="music/eoo.mp3" type="audio/mpeg">
+</audio>
 
-        <!-- Sección Sobre Mí -->
-        <section class="about-section">
-            <h3>¡Hola! Soy Keyxzzz</h3>
-            <p>Soy un desarrollador de **16 años** de **Ecuador**, apasionado por crear y optimizar entornos digitales que prosperan. Mi pasión se centra en dos áreas clave: el desarrollo de experiencias de juego altamente competitivas, especialmente en <strong>servidores Box PVP de Minecraft</strong>, y la construcción de comunidades sólidas a través de soluciones innovadoras en <strong>Discord</strong>.</p>
-            <p>Con una sólida base en <strong>Paper, Velocity y Bungeecord</strong> para Minecraft, y <strong>discord.js</strong> para bots, combino mis habilidades técnicas con una visión estratégica para liderar proyectos desde la concepción hasta el éxito. No solo programo; diseño la jugabilidad y la interacción comunitaria que mantiene a los usuarios comprometidos y activos.</p>
+<!-- 💀 CONTENIDO -->
+<div id="mainContent">
 
-            <h4>Experiencia y Roles:</h4>
-            <ul>
-                <li>**Semi-Builder:** Más de **1 año** de experiencia en diseño y construcción de mapas y estructuras en Minecraft.</li>
-                <li>**Configurador de Servidores:** Más de **1 año y medio** configurando servidores de Minecraft (tanto Aternos como de paga), optimizando plugins y rendimiento.</li>
-            </ul>
+<div class="background-overlay"></div>
+<div class="money-rain"></div>
 
-            <h4>Tecnologías y Herramientas Destacadas:</h4>
-            <ul>
-                <li><strong>Minecraft (Especialidad Box PVP):</strong> Paper, Velocity, Bungeecord, Spigot API, Java.</li>
-                <li><strong>Discord (Bots & Gestión):</strong> discord.js, JavaScript, Node.js.</li>
-                <li><strong>Otras Herramientas:</strong> Git, Herramientas de optimización y gestión de servidores.</li>
-            </ul>
-        </section>
+<div class="hud">🔴 LIVE • CARTEL MODE</div>
 
-        <!-- Sección de Proyectos -->
-        <section class="projects-section">
-            <h3>Mis Proyectos y Experiencia</h3>
+<div class="container">
+    <img src="images/keyxzzz_logo.png" class="profile-avatar">
+    <h1>KEYXZZZ</h1>
+    <p>Cartel Developer • Box PvP • Discord</p>
+</div>
 
-            <div class="project-card">
-                <img src="images/minedark_logo.png" alt="Logo de MineDark" class="project-logo">
-                <h4>🎮 MineDark</h4>
-                <p class="role">Creador y Desarrollador Principal</p>
-                <p>Mi proyecto estrella, una plataforma <strong>Box PVP</strong> diseñada desde cero para ofrecer la máxima competitividad y diversión. He desarrollado e implementado sistemas únicos de combate, economía, kits, niveles y recompensas personalizadas. El enfoque ha sido siempre en la experiencia del jugador y el rendimiento óptimo en un entorno de alta demanda.</p>
-                <p class="technologies"><strong>Tecnologías:</strong> Paper, Velocity (para red), Plugins personalizados (Java).</p>
-            </div>
+</div>
 
-            <div class="project-card">
-                <img src="images/hypercomunity_logo.png" alt="Logo de HyperComunity" class="project-logo">
-                <h4>🌐 HyperComunity</h4>
-                <p class="role">Desarrollador de Discord y Administrador de Comunidad</p>
-                <p>Contribuí activamente a esta comunidad desarrollando <strong>bots de Discord a medida con discord.js</strong>. Esto incluyó sistemas de moderación automatizada, gestión de roles, herramientas de interacción, y funcionalidades personalizadas para mejorar la experiencia de los miembros. Además, me encargué de la estructuración y configuración integral del servidor para fomentar un ambiente organizado y activo.</p>
-                <p class="technologies"><strong>Tecnologías:</strong> discord.js, JavaScript, Node.js, API de Discord.</p>
-            </div>
+<button id="musicBtn" class="music-btn">💰</button>
 
-            <div class="project-card">
-                <img src="images/tortrixland_logo.png" alt="Logo de TortrixLand" class="project-logo">
-                <h4>🛡️ TortrixLand</h4>
-                <p class="role">Owner (Propietario y Administrador General)</p>
-                <p>Como dueño, lideré el diseño y la implementación de una red de servidores robusta, donde la estabilidad y la escalabilidad fueron clave. Mi rol abarcó desde la planificación técnica con <strong>Velocity/Bungeecord</strong> hasta la gestión de equipos y estrategias de crecimiento para asegurar una experiencia fluida y atractiva para los usuarios.</p>
-                <p class="technologies"><strong>Tecnologías:</strong> Velocity/Bungeecord, Paper (varios servidores), Sistemas de plugins avanzados.</p>
-            </div>
+<script>
+const music = document.getElementById("bgMusic");
+const main = document.getElementById("mainContent");
 
-            <div class="project-card">
-                <img src="images/warponmc_logo.png" alt="Logo de WarponMC" class="project-logo">
-                <h4>⚔️ WarponMC</h4>
-                <p class="role">Manager y Especialista en Configuración</p>
-                <p>En este servidor Survival, mi objetivo fue la optimización y el fomento de una comunidad activa. Trabajé en la configuración detallada de plugins, balance de economía, eventos y la gestión de la experiencia de usuario, logrando un crecimiento sostenido hasta <strong>30 usuarios estables</strong>. Mi experiencia aquí demuestra mi capacidad para mantener un servidor optimizado y una comunidad comprometida.</p>
-                <p class="technologies"><strong>Tecnologías:</strong> Paper, Plugins de gestión de Survival, optimización de rendimiento.</p>
-            </div>
-        </section>
+main.style.display = "none";
 
-        <!-- Sección de Habilidades -->
-        <section class="skills-section">
-            <h3>Habilidades Clave</h3>
+function enterSite() {
+    document.getElementById("intro").style.display = "none";
+    main.style.display = "block";
 
-            <div class="skill-category">
-                <h4>🚀 Especialización Box PVP</h4>
-                <ul>
-                    <li><strong>Diseño de Mecánicas:</strong> Creación y balance de sistemas de combate, Kits, Minas, Recompensas por racha, Eventos PVE/PVP.</li>
-                    <li><strong>Configuración Avanzada:</strong> Optimización de Paper para alto rendimiento en arenas, configuración de plugins de protección y monetización.</li>
-                    <li><strong>Infraestructura:</strong> Implementación de redes con Velocity y Bungeecord para escalabilidad y gestión de múltiples arenas.</li>
-                </ul>
-            </div>
+    music.currentTime = 40;
+    music.volume = 0;
+    music.play();
 
-            <div class="skill-category">
-                <h4>🤖 Bots y Comunidad Discord</h4>
-                <ul>
-                    <li><strong>Desarrollo de Bots (discord.js):</strong> Creación de bots personalizados para moderación, economía interna, sistemas de tickets, encuestas, estadísticas de servidor.</li>
-                    <li><strong>Configuración de Servidores:</strong> Estructuración de roles y permisos, canales, automatización de bienvenida/despedida, integración de bots externos.</li>
-                    <li><strong>Gestión Comunitaria:</strong> Estrategias para engagement, resolución de conflictos, soporte a usuarios y fomento de un ambiente positivo.</li>
-                </ul>
-            </div>
-        </section>
+    let vol = 0;
+    let fade = setInterval(() => {
+        if (vol < 1) {
+            vol += 0.05;
+            music.volume = vol;
+        } else clearInterval(fade);
+    }, 200);
 
-        <!-- Sección de Contacto - CON ICONOS Y ENLACES -->
-        <section class="contact-section centered-icons">
-            <h3>¡Conectemos!</h3>
-            <p>Encuéntrame y explora más de mi trabajo:</p>
-            <div class="social-links">
-                <!-- Enlace a Discord con icono -->
-                <a href="discord://-/users/1072608933249822720" target="_blank" rel="noopener noreferrer" class="social-icon discord-icon">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <!-- Enlace a GitHub con icono (TU PERFIL DE GITHUB) -->
-                <a href="https://github.com/senorkey1" target="_blank" rel="noopener noreferrer" class="social-icon github-icon">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-            <p class="email-info">O envíame un correo directamente: <a href="mailto:senorkey1@gmail.com">senorkey1@gmail.com</a></p>
-        </section>
+    // 💥 efecto cámara
+    document.body.classList.add("shake");
+    setTimeout(() => {
+        document.body.classList.remove("shake");
+    }, 500);
+}
 
-    </div>
+/* 💰 LLUVIA */
+const rain = document.querySelector(".money-rain");
+setInterval(() => {
+    const money = document.createElement("div");
+    money.classList.add("money");
+    money.innerText = "💵";
+    money.style.left = Math.random() * 100 + "vw";
+    money.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    rain.appendChild(money);
+    setTimeout(() => money.remove(), 5000);
+}, 300);
+</script>
 
-    <footer>
-        <p>&copy; 2026 Keyxzzz. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
