@@ -3,151 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keyxzzz</title>
+
+<title>Keyxzzz | Configurador</title>
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    color:white;
-    background:black;
-    overflow-x:hidden;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* Fondo */
-.bg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:url("fondo.jpg") center/cover no-repeat;
-    filter:brightness(0.4);
-    z-index:-1;
+/* FONDO */
+body::before{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") no-repeat center/cover;
+  filter:brightness(0.4);
+  z-index:-1;
 }
 
-/* Entrada */
+/* HERO */
 .hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
 .hero h1{
-    font-size:50px;
-    color:#00ffd5;
-    text-shadow:0 0 20px #00ffd5;
-    margin:0;
+  font-size:50px;
+  color:#00ffd5;
+  text-shadow:0 0 20px #00ffd5;
 }
 
 .hero p{
-    margin:10px 0 20px;
-    color:#ccc;
+  opacity:0.7;
+  margin:10px 0;
 }
 
 .btn{
-    padding:12px 25px;
-    background:#00ffd5;
-    border:none;
-    border-radius:10px;
-    font-weight:bold;
+  margin-top:20px;
+  padding:12px 30px;
+  border:none;
+  border-radius:10px;
+  background:#00ffd5;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* Contenido */
+/* SECCIONES */
 .section{
-    padding:30px 20px;
-    max-width:900px;
-    margin:auto;
+  padding:40px 20px;
+  max-width:900px;
+  margin:auto;
 }
 
 .card{
-    background:rgba(0,0,0,0.7);
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
+  background:rgba(0,0,0,0.7);
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 0 20px rgba(0,255,200,0.2);
 }
 
-/* Servidores */
+/* SERVERS */
 .grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
 
 .server{
-    background:#111;
-    padding:15px;
-    border-radius:15px;
-    text-align:center;
+  background:#111;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-/* Modal */
+.server:hover{
+  background:#00ffd5;
+  color:black;
+}
+
+/* MODAL */
 .modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
 }
 
 .modal-content{
-    background:#111;
-    margin:20% auto;
-    padding:20px;
-    width:80%;
-    border-radius:10px;
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  max-width:300px;
 }
 
-/* Billetes */
+/* BILLETES */
 .money{
-    position:fixed;
-    width:30px;
-    animation:fall 5s linear infinite;
+  position:fixed;
+  top:-50px;
+  font-size:20px;
+  animation:fall linear infinite;
 }
 
 @keyframes fall{
-    0%{transform:translateY(-100px);}
-    100%{transform:translateY(100vh);}
+  to{
+    transform:translateY(110vh);
+  }
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="bg"></div>
-
-<!-- MUSICA -->
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- ENTRADA -->
+<!-- HERO -->
 <div class="hero">
-    <h1>KEYXZZZ</h1>
-    <p>Keyxzzz | Configurador</p>
-    <button class="btn" onclick="entrar()">ENTRAR</button>
+  <h1>KEYXZZZ</h1>
+  <p>Keyxzzz | Configurador</p>
+  <button class="btn" onclick="scrollToContent()">ENTRAR</button>
 </div>
 
 <!-- CONTENIDO -->
-<div id="contenido" style="display:none;">
+<div id="content" class="section">
 
-<div class="section">
 <div class="card">
 <h2>📌 Sobre mí</h2>
 <p>
-Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
-
-+1 año como Builder creando mapas PvP optimizados.<br>
+Desarrollador de 16 años de Ecuador especializado en Minecraft.<br><br>
++1 año como Builder creando mapas PvP.<br>
 +1.5 años como Configurador profesional.<br><br>
 
-Especialista en:
-- Box PvP competitivo<br>
-- Economía avanzada<br>
-- Sistemas personalizados<br>
-- Optimización extrema<br>
+✔ Experto en Box PvP competitivo<br>
+✔ Economía avanzada<br>
+✔ Sistemas personalizados<br>
+✔ Optimización extrema<br>
+✔ Plugins desde 0<br>
+✔ Servidores estables y sin lag<br>
+✔ Configuración avanzada de redes<br>
+✔ Automatización de sistemas<br>
+✔ Balance de jugabilidad<br>
+✔ Experiencia en comunidades grandes<br>
 </p>
 </div>
 
@@ -155,82 +166,75 @@ Especialista en:
 <h2>🔥 Servidores</h2>
 
 <div class="grid">
-
-<div class="server" onclick="openModal('minedark')">
-MineDark
+<div class="server" onclick="openModal('MineDark')">MineDark</div>
+<div class="server" onclick="openModal('Hyper')">HyperCommunity</div>
+<div class="server" onclick="openModal('Tortrix')">TortrixLand</div>
+<div class="server" onclick="openModal('Warp')">WarpOnMC</div>
 </div>
 
-<div class="server" onclick="openModal('hyper')">
-HyperCommunity
-</div>
-
-<div class="server" onclick="openModal('tortrix')">
-TortrixLand
-</div>
-
-<div class="server" onclick="openModal('warpon')">
-WarpOnMC
-</div>
-
-</div>
-</div>
 </div>
 
 </div>
 
 <!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<span onclick="closeModal()">X</span>
-<div id="modal-text"></div>
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" id="modalText"></div>
 </div>
-</div>
+
+<!-- AUDIO -->
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
 
 <script>
 
-function entrar(){
-    document.querySelector(".hero").style.display="none";
-    document.getElementById("contenido").style.display="block";
+/* SCROLL */
+function scrollToContent(){
+  document.getElementById("content").scrollIntoView({behavior:"smooth"});
+  document.getElementById("music").play();
 }
 
 /* MODAL */
 function openModal(server){
-let text = document.getElementById("modal-text");
+  let text = "";
 
-if(server=="minedark"){
-text.innerHTML="MineDark<br>✔ Box PvP<br>✔ Economía avanzada<br>✔ Kits<br>✔ Optimización";
-}
+  if(server=="MineDark"){
+    text = "MineDark<br>✔ Box PvP<br>✔ Economía<br>✔ Optimización";
+  }
 
-if(server=="hyper"){
-text.innerHTML="HyperCommunity<br>✔ Bots Discord<br>✔ Sistemas<br>✔ Moderación";
-}
+  if(server=="Hyper"){
+    text = "HyperCommunity<br>✔ Bots<br>✔ Sistemas<br>✔ Moderación";
+  }
 
-if(server=="tortrix"){
-text.innerHTML="TortrixLand<br>✔ Velocity<br>✔ Bungeecord<br>✔ Red escalable";
-}
+  if(server=="Tortrix"){
+    text = "TortrixLand<br>✔ Velocity<br>✔ Bungee<br>✔ Red";
+  }
 
-if(server=="warpon"){
-text.innerHTML="WarpOnMC<br>✔ Optimización<br>✔ Rendimiento<br>✔ Economía";
-}
+  if(server=="Warp"){
+    text = "WarpOnMC<br>✔ Rendimiento<br>✔ Optimización<br>✔ Economía";
+  }
 
-document.getElementById("modal").style.display="block";
+  document.getElementById("modalText").innerHTML = text;
+  document.getElementById("modal").style.display="flex";
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+  document.getElementById("modal").style.display="none";
 }
 
 /* BILLETES */
-setInterval(()=>{
-let img = document.createElement("img");
-img.src="billete.png";
-img.className="money";
-img.style.left=Math.random()*100+"%";
-document.body.appendChild(img);
+function createMoney(){
+  let money = document.createElement("div");
+  money.classList.add("money");
+  money.innerHTML="💵";
+  money.style.left = Math.random()*100+"vw";
+  money.style.animationDuration = (Math.random()*3+2)+"s";
+  document.body.appendChild(money);
 
-setTimeout(()=>img.remove(),5000);
+  setTimeout(()=>{money.remove()},5000);
+}
 
-},500);
+setInterval(createMoney,300);
 
 </script>
 
