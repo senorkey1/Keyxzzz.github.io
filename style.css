@@ -1,129 +1,189 @@
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Inter',sans-serif;
-color:white;
-background:url('images/mi_fondo.jpg') center/cover no-repeat fixed;
-cursor: crosshair;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* INTRO */
-#intro{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:999;
-animation:fadeIn 2s;
+/* BODY */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    background: url('images/mi_fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
 }
 
-.intro-text{
-font-size:50px;
-color:white;
-letter-spacing:5px;
-animation:netflix 2s ease;
+/* OVERLAY CINEMATIC */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.95) 0%,
+        rgba(0,0,0,0.85) 30%,
+        rgba(0,0,0,0.5) 60%,
+        rgba(0,0,0,0.2) 100%
+    );
+    z-index: -1;
 }
 
-@keyframes netflix{
-0%{opacity:0;transform:scale(2);}
-100%{opacity:1;transform:scale(1);}
+/* CONTENEDOR PRINCIPAL */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    max-width: 420px;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+
+    padding: 30px;
+    border-radius: 15px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: 
+        0 0 50px rgba(0,0,0,0.9),
+        0 0 20px rgba(0,255,200,0.1);
+
+    animation: fadeIn 1.2s ease;
 }
 
-#intro button{
-margin-top:20px;
-padding:10px 20px;
-background:gold;
-border:none;
-}
-
-/* OVERLAY */
-.overlay{
-position:fixed;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-}
-
-/* CONTENEDOR */
-.container{
-position:relative;
-z-index:1;
-margin:50px auto;
-padding:30px;
-width:90%;
-max-width:900px;
-background:rgba(0,0,0,0.7);
-border:1px solid gold;
-backdrop-filter:blur(5px);
+/* ANIMACIÓN ENTRADA */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
 }
 
 /* AVATAR */
-.avatar{
-width:120px;
-display:block;
-margin:auto;
+.profile-avatar {
+    width: 120px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+
+    box-shadow: 
+        0 0 20px rgba(255,255,255,0.3),
+        0 0 40px rgba(0,255,200,0.2);
 }
 
-/* GLOW */
-.glow{
-color:gold;
-text-shadow:0 0 20px gold,0 0 40px gold;
+/* TITULOS */
+h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    text-shadow: 
+        0 0 10px rgba(0,255,200,0.7),
+        0 0 20px rgba(0,255,200,0.4);
 }
 
-/* CARDS */
-.card{
-margin:10px 0;
-padding:15px;
-background:rgba(20,20,20,0.8);
-border-left:3px solid gold;
-transition:0.3s;
+h2 {
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 15px;
 }
 
-.card:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px gold;
+h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #00ffc3;
+
+    text-shadow: 0 0 8px rgba(0,255,200,0.6);
 }
 
-/* HUD */
-.hud{
-position:fixed;
-top:10px;
-left:10px;
-border:1px solid gold;
-padding:5px;
+/* TEXTO */
+p, li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
 }
 
-/* BOTON */
-#musicBtn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:gold;
-padding:10px;
-border:none;
+/* LISTAS */
+ul {
+    padding-left: 18px;
 }
 
-/* LLUVIA */
-.money{
-position:absolute;
-top:-50px;
-animation:fall linear;
+/* GALERÍA */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
 }
 
-@keyframes fall{
-to{transform:translateY(110vh);}
+/* TARJETAS */
+.card {
+    text-align: center;
+    position: relative;
 }
 
-/* BOOM */
-.boom{
-animation:shake 0.4s;
+/* IMÁGENES */
+.card img {
+    width: 100%;
+    border-radius: 12px;
+
+    transition: 0.4s;
+    filter: brightness(0.8);
+
+    box-shadow: 
+        0 0 20px rgba(0,0,0,0.7),
+        0 0 15px rgba(0,255,200,0.1);
 }
 
-@keyframes shake{
-25%{transform:translate(5px,-5px);}
-50%{transform:translate(-5px,5px);}
+/* HOVER PRO */
+.card img:hover {
+    transform: scale(1.08);
+    filter: brightness(1);
+
+    box-shadow: 
+        0 0 30px rgba(0,255,200,0.5),
+        0 0 60px rgba(0,255,200,0.2);
+}
+
+/* TEXTO DE TARJETAS */
+.card p {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #00ffc3;
+
+    text-shadow: 0 0 6px rgba(0,255,200,0.6);
+}
+
+/* FOOTER */
+footer {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* EFECTO SCROLL SUAVE */
+html {
+    scroll-behavior: smooth;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
 }
