@@ -1,1 +1,61 @@
+function openModal(server){
+  const modal = document.getElementById("modal");
+  const text = document.getElementById("modal-text");
 
+  if(server === "minedark"){
+    text.innerHTML = `
+    <h2>MineDark</h2>
+    <p>
+    ✔ Box PvP completo<br>
+    ✔ Economía avanzada<br>
+    ✔ Sistema de kits<br>
+    ✔ Progresión personalizada<br>
+    ✔ Optimización total<br>
+    ✔ Plugins desde 0
+    </p>`;
+  }
+
+  if(server === "hyper"){
+    text.innerHTML = `
+    <h2>HyperCommunity</h2>
+    <p>
+    ✔ Bots Discord avanzados<br>
+    ✔ Sistemas automáticos<br>
+    ✔ Moderación avanzada<br>
+    ✔ Comandos personalizados
+    </p>`;
+  }
+
+  if(server === "tortrix"){
+    text.innerHTML = `
+    <h2>TortrixLand</h2>
+    <p>
+    ✔ Red con Velocity<br>
+    ✔ Bungeecord setup<br>
+    ✔ Infraestructura escalable
+    </p>`;
+  }
+
+  if(server === "warpon"){
+    text.innerHTML = `
+    <h2>WarpOnMC</h2>
+    <p>
+    ✔ Optimización extrema<br>
+    ✔ Mejor rendimiento<br>
+    ✔ Economía balanceada
+    </p>`;
+  }
+
+  modal.style.display = "block";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function(e){
+  const modal = document.getElementById("modal");
+  if(e.target == modal){
+    modal.style.display = "none";
+  }
+}
