@@ -12,6 +12,9 @@ body {
     flex-direction: column;
     overflow-x: hidden; /* Evita barras de scroll horizontales por si acaso */
     width: 100%; /* Asegura que el body ocupe todo el ancho */
+    /* Alinea el contenido del body al centro horizontalmente */
+    align-items: center; /* Esto centrará el .container */
+    justify-content: center; /* Esto centrará verticalmente si el contenido no llena la pantalla */
 }
 
 /* Estilos para el video de fondo */
@@ -68,6 +71,22 @@ body::before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     position: relative; /* Asegura que esté por encima del pseudo-elemento */
     z-index: 0;
+    /* Ajustes para que el contenido dentro del container se centre si es necesario */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los bloques de sección dentro del container */
+}
+
+/* Estilos de las secciones para que se vean bien sobre el fondo semitransparente del container */
+section {
+    width: 100%; /* Las secciones ocupan el 100% del ancho del .container */
+    text-align: left; /* Restablecer alineación de texto a la izquierda dentro de las secciones */
+    padding: 0; /* Asegurar que no haya padding extra */
+    margin-bottom: 30px; /* Espacio entre secciones */
+}
+
+header.profile-section {
+    text-align: center; /* Centrar elementos específicos del header */
 }
 
 /* Encabezados */
@@ -75,17 +94,18 @@ h1, h2, h3, h4 {
     font-family: 'Roboto Mono', monospace;
     color: #00bcd4; /* Color turquesa para los títulos */
     margin-top: 0;
+    text-align: left; /* Por defecto los títulos dentro de secciones se alinean a la izquierda */
 }
 
 h1 {
     font-size: 3em;
-    text-align: center;
+    text-align: center; /* h1 se mantiene centrado */
     margin-bottom: 5px;
 }
 
 h2 {
     font-size: 1.5em;
-    text-align: center;
+    text-align: center; /* h2 se mantiene centrado */
     color: #e0e0e0;
     margin-top: 0;
 }
@@ -108,6 +128,7 @@ h4 {
 /* Párrafos */
 p {
     margin-bottom: 15px;
+    text-align: left; /* Asegurar que los párrafos se alineen a la izquierda */
 }
 
 /* Listas */
@@ -115,6 +136,7 @@ ul {
     list-style: none; /* Eliminar viñetas predeterminadas */
     padding: 0;
     margin-bottom: 20px;
+    text-align: left; /* Asegurar que las listas se alineen a la izquierda */
 }
 
 ul li {
@@ -135,4 +157,192 @@ ul li::before {
 a {
     color: #00bcd4;
     text-decoration: none;
-    
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #008c9e; /* Color más oscuro al pasar el ratón */
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}
+
+/* Avatar de perfil */
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #00bcd4;
+    box-shadow: 0 0 15px #00bcd4; /* Efecto de brillo */
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas de sección (PORTAFOLIO DESARROLLADOR & MANAGER) */
+.section-tag {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    color: #00bcd4;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Descripción general */
+.description {
+    text-align: center;
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* Secciones de Habilidades y Proyectos */
+.skills-section, .projects-section, .about-section, .contact-section {
+    padding: 20px;
+    background-color: rgba(45, 45, 45, 0.7); /* Fondo un poco más oscuro para las secciones */
+    border-radius: 6px;
+    margin-top: 20px; /* Espacio entre el .container y las secciones */
+}
+
+/* Tarjetas de Proyecto */
+.project-card {
+    background-color: rgba(60, 60, 60, 0.8); /* Fondo más claro para las tarjetas de proyecto */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre el logo y el texto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:last-child {
+    margin-bottom: 0;
+}
+
+.project-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain; /* Ajustar el logo sin recortar */
+    border-radius: 4px; /* Pequeño radio para el logo */
+    flex-shrink: 0; /* Evita que el logo se encoja */
+}
+
+.project-card h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #e0e0e0;
+}
+
+.project-card .role {
+    font-style: italic;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.project-card .technologies {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* Contacto e Iconos Sociales */
+.contact-section {
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    font-size: 3em; /* Tamaño grande para los iconos */
+    margin: 0 15px;
+    color: #00bcd4;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Para aplicar transformaciones */
+}
+
+.social-icon:hover {
+    color: #00e5ff; /* Color más brillante al pasar el ratón */
+    transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+}
+
+.social-icon.discord-icon:hover {
+    color: #7289da; /* Color oficial de Discord */
+}
+
+.social-icon.github-icon:hover {
+    color: #ffffff; /* Color de GitHub */
+}
+
+
+.email-info {
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    margin-top: auto; /* Empuja el footer al final de la página */
+    padding: 20px 0;
+    text-align: center;
+    color: #bbb;
+    background-color: rgba(29, 29, 29, 0.9); /* Fondo semitransparente para el footer */
+    position: relative;
+    z-index: 0;
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Un poco más de ancho en pantallas pequeñas */
+        margin: 15px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project-card {
+        flex-direction: column; /* Apilar logo y texto en móviles */
+        text-align: center;
+    }
+
+    .project-logo {
+        margin-bottom: 10px;
+    }
+
+    .social-icon {
+        font-size: 2.5em;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+}
