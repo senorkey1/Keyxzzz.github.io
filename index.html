@@ -1,75 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyxzzz - Leyenda BoxPvP</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEYXZZZ</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- 🎬 HERO -->
+<section class="hero">
+  <h1>KEYXZZZ</h1>
+  <p>THE WORLD IS YOURS</p>
+  <button onclick="entrar()">ENTRAR</button>
+</section>
+
 <!-- 🎧 MÚSICA -->
-<audio autoplay loop>
-    <source src="music/eoo.mp3" type="audio/mpeg">
-</audio>
+<audio id="musica" src="music/eoo.mp3" loop></audio>
 
-<div class="container">
+<!-- 👤 PERFIL -->
+<section class="perfil" id="perfil">
 
-    <img src="images/keyxzzz_logo.png" class="profile-avatar">
+  <img src="images/keyxzzz_logo.png" class="avatar">
 
-    <h1>KEYXZZZ</h1>
-    <h2>Desarrollador Box PvP & Discord</h2>
+  <h2>KEYXZZZ</h2>
+  <p>Desarrollador Box PvP & Discord</p>
 
-    <p>
-        Desarrollador de 16 años de Ecuador especializado en servidores Box PvP de alto nivel.
-        Experto en sistemas avanzados, economía, kits y optimización de rendimiento.
-    </p>
+  <div class="info">
+    <h3>📌 Sobre mí</h3>
+    <p>Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord. Creo experiencias competitivas Box PvP y sistemas avanzados para comunidades.</p>
 
     <h3>🔥 Experiencia</h3>
-    <ul>
-        <li><b>MineDark:</b> Sistema completo BoxPvP (economía, kits, progresión)</li>
-        <li><b>HyperComunity:</b> Bots Discord + sistemas automatizados</li>
-        <li><b>TortrixLand:</b> Red con Velocity/Bungeecord</li>
-        <li><b>WarponMC:</b> Optimización + crecimiento activo</li>
-    </ul>
+  </div>
 
-    <h3>⚡ Habilidades</h3>
-    <ul>
-        <li>Box PvP avanzado</li>
-        <li>Paper / Velocity / Bungeecord</li>
-        <li>Discord Bots (discord.js)</li>
-        <li>Optimización extrema</li>
-    </ul>
+  <!-- 🖼️ SERVERS -->
+  <div class="servers">
 
-    <h3>🎮 Proyectos</h3>
-
-    <div class="gallery">
-        <div class="card">
-            <img src="images/minedark_logo.png">
-            <p>MineDark</p>
-        </div>
-
-        <div class="card">
-            <img src="images/warponmc_logo.png">
-            <p>WarponMC</p>
-        </div>
-
-        <div class="card">
-            <img src="images/tortrixland_logo.png">
-            <p>TortrixLand</p>
-        </div>
-
-        <div class="card">
-            <img src="images/hypercomunity_logo.png">
-            <p>HyperComunity</p>
-        </div>
+    <div class="server">
+      <img src="images/minedark_logo.png">
+      <h4>MineDark</h4>
+      <p>Box PvP completo con economía, kits y progresión avanzada.</p>
     </div>
 
-</div>
+    <div class="server">
+      <img src="images/hypercommunity_logo.png">
+      <h4>HyperCommunity</h4>
+      <p>Bots Discord, sistemas automáticos y herramientas avanzadas.</p>
+    </div>
 
-<footer>
-    © 2026 Keyxzzz
-</footer>
+    <div class="server">
+      <img src="images/tortrixland_logo.png">
+      <h4>TortrixLand</h4>
+      <p>Red escalable con Velocity y Bungeecord.</p>
+    </div>
+
+    <div class="server">
+      <img src="images/warponmc_logo.png">
+      <h4>WarpOnMC</h4>
+      <p>Optimización, economía y crecimiento de comunidad.</p>
+    </div>
+
+  </div>
+
+  <!-- ⚡ HABILIDADES -->
+  <div class="info">
+    <h3>⚡ Habilidades</h3>
+    <ul>
+      <li>✔ Box PvP avanzado</li>
+      <li>✔ Paper / Velocity / Bungeecord</li>
+      <li>✔ Bots Discord (discord.js)</li>
+      <li>✔ Optimización y rendimiento</li>
+    </ul>
+  </div>
+
+</section>
+
+<script>
+function entrar(){
+  document.getElementById("perfil").style.display = "block";
+  document.querySelector(".hero").style.display = "none";
+
+  let musica = document.getElementById("musica");
+  musica.volume = 0.4;
+  musica.play();
+}
+</script>
 
 </body>
 </html>
