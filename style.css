@@ -7,24 +7,26 @@ body {
     padding: 0;
     
     /* Configuración de la imagen de fondo directamente en el body */
-    background-image: url('images/TU_IMAGEN.jpg'); /* <<-- ¡AQUÍ VA EL NOMBRE DE TU IMAGEN! */
+    background-image: url('images/mi_fondo.jpg'); /* <<-- ¡TU IMAGEN! */
     background-size: cover; /* Cubre toda la pantalla */
     background-position: center center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-attachment: fixed; /* Fija la imagen para que no se mueva con el scroll */
-    filter: brightness(0.6) grayscale(100%); /* Aplicamos el filtro directamente a la imagen de fondo */
     
     position: relative; /* Necesario para que el overlay funcione */
     min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del viewport */
+    width: 100%; /* Asegura que el body ocupe todo el ancho */
+    overflow-x: hidden; /* Evita barras de scroll horizontales */
+    
+    /* Display flex para centrar el container, pero el container gestiona su propio ancho */
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Evita barras de scroll horizontales por si acaso */
-    width: 100%; /* Asegura que el body ocupe todo el ancho */
-    align-items: center; /* Esto centrará el .container */
+    align-items: center; /* Centra el container horizontalmente */
+    
     z-index: 0; /* Asegura que el body esté debajo de los overlays */
 }
 
-/* Estilos para el nuevo div de overlay */
+/* Estilos para el div de overlay (capa oscura y filtros) */
 .background-overlay {
     position: fixed;
     top: 0;
@@ -33,26 +35,26 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Capa oscura más fuerte */
     z-index: -1; /* Encima de la imagen de fondo del body, debajo del contenido */
+    filter: brightness(0.6) grayscale(100%); /* Aplicamos el filtro a la capa para afectar la imagen de abajo */
 }
 
 /* Contenedor principal de contenido */
 .container {
     width: 90%; /* Ancho relativo para el contenedor */
     max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
-    margin: 30px auto; /* Centrar el contenedor y darle margen */
+    margin: 30px auto; /* ¡Centrado clásico y robusto! */
     padding: 30px;
     background-color: rgba(29, 29, 29, 0.9); /* Fondo semitransparente para ver el overlay */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     position: relative; /* Asegura que esté por encima del overlay */
     z-index: 1; /* Asegura que el container esté sobre el overlay */
-    /* Aseguramos que el texto dentro del container esté alineado a la izquierda por defecto */
-    text-align: left; 
+    text-align: left; /* Asegura la alineación general del texto dentro del container */
 }
 
 /* Estilos de las secciones */
 section {
-    padding: 0; /* No necesitamos padding extra aquí */
+    padding: 0 20px; /* Añade padding horizontal a las secciones para que el texto no se pegue a los bordes del .container */
     margin-bottom: 30px; /* Espacio entre secciones */
     text-align: left; /* Asegura que el texto se alinee a la izquierda dentro de la sección */
 }
@@ -70,5 +72,52 @@ h1, h2, h3, h4 {
     color: #00bcd4; /* Color turquesa para los títulos */
     margin-top: 0;
     text-align: left; /* Por defecto los títulos dentro de secciones se alinean a la izquierda */
-    padding-left: 0; /* Asegurar que no haya padding extra
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center; /* h1 se mantiene centrado */
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-align: center; /* h2 se mantiene centrado */
+    color: #e0e0e0;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #00bcd4;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 1.3em;
+    color: #e0e0e0;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 15px;
+    text-align: left; /* Asegurar que los párrafos se alineen a la izquierda */
+}
+
+/* Listas */
+ul {
+    list-style: none; /* Eliminar viñetas predeterminadas */
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left; /* Asegurar que las listas se alineen a la izquierda */
+}
+
+ul li {
+    padding-left: 25px; /* Espacio para el guion personalizado */
+    position: relative;
+    margin-bottom: 8
     
