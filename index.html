@@ -6,199 +6,238 @@
 <title>Keyxzzz</title>
 
 <style>
-body{
-  margin:0;
-  font-family: Arial;
-  background: url("images/mi_fondo.jpg") no-repeat center center/cover;
-  color:white;
-  text-align:center;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    background: url('images/mi_fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
-/* OVERLAY INICIO */
-#inicio{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:rgba(0,0,0,0.7);
+/* Pantalla inicial */
+#inicio {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
 }
 
-/* FOTO PERFIL */
-.perfil{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  margin-bottom:15px;
-  border:3px solid #00ffc8;
-  box-shadow:0 0 20px #00ffc8;
+.logo {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
 }
 
-/* TITULO */
-h1{
-  font-size:40px;
-  color:#00ffc8;
-  text-shadow:0 0 20px #00ffc8;
-  margin:10px;
+h1 {
+    color: #00ffd5;
+    text-shadow: 0 0 20px #00ffd5;
 }
 
-/* SUB */
-.sub{
-  color:#ccc;
-  margin-bottom:25px;
+button {
+    padding: 12px 25px;
+    background: #00ffd5;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-/* BOTON */
-button{
-  padding:12px 30px;
-  border:none;
-  border-radius:10px;
-  background:#00ffc8;
-  color:black;
-  font-weight:bold;
-  cursor:pointer;
+/* Contenido */
+#contenido {
+    display: none;
+    padding: 20px;
 }
 
-/* CONTENIDO */
-#contenido{
-  display:none;
-  padding:20px;
+.card {
+    background: rgba(0,0,0,0.7);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
-/* CARDS */
-.card{
-  background:rgba(0,0,0,0.6);
-  margin:20px;
-  padding:20px;
-  border-radius:15px;
+/* Servidores */
+.servers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
-/* SERVERS */
-.servers{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
+.server {
+    background: #111;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
-.server{
-  background:#111;
-  padding:15px;
-  border-radius:10px;
+.server img {
+    width: 80px;
 }
 
-.server img{
-  width:60px;
-  margin-bottom:10px;
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
 }
 
-/* BILLETES */
-.money{
-  position:fixed;
-  top:-50px;
-  width:40px;
-  animation:caer 5s linear infinite;
+/* Billetes */
+.money {
+    position: fixed;
+    top: -50px;
+    width: 40px;
+    animation: caer 6s linear infinite;
 }
 
-@keyframes caer{
-  to{transform:translateY(120vh);}
+@keyframes caer {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(100vh); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- MUSICA -->
-<audio id="musica" loop>
-  <source src="music/eoo.mp3" type="audio/mpeg">
-</audio>
+<!-- Música -->
+<audio id="music" src="music/eoo.mp3" loop></audio>
 
-<!-- PANTALLA INICIO -->
+<!-- Pantalla inicio -->
 <div id="inicio">
-
-  <img src="images/keyxzzz_logo.png" class="perfil">
-
-  <h1>KEYXZZZ</h1>
-  <div class="sub">Keyxzzz | Configurador</div>
-
-  <button onclick="entrar()">ENTRAR</button>
-
+    <img src="images/keyxzzz_logo.png" class="logo">
+    <h1>KEYXZZZ</h1>
+    <p>Keyxzzz | Configurador</p>
+    <button onclick="entrar()">ENTRAR</button>
 </div>
 
-<!-- CONTENIDO -->
+<!-- Contenido -->
 <div id="contenido">
 
-  <div class="card">
-    <h2>📌 Sobre mí</h2>
-    <p>
-    Soy Keyxzzz, configurador profesional de servidores de Minecraft enfocado en calidad extrema.<br><br>
-    ✔ +1 año creando mapas PvP optimizados<br>
-    ✔ +1.5 años configurando servidores completos<br>
-    ✔ Especialista en BoxPvP competitivo<br>
-    ✔ Sistemas de economía avanzada<br>
-    ✔ Configuración de kits profesionales<br>
-    ✔ Protección total con WorldGuard<br>
-    ✔ Optimización de TPS y rendimiento<br>
-    ✔ Plugins configurados desde 0<br>
-    ✔ Sistemas únicos personalizados<br>
-    ✔ Experiencia en redes con Velocity y Bungee<br>
-    ✔ Configuración de permisos avanzados<br>
-    ✔ Anti-lag extremo<br>
-    ✔ Setup competitivo listo para producción<br>
-    ✔ Desarrollo enfocado en estabilidad<br>
-    ✔ Experiencia real en servidores activos<br>
-    </p>
-  </div>
+<div class="card">
+<h2>📌 Sobre mí</h2>
+<p>
+Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
++1 año como Builder creando mapas PvP optimizados.<br>
++1.5 años como Configurador profesional.<br><br>
+Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.<br>
+Trabajo creando servidores competitivos con alto rendimiento y jugabilidad fluida.
+</p>
+</div>
 
-  <div class="card">
-    <h2>🔥 Servidores</h2>
+<div class="card">
+<h2>🔥 Servidores</h2>
 
-    <div class="servers">
+<div class="servers">
 
-      <div class="server">
-        <img src="images/minedark_logo.png">
-        <p>MineDark<br>✔ BoxPvP<br>✔ Economía<br>✔ Kits</p>
-      </div>
+<div class="server" onclick="openServer('minedark')">
+<img src="images/minedark_logo.png">
+<p>MineDark</p>
+</div>
 
-      <div class="server">
-        <img src="images/hypercommunity_logo.png">
-        <p>HyperCommunity<br>✔ Bots<br>✔ Sistemas<br>✔ Moderación</p>
-      </div>
+<div class="server" onclick="openServer('hyper')">
+<img src="images/hypercommunity_logo.png">
+<p>HyperCommunity</p>
+</div>
 
-      <div class="server">
-        <img src="images/tortrixland_logo.png">
-        <p>TortrixLand<br>✔ Kits<br>✔ Protección<br>✔ Config completa</p>
-      </div>
+<div class="server" onclick="openServer('tortrix')">
+<img src="images/tortrixland_logo.png">
+<p>TortrixLand</p>
+</div>
 
-      <div class="server">
-        <img src="images/warponmc_logo.png">
-        <p>WarpOnMC<br>✔ Optimización<br>✔ Rendimiento<br>✔ Economía</p>
-      </div>
+<div class="server" onclick="openServer('warp')">
+<img src="images/warponmc_logo.png">
+<p>WarpOnMC</p>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 
 </div>
 
-<!-- SCRIPT -->
-<script>
-function entrar(){
-  document.getElementById("inicio").style.display="none";
-  document.getElementById("contenido").style.display="block";
+<!-- Popups -->
 
-  const audio = document.getElementById("musica");
-  audio.play();
+<div id="minedark" class="popup">
+<h2>MineDark</h2>
+<p>
+Soy el dueño de mi propio servidor MineDark, un proyecto enfocado en Box PvP competitivo.<br>
+Configuré completamente el sistema desde cero, incluyendo economía avanzada, kits y optimización total.<br><br>
+✔ BoxPvP<br>
+✔ Economía<br>
+✔ Kits<br>
+✔ Plugins desde 0
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<div id="hyper" class="popup">
+<h2>HyperCommunity</h2>
+<p>
+En HyperCommunity trabajé como Developer, creando bots y sistemas personalizados para Discord.<br>
+Implementé sistemas de moderación avanzados y automatización completa.<br><br>
+✔ Bots<br>
+✔ Sistemas<br>
+✔ Moderación
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<div id="tortrix" class="popup">
+<h2>TortrixLand</h2>
+<p>
+En TortrixLand fui Owner y configurador principal del servidor.<br>
+Desarrollé kits, protección completa del mundo y sistemas personalizados.<br><br>
+✔ Kits<br>
+✔ Protección<br>
+✔ Configuración completa
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<div id="warp" class="popup">
+<h2>WarpOnMC</h2>
+<p>
+En WarpOnMC fui Manager del servidor survival.<br>
+Me encargué de la optimización, economía y rendimiento general del servidor.<br><br>
+✔ Optimización<br>
+✔ Rendimiento<br>
+✔ Economía
+</p>
+<button onclick="closePop()">Cerrar</button>
+</div>
+
+<script>
+function entrar() {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+    document.getElementById("music").play();
 }
 
-/* BILLETES */
-setInterval(()=>{
-  let img=document.createElement("img");
-  img.src="images/money.png";
-  img.className="money";
-  img.style.left=Math.random()*100+"vw";
-  document.body.appendChild(img);
+/* Popups */
+function openServer(id) {
+    document.getElementById(id).style.display = "block";
+}
 
-  setTimeout(()=>img.remove(),5000);
-},500);
+function closePop() {
+    document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+}
+
+/* Billetes */
+setInterval(() => {
+    let img = document.createElement("img");
+    img.src = "images/money.png";
+    img.className = "money";
+    img.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(img);
+
+    setTimeout(() => img.remove(), 6000);
+}, 800);
 </script>
 
 </body>
