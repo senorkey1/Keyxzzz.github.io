@@ -23,7 +23,7 @@
     <source src="music/eoo.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 💀 CONTENIDO -->
+<!-- CONTENIDO -->
 <div id="mainContent">
 
 <div class="background-overlay"></div>
@@ -32,19 +32,68 @@
 <div class="hud">🔴 LIVE • CARTEL MODE</div>
 
 <div class="container">
-    <img src="images/keyxzzz_logo.png" class="profile-avatar">
-    <h1>KEYXZZZ</h1>
-    <p>Cartel Developer • Box PvP • Discord</p>
-</div>
+
+    <!-- PERFIL -->
+    <header>
+        <img src="images/keyxzzz_logo.png" class="profile-avatar">
+        <h1>KEYXZZZ</h1>
+        <h2>Desarrollador Box PvP & Discord</h2>
+        <p>Especialista en servidores competitivos y comunidades avanzadas</p>
+    </header>
+
+    <!-- SOBRE MI -->
+    <section>
+        <h3>💼 Sobre mí</h3>
+        <p>
+            Soy desarrollador de 16 años de Ecuador enfocado en crear experiencias
+            competitivas en Minecraft y sistemas avanzados en Discord.
+        </p>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section>
+        <h3>🔥 Experiencia</h3>
+
+        <div class="card">
+            <h4>🎮 MineDark</h4>
+            <p>Creador y desarrollador principal de un servidor Box PvP con sistemas personalizados, economía, kits y recompensas.</p>
+        </div>
+
+        <div class="card">
+            <h4>🌐 HyperComunity</h4>
+            <p>Desarrollador de bots Discord con sistemas de moderación, roles automáticos y herramientas avanzadas.</p>
+        </div>
+
+        <div class="card">
+            <h4>🛡️ TortrixLand</h4>
+            <p>Owner de red de servidores con infraestructura Velocity/Bungeecord y gestión completa del proyecto.</p>
+        </div>
+
+        <div class="card">
+            <h4>⚔️ WarponMC</h4>
+            <p>Manager y optimizador de servidor survival con crecimiento estable y comunidad activa.</p>
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+        <h3>🚀 Habilidades</h3>
+        <ul>
+            <li>⚔️ Box PvP avanzado</li>
+            <li>⚙️ Configuración Paper / Velocity</li>
+            <li>🤖 Bots Discord (discord.js)</li>
+            <li>📊 Optimización de servidores</li>
+        </ul>
+    </section>
 
 </div>
 
-<button id="musicBtn" class="music-btn">💰</button>
+</div>
 
 <script>
 const music = document.getElementById("bgMusic");
 const main = document.getElementById("mainContent");
-
 main.style.display = "none";
 
 function enterSite() {
@@ -63,21 +112,17 @@ function enterSite() {
         } else clearInterval(fade);
     }, 200);
 
-    // 💥 efecto cámara
     document.body.classList.add("shake");
-    setTimeout(() => {
-        document.body.classList.remove("shake");
-    }, 500);
+    setTimeout(() => document.body.classList.remove("shake"), 500);
 }
 
-/* 💰 LLUVIA */
+/* LLUVIA */
 const rain = document.querySelector(".money-rain");
 setInterval(() => {
     const money = document.createElement("div");
     money.classList.add("money");
     money.innerText = "💵";
     money.style.left = Math.random() * 100 + "vw";
-    money.style.animationDuration = (Math.random() * 3 + 2) + "s";
     rain.appendChild(money);
     setTimeout(() => money.remove(), 5000);
 }, 300);
