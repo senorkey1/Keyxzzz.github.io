@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden; /* Evita barras de scroll horizontales por si acaso */
-    /* No se pone background-image aquí, porque el video lo manejamos aparte */
+    width: 100%; /* Asegura que el body ocupe todo el ancho */
 }
 
 /* Estilos para el video de fondo */
@@ -59,7 +59,8 @@ body::before {
 
 /* Contenedor principal de contenido */
 .container {
-    max-width: 900px;
+    width: 90%; /* Ancho relativo para el contenedor */
+    max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
     margin: 30px auto; /* Centrar el contenedor y darle margen */
     padding: 30px;
     background-color: rgba(29, 29, 29, 0.9); /* Fondo semitransparente para ver la animación */
@@ -125,4 +126,13 @@ ul li {
 ul li::before {
     content: '—'; /* Guion personalizado para las listas */
     position: absolute;
+    left: 0;
+    color: #00bcd4; /* Color turquesa para el guion */
+    font-weight: bold;
+}
+
+/* Enlaces */
+a {
+    color: #00bcd4;
+    text-decoration: none;
     
