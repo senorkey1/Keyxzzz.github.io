@@ -13,17 +13,15 @@ body {
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-attachment: fixed; /* Fija la imagen para que no se mueva con el scroll */
     
-    position: relative; /* Necesario para que el overlay funcione */
-    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del viewport */
-    width: 100%; /* Asegura que el body ocupe todo el ancho */
-    overflow-x: hidden; /* Evita barras de scroll horizontales */
-    
-    /* Display flex para centrar el container, pero el container gestiona su propio ancho */
+    /* Centrar el contenido y asegurar que ocupe toda la altura */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center; /* Centra el container horizontalmente */
     
-    z-index: 0; /* Asegura que el body esté debajo de los overlays */
+    overflow-x: hidden; /* Evita barras de scroll horizontales */
+    width: 100%; /* Asegura que el body ocupe todo el ancho */
+    position: relative; /* Necesario para que el overlay funcione */
 }
 
 /* Estilos para el div de overlay (capa oscura y filtros) */
@@ -50,6 +48,7 @@ body {
     position: relative; /* Asegura que esté por encima del overlay */
     z-index: 1; /* Asegura que el container esté sobre el overlay */
     text-align: left; /* Asegura la alineación general del texto dentro del container */
+    flex-grow: 1; /* Permite que el container crezca y empuje el footer hacia abajo */
 }
 
 /* Estilos de las secciones */
@@ -76,48 +75,5 @@ h1, h2, h3, h4 {
 
 h1 {
     font-size: 3em;
-    text-align: center; /* h1 se mantiene centrado */
-    margin-bottom: 5px;
-}
-
-h2 {
-    font-size: 1.5em;
-    text-align: center; /* h2 se mantiene centrado */
-    color: #e0e0e0;
-    margin-top: 0;
-}
-
-h3 {
-    font-size: 1.8em;
-    border-bottom: 2px solid #00bcd4;
-    padding-bottom: 5px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-h4 {
-    font-size: 1.3em;
-    color: #e0e0e0;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-
-/* Párrafos */
-p {
-    margin-bottom: 15px;
-    text-align: left; /* Asegurar que los párrafos se alineen a la izquierda */
-}
-
-/* Listas */
-ul {
-    list-style: none; /* Eliminar viñetas predeterminadas */
-    padding: 0;
-    margin-bottom: 20px;
-    text-align: left; /* Asegurar que las listas se alineen a la izquierda */
-}
-
-ul li {
-    padding-left: 25px; /* Espacio para el guion personalizado */
-    position: relative;
-    margin-bottom: 8
+    text-align
     
