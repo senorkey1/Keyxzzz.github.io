@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,18 +11,18 @@
 
 body{
   font-family:Arial;
-  background:black;
   color:white;
+  background:black;
 }
 
-/* FONDO */
+/* FONDO REAL */
 body::before{
   content:"";
   position:fixed;
   width:100%;
   height:100%;
-  background:url("https://images.unsplash.com/photo-1614850523060-8da3f0c0b7a3") center/cover;
-  filter:brightness(0.3);
+  background:url("fondo.jpg") center/cover;
+  filter:brightness(0.35);
   z-index:-1;
 }
 
@@ -40,39 +39,26 @@ body::before{
 .hero img{
   width:120px;
   margin-bottom:15px;
-  animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
 }
 
 .hero h1{
   font-size:50px;
   color:#00ffd5;
-  text-shadow:0 0 20px #00ffd5;
 }
 
 .hero p{
+  margin:10px;
   opacity:0.7;
-  margin:10px 0;
 }
 
 .btn{
-  margin-top:25px;
-  padding:14px 35px;
-  border:none;
-  border-radius:12px;
+  margin-top:20px;
+  padding:12px 30px;
   background:#00ffd5;
   color:black;
-  font-weight:bold;
+  border:none;
+  border-radius:10px;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.1);
 }
 
 /* SECCIONES */
@@ -86,30 +72,27 @@ body::before{
   background:rgba(0,0,0,0.7);
   padding:25px;
   border-radius:15px;
-  margin-bottom:25px;
-  box-shadow:0 0 20px rgba(0,255,200,0.2);
+  margin-bottom:20px;
 }
 
 /* GRID */
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:15px;
 }
 
 .server{
   background:#111;
-  padding:20px;
-  border-radius:15px;
+  padding:15px;
+  border-radius:12px;
   text-align:center;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.server:hover{
-  background:#00ffd5;
-  color:black;
-  transform:scale(1.05);
+.server img{
+  width:60px;
+  margin-bottom:10px;
 }
 
 /* MODAL */
@@ -118,8 +101,6 @@ body::before{
   position:fixed;
   width:100%;
   height:100%;
-  top:0;
-  left:0;
   background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
@@ -127,24 +108,9 @@ body::before{
 
 .modal-box{
   background:#111;
-  padding:25px;
-  border-radius:15px;
-  width:300px;
-}
-
-/* BILLETES */
-.money{
-  position:fixed;
-  top:-50px;
-  width:30px;
-  opacity:0.7;
-  animation:fall linear infinite;
-}
-
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-  }
+  padding:20px;
+  border-radius:12px;
+  width:320px;
 }
 </style>
 
@@ -154,7 +120,7 @@ body::before{
 <!-- HERO -->
 <div class="hero">
 
-<img src="https://mc-heads.net/avatar/Notch/100">
+<img src="skin.png">
 
 <h1>KEYXZZZ</h1>
 <p>Keyxzzz | Configurador</p>
@@ -170,21 +136,21 @@ body::before{
 <h2>📌 Sobre mí</h2>
 
 <p>
-Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
+Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
 
-+1 año como Builder creando mapas PvP profesionales.<br>
-+1.5 años como Configurador trabajando con plugins avanzados.<br><br>
++1 año como Builder creando mapas PvP optimizados.<br>
++1.5 años como Configurador profesional.<br><br>
 
-✔ Especialista en Box PvP competitivo<br>
-✔ Economía avanzada y balanceada<br>
-✔ Sistemas personalizados desde 0<br>
-✔ Optimización extrema (sin lag)<br>
-✔ Configuración de Velocity y BungeeCord<br>
+✔ Especialista en Box PvP<br>
+✔ Economía avanzada<br>
+✔ Sistemas personalizados<br>
+✔ Optimización extrema<br>
+✔ Configuración completa de servidores<br>
+✔ Seguridad y protección<br>
+✔ Plugins desde 0<br>
+✔ Experiencia en redes grandes<br>
+✔ Balance perfecto de jugabilidad<br>
 ✔ Automatización de sistemas<br>
-✔ Experiencia en servidores grandes<br>
-✔ Seguridad y anti exploits<br>
-✔ Diseño de jugabilidad profesional<br>
-✔ Soporte y mantenimiento constante<br>
 </p>
 
 </div>
@@ -194,10 +160,25 @@ Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><b
 
 <div class="grid">
 
-<div class="server" onclick="openModal('MineDark')">MineDark</div>
-<div class="server" onclick="openModal('Hyper')">HyperCommunity</div>
-<div class="server" onclick="openModal('Tortrix')">TortrixLand</div>
-<div class="server" onclick="openModal('Warp')">WarpOnMC</div>
+<div class="server" onclick="openModal('minedark')">
+<img src="minedark.png">
+<p>MineDark</p>
+</div>
+
+<div class="server" onclick="openModal('hyper')">
+<img src="hyper.png">
+<p>HyperCommunity</p>
+</div>
+
+<div class="server" onclick="openModal('tortrix')">
+<img src="tortrix.png">
+<p>TortrixLand</p>
+</div>
+
+<div class="server" onclick="openModal('warpon')">
+<img src="warpon.png">
+<p>WarpOnMC</p>
+</div>
 
 </div>
 
@@ -210,34 +191,77 @@ Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><b
 <div class="modal-box" id="modalText"></div>
 </div>
 
-<!-- MUSICA -->
+<!-- MUSICA REAL -->
 <audio id="music" loop>
-<source src="https://files.catbox.moe/3z6w9p.mp3">
+<source src="music.mp3">
 </audio>
 
 <script>
 
-/* ENTRAR */
 function enter(){
-  document.getElementById("main").scrollIntoView({behavior:"smooth"});
-  document.getElementById("music").play();
+document.getElementById("main").scrollIntoView({behavior:"smooth"});
+document.getElementById("music").play();
 }
 
-/* MODAL */
+/* MODAL FULL INFO */
 function openModal(s){
+
 let t="";
 
-if(s=="MineDark"){
-t="MineDark<br>✔ Box PvP completo<br>✔ Economía avanzada<br>✔ Plugins desde 0";
+if(s=="minedark"){
+t=`<h2>MineDark</h2>
+✔ Box PvP completo<br>
+✔ Economía avanzada<br>
+✔ Sistema de kits<br>
+✔ Progresión personalizada<br>
+✔ Plugins desde 0<br>
+✔ Optimización total<br>
+✔ Protección completa del servidor<br>
+✔ Configuración de ranks<br>
+✔ Sistema de eventos<br>
+✔ Balance de PvP profesional`;
 }
-if(s=="Hyper"){
-t="HyperCommunity<br>✔ Bots Discord<br>✔ Sistemas automáticos";
+
+if(s=="hyper"){
+t=`<h2>HyperCommunity</h2>
+✔ Bots avanzados<br>
+✔ Sistemas automáticos<br>
+✔ Moderación completa<br>
+✔ Logs personalizados<br>
+✔ Comandos únicos<br>
+✔ Seguridad anti raid<br>
+✔ Integración con servidor<br>
+✔ Panel administrativo<br>
+✔ Automatización total<br>
+✔ Sistema de tickets`;
 }
-if(s=="Tortrix"){
-t="TortrixLand<br>✔ Velocity<br>✔ Red escalable";
+
+if(s=="tortrix"){
+t=`<h2>TortrixLand</h2>
+✔ Configuración de kits PvP<br>
+✔ Protección completa del spawn<br>
+✔ Sistema de warps<br>
+✔ Configuración de economía<br>
+✔ Plugins optimizados<br>
+✔ Red con Velocity<br>
+✔ Bungeecord setup<br>
+✔ Seguridad anti exploits<br>
+✔ Balance de juego<br>
+✔ Optimización de rendimiento`;
 }
-if(s=="Warp"){
-t="WarpOnMC<br>✔ Optimización extrema<br>✔ Rendimiento";
+
+if(s=="warpon"){
+t=`<h2>WarpOnMC</h2>
+✔ Optimización extrema<br>
+✔ Reducción de lag<br>
+✔ Configuración avanzada<br>
+✔ Sistema económico balanceado<br>
+✔ Plugins optimizados<br>
+✔ Seguridad del servidor<br>
+✔ Mejor rendimiento TPS<br>
+✔ Configuración profesional<br>
+✔ Ajustes de rendimiento<br>
+✔ Estabilidad total`;
 }
 
 document.getElementById("modalText").innerHTML=t;
@@ -247,22 +271,6 @@ document.getElementById("modal").style.display="flex";
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
-
-/* BILLETES PRO */
-function createMoney(){
-let img=document.createElement("img");
-img.src="https://pngimg.com/uploads/dollar/dollar_PNG216.png";
-img.classList.add("money");
-
-img.style.left=Math.random()*100+"vw";
-img.style.animationDuration=(Math.random()*3+3)+"s";
-
-document.body.appendChild(img);
-
-setTimeout(()=>{img.remove()},6000);
-}
-
-setInterval(createMoney,300);
 
 </script>
 
