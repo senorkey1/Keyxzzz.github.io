@@ -3,119 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KEYXZZZ</title>
-<link rel="stylesheet" href="style.css">
+
+<title>KEYXZZZ | Legend Mode</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    background: black;
+}
+
+/* FONDO */
+.fondo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OSCURECER */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), black);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    padding: 40px;
+}
+
+.header h1 {
+    color: #00ffcc;
+    font-size: 40px;
+    margin: 0;
+}
+
+.header p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.btn {
+    background: white;
+    color: black;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* CONTENIDO */
+.container {
+    padding: 40px;
+    max-width: 900px;
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-left: 3px solid #00ffcc;
+}
+
+/* SERVERS */
+.servers img {
+    width: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.servers img:hover {
+    transform: scale(1.1);
+}
+
+/* IMAGEN CENTRAL */
+.center-img {
+    display: block;
+    margin: 40px auto;
+    width: 300px;
+}
+
+/* LLUVIA DE DINERO */
+.money {
+    position: fixed;
+    top: -100px;
+    width: 60px;
+    animation: fall linear infinite;
+    z-index: 5;
+}
+
+@keyframes fall {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(120vh);}
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- 💸 BILLETES -->
-<div class="money-layer"></div>
+<img src="images/mi_fondo.jpg" class="fondo">
+<div class="overlay"></div>
 
-<!-- 🎬 HERO -->
-<section class="hero">
-  <div class="hero-content">
+<!-- LLUVIA -->
+<script>
+for(let i=0;i<15;i++){
+    let img=document.createElement("img");
+    img.src="images/money.png";
+    img.className="money";
+    img.style.left=Math.random()*100+"%";
+    img.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(img);
+}
+</script>
+
+<!-- HEADER -->
+<div class="header">
     <h1>KEYXZZZ</h1>
     <p>THE WORLD IS YOURS</p>
-    <button onclick="enter()">ENTRAR</button>
-  </div>
-</section>
+    <button class="btn">ENTRAR</button>
+</div>
 
-<!-- 🎧 AUDIO -->
-<audio id="music" src="music/eoo.mp3" loop></audio>
+<!-- IMAGEN -->
+<img src="images/keyxzzz_logo.png" class="center-img">
 
-<!-- 👤 PERFIL -->
-<section id="app" class="hidden">
+<!-- CONTENIDO -->
+<div class="container">
 
-  <div class="perfil">
-    <img src="images/keyxzzz_logo.png" class="avatar">
-    <h2>KEYXZZZ</h2>
-    <p>Desarrollador Box PvP & Discord</p>
-  </div>
+    <div class="card">
+        <h2>🔥 Sobre mí</h2>
+        <p>
+        Soy desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.  
+        Me especializo en crear servidores competitivos Box PvP, sistemas avanzados  
+        y comunidades bien estructuradas con rendimiento optimizado.
+        </p>
+    </div>
 
-  <div class="info">
-    <h3>📌 Sobre mí</h3>
-    <p>Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.</p>
-  </div>
+    <div class="card">
+        <h2>⚡ Experiencia</h2>
+        <p><b>MineDark</b> → Servidor Box PvP completo con economía, kits y progresión avanzada.</p>
+        <p><b>HyperCommunity</b> → Bots Discord automáticos, sistemas personalizados y herramientas.</p>
+        <p><b>TortrixLand</b> → Red escalable con Velocity y Bungeecord.</p>
+        <p><b>WarpOnMC</b> → Optimización, economía y crecimiento de comunidad.</p>
+    </div>
 
-  <div class="info">
-    <h3>🔥 Experiencia</h3>
+    <div class="card servers">
+        <h2>🎮 Servidores trabajados</h2>
 
-    <div class="grid">
-
-      <div class="card">
-        <img src="images/minedark_logo.png?v=6">
-        <h4>MineDark</h4>
-        <p>Box PvP completo</p>
-      </div>
-
-      <div class="card">
-        <img src="images/hypercommunity_logo.png?v=6">
-        <h4>HyperCommunity</h4>
-        <p>Bots y sistemas</p>
-      </div>
-
-      <div class="card">
-        <img src="images/tortrixland_logo.png?v=6">
-        <h4>TortrixLand</h4>
-        <p>Red con Velocity</p>
-      </div>
-
-      <div class="card">
-        <img src="images/warponmc_logo.png?v=6">
-        <h4>WarpOnMC</h4>
-        <p>Optimización</p>
-      </div>
+        <img src="images/minedark_logo.png">
+        <img src="images/hypercommunity_logo.png">
+        <img src="images/tortrixland_logo.png">
+        <img src="images/warponmc_logo.png">
 
     </div>
-  </div>
 
-  <div class="info">
-    <h3>⚡ Habilidades</h3>
-    <ul>
-      <li>Box PvP avanzado</li>
-      <li>Velocity / Bungeecord</li>
-      <li>Discord Bots</li>
-      <li>Optimización</li>
-    </ul>
-  </div>
+    <div class="card">
+        <h2>💎 Habilidades</h2>
+        <ul>
+            <li>Box PvP avanzado</li>
+            <li>Velocity / Bungeecord</li>
+            <li>Bots Discord (discord.js)</li>
+            <li>Optimización y rendimiento</li>
+            <li>Sistemas personalizados</li>
+        </ul>
+    </div>
 
-</section>
-
-<script>
-const app = document.getElementById("app");
-const hero = document.querySelector(".hero");
-const music = document.getElementById("music");
-
-function enter(){
-  hero.classList.add("fade");
-  setTimeout(()=>{
-    hero.style.display="none";
-    app.classList.remove("hidden");
-    music.volume = 0.4;
-    music.play();
-  },600);
-}
-
-/* 💸 BILLETES */
-const layer = document.querySelector(".money-layer");
-
-function createBill(){
-  const bill = document.createElement("img");
-  bill.src = "images/money.png";
-  bill.className = "bill";
-
-  bill.style.left = Math.random()*100 + "vw";
-  bill.style.width = (20 + Math.random()*30) + "px";
-  bill.style.animationDuration = (5 + Math.random()*5) + "s";
-
-  layer.appendChild(bill);
-
-  setTimeout(()=> bill.remove(), 10000);
-}
-
-setInterval(createBill, 250);
-</script>
+</div>
 
 </body>
 </html>
