@@ -3,84 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keyxzzz</title>
+<title>Keyxzzz Ultra Pro++</title>
 
 <style>
 
 body {
-  margin: 0;
-  font-family: Arial;
-  background: url("images/mi_fondo.jpg") no-repeat center/cover;
-  color: white;
+    margin:0;
+    font-family:Arial;
+    color:white;
+    background: url("images/mi_fondo.jpg") no-repeat center/cover;
+    overflow-x:hidden;
 }
 
-/* Cartas */
-.card {
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px;
+/* Oscuro + blur */
+.overlay{
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(10px);
+    min-height:100vh;
+    padding:20px;
 }
 
-/* Diamante */
-.diamante {
-  width: 80px;
-  display: block;
-  margin: auto;
-  animation: girar 5s linear infinite, glow 2s infinite alternate;
+/* CARTAS */
+.card{
+    background:rgba(0,0,0,0.6);
+    padding:20px;
+    border-radius:20px;
+    margin:20px 0;
+    box-shadow:0 0 25px rgba(0,255,255,0.2);
+    animation:fadeUp 1s ease;
 }
 
-@keyframes girar {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+/* ANIMACIÓN */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
-@keyframes glow {
-  from { filter: drop-shadow(0 0 5px #00ffd5); }
-  to { filter: drop-shadow(0 0 25px #00ffd5); }
+/* TITULOS */
+h2{
+    margin-top:0;
+    text-shadow:0 0 10px cyan;
 }
 
-/* Servidores */
-.server {
-  background: rgba(0,0,0,0.8);
-  border-radius: 20px;
-  padding: 15px;
-  text-align: center;
-  width: 40%;
-  margin: 10px;
-  display: inline-block;
-  transition: 0.3s;
+/* SERVERS */
+.servers{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
-.server:hover {
-  transform: scale(1.05);
+.server{
+    background:rgba(0,0,0,0.7);
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 10px rgba(0,255,255,0.2);
 }
 
-/* Popup */
-.popup {
-  display: none;
-  position: fixed;
-  top: 10%;
-  left: 5%;
-  width: 90%;
-  background: rgba(0,0,0,0.9);
-  padding: 20px;
-  border-radius: 20px;
-  animation: aparecer 0.4s;
+.server:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px cyan;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+.server img{
+    width:70px;
 }
 
-.btn {
-  background: #00ffd5;
-  padding: 10px;
-  border-radius: 10px;
-  color: black;
-  text-decoration: none;
+/* POPUP */
+.popup{
+    display:none;
+    position:fixed;
+    top:10%;
+    left:5%;
+    width:90%;
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    z-index:999;
+    box-shadow:0 0 30px cyan;
+}
+
+/* BOTON */
+button{
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:cyan;
+    color:black;
+}
+
+/* BARRAS */
+.bar{
+    background:#222;
+    border-radius:10px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.bar div{
+    height:10px;
+    background:linear-gradient(90deg,cyan,blue);
+}
+
+/* DIAMANTE */
+.diamond{
+    width:90px;
+    display:block;
+    margin:auto;
+    animation:girar 4s linear infinite;
+    filter:drop-shadow(0 0 10px cyan);
+}
+
+@keyframes girar{
+    from{transform:rotateY(0deg);}
+    to{transform:rotateY(360deg);}
+}
+
+/* ENTRADA */
+#inicio{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+
+#inicio button{
+    font-size:25px;
+    padding:20px;
+    background:linear-gradient(45deg,cyan,blue);
+}
+
+/* FUEGO */
+.fire{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:120px;
+    background:linear-gradient(transparent,orange,red);
+    opacity:0.6;
+    animation:fireMove 2s infinite alternate;
+}
+
+@keyframes fireMove{
+    from{transform:translateY(0);}
+    to{transform:translateY(10px);}
+}
+
+/* PARTICULAS */
+.particle{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:cyan;
+    border-radius:50%;
+    opacity:0.7;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
 }
 
 </style>
@@ -88,19 +177,41 @@ body {
 
 <body>
 
+<!-- ENTRADA -->
+<div id="inicio">
+<button onclick="entrar()">ENTRAR</button>
+</div>
+
+<audio id="music" src="eoo.mp3"></audio>
+
+<div id="contenido" class="overlay" style="display:none;">
+
 <!-- SOBRE MI -->
 <div class="card">
 <h2>📌 Sobre mí</h2>
-<img src="images/keyxzzz_logo.png" class="diamante">
+
+<img src="images/keyxzzz_logo.png" class="diamond">
 
 <p>
 Especialista en servidores Minecraft con experiencia en BoxPvP competitivo, economía avanzada y optimización extrema.
-Me enfoco en crear sistemas únicos y configuraciones profesionales.
+Me enfoco en crear sistemas únicos, configuraciones profesionales y servidores estables.
 </p>
 
 <p>
-Trabajo creando servidores estables, optimizados y listos para producción.
+Trabajo optimizando rendimiento, configurando plugins desde cero y creando experiencias fluidas.
+Cada servidor que hago está diseñado para ser competitivo, estable y profesional.
 </p>
+
+<h3>⚡ Habilidades</h3>
+
+Configuración
+<div class="bar"><div style="width:95%"></div></div>
+
+Optimización
+<div class="bar"><div style="width:90%"></div></div>
+
+Plugins
+<div class="bar"><div style="width:92%"></div></div>
 
 </div>
 
@@ -114,94 +225,99 @@ Trabajo creando servidores estables, optimizados y listos para producción.
 ✔ Gestión completa de servidores
 </div>
 
-<!-- SERVIDORES -->
+<!-- SERVERS -->
 <div class="card">
 <h2>🔥 Servidores</h2>
 
+<div class="servers">
+
 <div class="server" onclick="openServer('mine')">
-<img src="images/minedark_logo.png" width="80"><br>MineDark
+<img src="images/minedark_logo.png">
+<p>MineDark</p>
 </div>
 
 <div class="server" onclick="openServer('hyper')">
-<img src="images/hypercommunity_logo.png" width="80"><br>HyperCommunity
+<img src="images/hypercommunity_logo.png">
+<p>HyperCommunity</p>
 </div>
 
 <div class="server" onclick="openServer('tortrix')">
-<img src="images/tortrixland_logo.png" width="80"><br>TortrixLand
+<img src="images/tortrixland_logo.png">
+<p>TortrixLand</p>
 </div>
 
 <div class="server" onclick="openServer('warp')">
-<img src="images/warponmc_logo.png" width="80"><br>WarpOnMC
+<img src="images/warponmc_logo.png">
+<p>WarpOnMC</p>
 </div>
 
+</div>
 </div>
 
 <!-- CONTACTO -->
 <div class="card">
 <h2>📩 Contacto</h2>
-
-<a href="https://discord.com/users/1072608933249822720" class="btn">💬 Discord</a>
-<br><br>
-<a href="mailto:senorkey1@gmail.com" class="btn">📧 Correo</a>
+<a href="https://discord.com/users/1072608933249822720" target="_blank">💬 Discord</a><br><br>
+<a href="mailto:senorkey1@gmail.com">📧 Correo</a>
+</div>
 
 </div>
 
-<!-- POPUPS -->
+<!-- FUEGO -->
+<div class="fire"></div>
 
+<!-- POPUPS -->
 <div id="mine" class="popup">
 <h2>MineDark</h2>
-<p>
-Soy dueño del servidor MineDark, configurado completamente por mí con sistemas BoxPvP, economía avanzada y optimización.
-</p>
-<p>
-Servidor estable, competitivo y profesional.
-</p>
+<p>Servidor BoxPvP creado desde cero con economía balanceada y sistemas avanzados.</p>
 <button onclick="closePop()">Cerrar</button>
 </div>
 
 <div id="hyper" class="popup">
 <h2>HyperCommunity</h2>
-<p>
-Desarrollador del servidor, encargado de sistemas, bots y optimización.
-</p>
-<p>
-Creación de sistemas avanzados y automatización.
-</p>
+<p>Desarrollo de bots y sistemas personalizados para comunidades.</p>
 <button onclick="closePop()">Cerrar</button>
 </div>
 
 <div id="tortrix" class="popup">
 <h2>TortrixLand</h2>
-<p>
-Owner del servidor, configuré kits, protección y sistemas completos.
-</p>
-<p>
-Servidor estable y seguro.
-</p>
+<p>Servidor completo con kits, protección y configuraciones optimizadas.</p>
 <button onclick="closePop()">Cerrar</button>
 </div>
 
 <div id="warp" class="popup">
 <h2>WarpOnMC</h2>
-<p>
-Manager del servidor survival, encargado de optimización y economía.
-</p>
-<p>
-Mejoré rendimiento y estabilidad general.
-</p>
+<p>Manager de survival con optimización y economía avanzada.</p>
 <button onclick="closePop()">Cerrar</button>
 </div>
 
 <script>
 
+/* ENTRAR */
+function entrar(){
+document.getElementById("inicio").style.display="none";
+document.getElementById("contenido").style.display="block";
+document.getElementById("music").play();
+}
+
+/* POPUPS */
 function openServer(id){
-  document.getElementById(id).style.display = "block";
-  new Audio("sounds/eoo.mp3").play();
+document.getElementById(id).style.display="block";
 }
 
 function closePop(){
-  document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
+document.querySelectorAll(".popup").forEach(p=>p.style.display="none");
 }
+
+/* PARTICULAS */
+setInterval(()=>{
+let p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"vw";
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),6000);
+},200);
 
 </script>
 
