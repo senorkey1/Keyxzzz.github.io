@@ -9,137 +9,286 @@
 body{
 margin:0;
 font-family:Arial;
-overflow:hidden;
 color:white;
+overflow-x:hidden;
+background:url('images/mi_fondo.jpg') no-repeat center/cover;
 }
 
-/* FONDO */
-.bg{
+/* PARTÍCULAS */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:0;
+}
+
+/* INTRO */
+#intro{
 position:fixed;
 width:100%;
 height:100%;
-background:url("images/mi_fondo.jpg") center/cover no-repeat;
-filter:brightness(0.4);
-z-index:-2;
-}
-
-/* OVERLAY */
-.overlay{
-position:fixed;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-z-index:-1;
-}
-
-/* CONTENIDO */
-.container{
-height:100vh;
+background:url('images/mi_fondo.jpg') no-repeat center/cover;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+flex-direction:column;
+z-index:10;
 text-align:center;
 padding:20px;
 }
 
-/* TITULO */
-h1{
-font-size:38px;
-margin-bottom:20px;
+#intro h1{
+font-size:45px;
 text-shadow:0 0 20px cyan;
 }
 
-/* TEXTO */
-p{
-max-width:600px;
-line-height:1.6;
-}
-
-/* BOTÓN */
-.btn{
-margin-top:25px;
+#intro button{
+margin-top:20px;
 padding:15px 40px;
-font-size:20px;
 border:none;
 border-radius:15px;
-background:linear-gradient(45deg,cyan,blue);
-color:white;
-cursor:pointer;
-box-shadow:0 0 25px cyan;
+background:linear-gradient(45deg, cyan, blue);
+color:black;
+font-size:20px;
+}
+
+/* CONTENIDO */
+.container{
+display:none;
+padding:20px;
+position:relative;
+z-index:2;
+}
+
+/* CARD */
+.card{
+background:rgba(0,0,0,0.7);
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* SKIN */
+.skin{
+width:120px;
+display:block;
+margin:auto;
+animation:float 3s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+}
+
+/* HABILIDADES */
+.bar{
+background:#222;
+border-radius:10px;
+margin:10px 0;
+}
+.bar span{
+display:block;
+padding:5px;
+background:cyan;
+border-radius:10px;
+}
+
+/* SERVERS */
+.servers{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.server{
+background:#111;
+padding:10px;
+border-radius:15px;
+text-align:center;
 transition:0.3s;
 }
 
-.btn:hover{
+.server:hover{
 transform:scale(1.1);
-box-shadow:0 0 50px cyan;
+box-shadow:0 0 15px cyan;
 }
 
-/* PORTAL */
-.portal{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-opacity:0;
-pointer-events:none;
-z-index:10;
-transition:1s;
+.server img{
+width:60px;
 }
 
-.portal.active{
-opacity:1;
+/* CONTACTO */
+.contact a{
+display:block;
+color:cyan;
+margin-top:10px;
+text-decoration:none;
+font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-<div class="overlay"></div>
-
-<div class="container">
-<h1>🔥 Bienvenido a Keyxzzz 🔥</h1>
-
-<p>
-Tengo 16 años, soy de Ecuador 🇪🇨 y me especializo en la creación y configuración de servidores Minecraft.
-Cuento con más de 1 año de experiencia como configurador y builder.
-</p>
-
-<p>
-Trabajo creando servidores optimizados, estables y profesionales,
-con sistemas avanzados, economía balanceada y experiencias únicas.
-</p>
-
-<button class="btn" onclick="entrar()">ENTRAR</button>
-</div>
-
-<div class="portal" id="portal"></div>
+<canvas id="particles"></canvas>
 
 <!-- AUDIO -->
-<audio id="music" src="eoo.mp3" loop></audio>
-<audio id="click" src="eoo.mp3"></audio>
+<audio id="music" loop>
+<source src="audio/eoo.mp3">
+</audio>
 
+<audio id="click">
+<source src="audio/eoo.mp3">
+</audio>
+
+<!-- INTRO -->
+<div id="intro">
+<h1>🔥 Bienvenido 🔥</h1>
+
+<p>
+Tengo 16 años, soy de Ecuador 🇪🇨 y soy configurador profesional.<br>
+Más de 1 año creando servidores optimizados, estables y únicos.<br><br>
+Especialista en BoxPvP, economía avanzada y rendimiento extremo.
+</p>
+
+<button onclick="entrar()">ENTRAR</button>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container" id="main">
+
+<div class="card">
+<h2>📌 Sobre mí</h2>
+<img src="images/keyxzzz_logo.png" class="skin">
+<p>Especialista en servidores Minecraft con experiencia en configuraciones avanzadas.</p>
+<p>Creo servidores profesionales, estables y optimizados.</p>
+</div>
+
+<div class="card">
+<h2>⚡ Habilidades</h2>
+Configuración<div class="bar"><span style="width:95%"></span></div>
+Optimización<div class="bar"><span style="width:90%"></span></div>
+Plugins<div class="bar"><span style="width:93%"></span></div>
+</div>
+
+<div class="card">
+<h2>🛡 Staff</h2>
+✔ Moderación<br>
+✔ Control<br>
+✔ Organización<br>
+✔ Resolución de conflictos<br>
+✔ Gestión completa
+</div>
+
+<div class="card">
+<h2>🔥 Servidores</h2>
+
+<div class="servers">
+
+<div class="server" onclick="sonido()">
+<img src="images/minedark_logo.png"><p>MineDark</p>
+</div>
+
+<div class="server" onclick="sonido()">
+<img src="images/hypercommunity_logo.png"><p>HyperCommunity</p>
+</div>
+
+<div class="server" onclick="sonido()">
+<img src="images/tortrixland_logo.png"><p>TortrixLand</p>
+</div>
+
+<div class="server" onclick="sonido()">
+<img src="images/warponmc_logo.png"><p>WarpOnMC</p>
+</div>
+
+</div>
+</div>
+
+<!-- CONTADOR -->
+<div class="card">
+<h2>👁 Visitas</h2>
+<p style="font-size:25px;text-align:center;">
+🔥 <span id="views">Cargando...</span> visitas
+</p>
+</div>
+
+<div class="card contact">
+<h2>📩 Contacto</h2>
+<a href="https://discord.com/users/1072608933249822720">💬 Discord</a>
+<a href="mailto:senorkey1@gmail.com">📧 senorkey1@gmail.com</a>
+</div>
+
+</div>
+
+<!-- SCRIPT -->
 <script>
-const music = document.getElementById("music");
-const click = document.getElementById("click");
-const portal = document.getElementById("portal");
 
-/* ACTIVAR MÚSICA */
-document.body.addEventListener("click", ()=>{
-music.play();
-},{once:true});
-
-/* ENTRAR */
+// ENTRAR + MÚSICA
 function entrar(){
-click.play();
-portal.classList.add("active");
-
-setTimeout(()=>{
-window.location.href="home.html";
-},1000);
+document.getElementById("music").play();
+document.getElementById("intro").style.display="none";
+document.getElementById("main").style.display="block";
 }
+
+// SONIDO CLICK
+function sonido(){
+document.getElementById("click").play();
+}
+
+// CONTADOR REAL
+function contador(res){
+document.getElementById("views").innerText = res.value;
+}
+
+// PARTÍCULAS
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*3,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="cyan";
+ctx.fill();
+
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+}
+});
+
+requestAnimationFrame(draw);
+}
+
+draw();
 </script>
+
+<!-- API CONTADOR -->
+<script async src="https://api.countapi.xyz/hit/keyxzzz/visitas?callback=contador"></script>
 
 </body>
 </html>
