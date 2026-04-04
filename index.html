@@ -4,107 +4,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KEYXZZZ | Legend Mode</title>
+<title>Keyxzzz | Configurador</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    overflow-x: hidden;
-    background: black;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:black;
+    color:white;
+    overflow-x:hidden;
 }
 
 /* FONDO */
-.fondo {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
+.fondo{
+    position:fixed;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
 }
 
-/* OSCURECER */
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7), black);
-    z-index: -1;
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.7), black);
+    z-index:-1;
 }
 
 /* HEADER */
-.header {
-    padding: 40px;
+.header{
+    padding:40px;
+    animation:fade 1.5s ease;
 }
 
-.header h1 {
-    color: #00ffcc;
-    font-size: 40px;
-    margin: 0;
+.header h1{
+    color:#00ffcc;
+    font-size:42px;
+    text-shadow:0 0 20px #00ffcc;
 }
 
-.header p {
-    margin: 5px 0;
-    color: #ccc;
+.header p{
+    color:#ccc;
 }
 
-.btn {
-    background: white;
-    color: black;
-    padding: 8px 15px;
-    border: none;
-    cursor: pointer;
+.btn{
+    padding:10px 18px;
+    background:#00ffcc;
+    border:none;
+    color:black;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    box-shadow:0 0 15px #00ffcc;
 }
 
 /* CONTENIDO */
-.container {
-    padding: 40px;
-    max-width: 900px;
+.container{
+    padding:30px;
+    max-width:900px;
+    margin:auto;
 }
 
 /* TARJETAS */
-.card {
-    background: rgba(0,0,0,0.6);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border-left: 3px solid #00ffcc;
+.card{
+    background:rgba(0,0,0,0.6);
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    border:1px solid rgba(0,255,204,0.2);
+    transition:0.3s;
+    animation:fade 1.5s ease;
+}
+
+.card:hover{
+    box-shadow:0 0 20px #00ffcc33;
 }
 
 /* SERVERS */
-.servers img {
-    width: 100px;
-    margin: 10px;
-    border-radius: 10px;
-    transition: 0.3s;
+.server{
+    display:inline-block;
+    margin:10px;
+    text-align:center;
+    cursor:pointer;
 }
 
-.servers img:hover {
-    transform: scale(1.1);
+.server img{
+    width:100px;
+    border-radius:10px;
+    transition:0.3s;
 }
 
-/* IMAGEN CENTRAL */
-.center-img {
-    display: block;
-    margin: 40px auto;
-    width: 300px;
+.server img:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #00ffcc;
 }
 
-/* LLUVIA DE DINERO */
-.money {
-    position: fixed;
-    top: -100px;
-    width: 60px;
-    animation: fall linear infinite;
-    z-index: 5;
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
 }
 
-@keyframes fall {
-    0% {transform: translateY(0);}
-    100% {transform: translateY(120vh);}
+.modal-content{
+    background:#111;
+    padding:25px;
+    max-width:400px;
+    border-radius:10px;
+    animation:fade 0.5s;
 }
 
+.close{
+    color:red;
+    cursor:pointer;
+    float:right;
+}
+
+/* ANIMACIONES */
+@keyframes fade{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.money{
+    position:fixed;
+    width:60px;
+    top:-100px;
+    animation:fall linear infinite;
+    opacity:0.8;
+}
+
+@keyframes fall{
+    to{transform:translateY(120vh);}
+}
 </style>
 </head>
 
@@ -113,70 +154,103 @@ body {
 <img src="images/mi_fondo.jpg" class="fondo">
 <div class="overlay"></div>
 
-<!-- LLUVIA -->
+<!-- DINERO -->
 <script>
-for(let i=0;i<15;i++){
-    let img=document.createElement("img");
-    img.src="images/money.png";
-    img.className="money";
-    img.style.left=Math.random()*100+"%";
-    img.style.animationDuration=(3+Math.random()*5)+"s";
-    document.body.appendChild(img);
+for(let i=0;i<20;i++){
+ let m=document.createElement("img");
+ m.src="images/money.png";
+ m.className="money";
+ m.style.left=Math.random()*100+"%";
+ m.style.animationDuration=(4+Math.random()*4)+"s";
+ document.body.appendChild(m);
 }
 </script>
 
-<!-- HEADER -->
 <div class="header">
-    <h1>KEYXZZZ</h1>
-    <p>THE WORLD IS YOURS</p>
-    <button class="btn">ENTRAR</button>
+<h1>KEYXZZZ</h1>
+<p>Configurador & Developer</p>
+<button class="btn">ENTRAR</button>
 </div>
 
-<!-- IMAGEN -->
-<img src="images/keyxzzz_logo.png" class="center-img">
-
-<!-- CONTENIDO -->
 <div class="container">
 
-    <div class="card">
-        <h2>🔥 Sobre mí</h2>
-        <p>
-        Soy desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.  
-        Me especializo en crear servidores competitivos Box PvP, sistemas avanzados  
-        y comunidades bien estructuradas con rendimiento optimizado.
-        </p>
-    </div>
+<div class="card">
+<h2>📌 Sobre mí</h2>
+<p>
+Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
 
-    <div class="card">
-        <h2>⚡ Experiencia</h2>
-        <p><b>MineDark</b> → Servidor Box PvP completo con economía, kits y progresión avanzada.</p>
-        <p><b>HyperCommunity</b> → Bots Discord automáticos, sistemas personalizados y herramientas.</p>
-        <p><b>TortrixLand</b> → Red escalable con Velocity y Bungeecord.</p>
-        <p><b>WarpOnMC</b> → Optimización, economía y crecimiento de comunidad.</p>
-    </div>
+🔹 +1 año como Builder creando mapas PvP y arenas optimizadas.<br>
+🔹 +1.5 años como Configurador trabajando con plugins avanzados.<br><br>
 
-    <div class="card servers">
-        <h2>🎮 Servidores trabajados</h2>
+Especialista en servidores competitivos Box PvP, economía avanzada,
+progresión, optimización y sistemas personalizados para comunidades activas.
+</p>
+</div>
 
-        <img src="images/minedark_logo.png">
-        <img src="images/hypercommunity_logo.png">
-        <img src="images/tortrixland_logo.png">
-        <img src="images/warponmc_logo.png">
+<div class="card">
+<h2>🔥 Servidores</h2>
 
-    </div>
+<div class="server" onclick="openModal('minedark')">
+<img src="images/minedark_logo.png"><p>MineDark</p>
+</div>
 
-    <div class="card">
-        <h2>💎 Habilidades</h2>
-        <ul>
-            <li>Box PvP avanzado</li>
-            <li>Velocity / Bungeecord</li>
-            <li>Bots Discord (discord.js)</li>
-            <li>Optimización y rendimiento</li>
-            <li>Sistemas personalizados</li>
-        </ul>
-    </div>
+<div class="server" onclick="openModal('hyper')">
+<img src="images/hypercommunity_logo.png"><p>HyperCommunity</p>
+</div>
+
+<div class="server" onclick="openModal('tortrix')">
+<img src="images/tortrixland_logo.png"><p>TortrixLand</p>
+</div>
+
+<div class="server" onclick="openModal('warpon')">
+<img src="images/warponmc_logo.png"><p>WarpOnMC</p>
+</div>
 
 </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<h2 id="title"></h2>
+<p id="text"></p>
+</div>
+</div>
+
+<script>
+function openModal(s){
+let t=document.getElementById("title");
+let tx=document.getElementById("text");
+
+if(s==="minedark"){
+t.innerText="MineDark";
+tx.innerText="Servidor Box PvP completo con economía, kits, progresión, eventos, optimización y sistemas avanzados.";
+}
+
+if(s==="hyper"){
+t.innerText="HyperCommunity";
+tx.innerText="Bots Discord, automatización, moderación, sistemas personalizados y herramientas avanzadas.";
+}
+
+if(s==="tortrix"){
+t.innerText="TortrixLand";
+tx.innerText="Red escalable con Velocity y Bungeecord, optimización de red y alto rendimiento.";
+}
+
+if(s==="warpon"){
+t.innerText="WarpOnMC";
+tx.innerText="Optimización completa, economía, rendimiento y crecimiento de comunidad.";
+}
+
+document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
