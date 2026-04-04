@@ -1,114 +1,61 @@
-*{margin:0;padding:0;box-sizing:border-box}
+function openModal(server){
+  const modal = document.getElementById("modal");
+  const text = document.getElementById("modal-text");
 
-body{
-  font-family:Arial;
-  background:url('images/mi_fondo.jpg') center/cover no-repeat fixed;
-  color:#fff;
-  overflow-x:hidden;
+  if(server === "minedark"){
+    text.innerHTML = `
+    <h2>MineDark</h2>
+    <p>
+    ✔ Box PvP completo<br>
+    ✔ Economía avanzada<br>
+    ✔ Sistema de kits<br>
+    ✔ Progresión personalizada<br>
+    ✔ Optimización total<br>
+    ✔ Plugins desde 0
+    </p>`;
+  }
+
+  if(server === "hyper"){
+    text.innerHTML = `
+    <h2>HyperCommunity</h2>
+    <p>
+    ✔ Bots Discord avanzados<br>
+    ✔ Sistemas automáticos<br>
+    ✔ Moderación avanzada<br>
+    ✔ Comandos personalizados
+    </p>`;
+  }
+
+  if(server === "tortrix"){
+    text.innerHTML = `
+    <h2>TortrixLand</h2>
+    <p>
+    ✔ Red con Velocity<br>
+    ✔ Bungeecord setup<br>
+    ✔ Infraestructura escalable
+    </p>`;
+  }
+
+  if(server === "warpon"){
+    text.innerHTML = `
+    <h2>WarpOnMC</h2>
+    <p>
+    ✔ Optimización extrema<br>
+    ✔ Mejor rendimiento<br>
+    ✔ Economía balanceada
+    </p>`;
+  }
+
+  modal.style.display = "block";
 }
 
-/* OSCURECER */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(to right,rgba(0,0,0,.9),rgba(0,0,0,.6));
-  z-index:-1;
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
 }
 
-/* 🎬 HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  padding:40px;
-  animation:cinema 5s ease;
-}
-
-.hero-content h1{
-  font-size:40px;
-  color:#00ffc3;
-  text-shadow:0 0 20px #00ffc3;
-}
-
-.hero button{
-  margin-top:10px;
-  padding:10px 20px;
-  border:none;
-  background:#00ffc3;
-  color:#000;
-  cursor:pointer;
-}
-
-/* 🎬 EFECTO CINE */
-@keyframes cinema{
-  0%{transform:scale(1.2);filter:blur(8px)}
-  100%{transform:scale(1);filter:blur(0)}
-}
-
-/* APP */
-.hidden{display:none}
-#app{padding:20px;max-width:900px;margin:auto}
-
-/* PERFIL */
-.perfil{text-align:center}
-.avatar{width:120px;border-radius:10px}
-
-/* INFO */
-.info{margin-top:20px}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
-}
-
-/* CARD */
-.card{
-  background:rgba(0,0,0,.6);
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-  transition:.3s;
-  backdrop-filter:blur(5px);
-}
-
-.card:hover{
-  transform:translateY(-8px) scale(1.05);
-  box-shadow:0 0 25px #00ffc3;
-}
-
-.card img{
-  width:60px;
-  height:60px;
-}
-
-/* 💸 BILLETES */
-.money-layer{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-
-.bill{
-  position:absolute;
-  top:-50px;
-  animation:fall linear forwards;
-  filter:drop-shadow(0 0 10px #00ffc3);
-}
-
-@keyframes fall{
-  0%{transform:translateY(-50px) rotate(0)}
-  50%{transform:translateY(50vh) rotate(180deg)}
-  100%{transform:translateY(110vh) rotate(360deg)}
-}
-
-/* FADE */
-.fade{
-  animation:fade .6s forwards;
-}
-@keyframes fade{
-  to{opacity:0}
+window.onclick = function(e){
+  const modal = document.getElementById("modal");
+  if(e.target == modal){
+    modal.style.display = "none";
+  }
 }
