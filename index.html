@@ -3,254 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Keyxzzz | Configurador</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:black;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* FONDO */
-.fondo{
-    position:fixed;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-}
-
-.overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.7), black);
-    z-index:-1;
-}
-
-/* HEADER */
-.header{
-    padding:40px;
-    animation:fade 1.5s ease;
-}
-
-.header h1{
-    color:#00ffcc;
-    font-size:42px;
-    text-shadow:0 0 20px #00ffcc;
-}
-
-.header p{
-    color:#ccc;
-}
-
-.btn{
-    padding:10px 18px;
-    background:#00ffcc;
-    border:none;
-    color:black;
-    cursor:pointer;
-    border-radius:5px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    box-shadow:0 0 15px #00ffcc;
-}
-
-/* CONTENIDO */
-.container{
-    padding:30px;
-    max-width:900px;
-    margin:auto;
-}
-
-/* TARJETAS */
-.card{
-    background:rgba(0,0,0,0.6);
-    padding:20px;
-    margin-bottom:20px;
-    border-radius:12px;
-    border:1px solid rgba(0,255,204,0.2);
-    transition:0.3s;
-    animation:fade 1.5s ease;
-}
-
-.card:hover{
-    box-shadow:0 0 20px #00ffcc33;
-}
-
-/* SERVERS */
-.server{
-    display:inline-block;
-    margin:10px;
-    text-align:center;
-    cursor:pointer;
-}
-
-.server img{
-    width:100px;
-    border-radius:10px;
-    transition:0.3s;
-}
-
-.server img:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 15px #00ffcc;
-}
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    justify-content:center;
-    align-items:center;
-    z-index:999;
-}
-
-.modal-content{
-    background:#111;
-    padding:25px;
-    max-width:400px;
-    border-radius:10px;
-    animation:fade 0.5s;
-}
-
-.close{
-    color:red;
-    cursor:pointer;
-    float:right;
-}
-
-/* ANIMACIONES */
-@keyframes fade{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-.money{
-    position:fixed;
-    width:60px;
-    top:-100px;
-    animation:fall linear infinite;
-    opacity:0.8;
-}
-
-@keyframes fall{
-    to{transform:translateY(120vh);}
-}
-</style>
+<title>Keyxzzz</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<img src="images/mi_fondo.jpg" class="fondo">
-<div class="overlay"></div>
+<!-- ===== PANTALLA INICIO ===== -->
+<section class="inicio">
+  <div class="contenido-inicio">
+    <h1>KEYXZZZ</h1>
+    <p>Configurador & Developer</p>
 
-<!-- DINERO -->
-<script>
-for(let i=0;i<20;i++){
- let m=document.createElement("img");
- m.src="images/money.png";
- m.className="money";
- m.style.left=Math.random()*100+"%";
- m.style.animationDuration=(4+Math.random()*4)+"s";
- document.body.appendChild(m);
-}
-</script>
+    <!-- BOTÓN SEPARADO -->
+    <a href="#main" class="btn-entrar">ENTRAR</a>
+  </div>
+</section>
 
-<div class="header">
-<h1>KEYXZZZ</h1>
-<p>Configurador & Developer</p>
-<button class="btn">ENTRAR</button>
-</div>
+<!-- ===== CONTENIDO ===== -->
+<section id="main" class="main">
 
-<div class="container">
+  <div class="card">
+    <h2>📌 Sobre mí</h2>
+    <p>
+      Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
 
-<div class="card">
-<h2>📌 Sobre mí</h2>
-<p>
-Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.<br><br>
+      🔹 +1 año como Builder creando mapas PvP profesionales.<br>
+      🔹 +1.5 años como Configurador con plugins avanzados.<br><br>
 
-🔹 +1 año como Builder creando mapas PvP y arenas optimizadas.<br>
-🔹 +1.5 años como Configurador trabajando con plugins avanzados.<br><br>
+      Especialista en Box PvP competitivo, economía avanzada, sistemas personalizados y optimización de servidores.
+    </p>
+  </div>
 
-Especialista en servidores competitivos Box PvP, economía avanzada,
-progresión, optimización y sistemas personalizados para comunidades activas.
-</p>
-</div>
+  <div class="card">
+    <h2>🔥 Servidores</h2>
 
-<div class="card">
-<h2>🔥 Servidores</h2>
+    <div class="grid">
 
-<div class="server" onclick="openModal('minedark')">
-<img src="images/minedark_logo.png"><p>MineDark</p>
-</div>
+      <div class="server">
+        <img src="images/minedark_logo.png">
+        <h3>MineDark</h3>
+        <p>Box PvP completo</p>
+      </div>
 
-<div class="server" onclick="openModal('hyper')">
-<img src="images/hypercommunity_logo.png"><p>HyperCommunity</p>
-</div>
+      <div class="server">
+        <img src="images/hypercommunity_logo.png">
+        <h3>HyperCommunity</h3>
+        <p>Bots y sistemas</p>
+      </div>
 
-<div class="server" onclick="openModal('tortrix')">
-<img src="images/tortrixland_logo.png"><p>TortrixLand</p>
-</div>
+      <div class="server">
+        <img src="images/tortrixland_logo.png">
+        <h3>TortrixLand</h3>
+        <p>Red con Velocity</p>
+      </div>
 
-<div class="server" onclick="openModal('warpon')">
-<img src="images/warponmc_logo.png"><p>WarpOnMC</p>
-</div>
+      <div class="server">
+        <img src="images/warponmc_logo.png">
+        <h3>WarpOnMC</h3>
+        <p>Optimización</p>
+      </div>
 
-</div>
+    </div>
+  </div>
 
-</div>
-
-<!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">X</span>
-<h2 id="title"></h2>
-<p id="text"></p>
-</div>
-</div>
-
-<script>
-function openModal(s){
-let t=document.getElementById("title");
-let tx=document.getElementById("text");
-
-if(s==="minedark"){
-t.innerText="MineDark";
-tx.innerText="Servidor Box PvP completo con economía, kits, progresión, eventos, optimización y sistemas avanzados.";
-}
-
-if(s==="hyper"){
-t.innerText="HyperCommunity";
-tx.innerText="Bots Discord, automatización, moderación, sistemas personalizados y herramientas avanzadas.";
-}
-
-if(s==="tortrix"){
-t.innerText="TortrixLand";
-tx.innerText="Red escalable con Velocity y Bungeecord, optimización de red y alto rendimiento.";
-}
-
-if(s==="warpon"){
-t.innerText="WarpOnMC";
-tx.innerText="Optimización completa, economía, rendimiento y crecimiento de comunidad.";
-}
-
-document.getElementById("modal").style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-</script>
+</section>
 
 </body>
 </html>
