@@ -1,97 +1,114 @@
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  margin:0;
   font-family:Arial;
-  background:url('images/mi_fondo.jpg') no-repeat center center fixed;
-  background-size:cover;
-  color:white;
+  background:url('images/mi_fondo.jpg') center/cover no-repeat fixed;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* HERO */
+/* OSCURECER */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(to right,rgba(0,0,0,.9),rgba(0,0,0,.6));
+  z-index:-1;
+}
+
+/* 🎬 HERO */
 .hero{
   height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-  padding-left:20px;
-  background:rgba(0,0,0,0.6);
+  align-items:center;
+  padding:40px;
+  animation:cinema 5s ease;
 }
 
-.hero h1{
+.hero-content h1{
   font-size:40px;
-  color:#00ffcc;
-  text-shadow:0 0 20px #00ffcc;
+  color:#00ffc3;
+  text-shadow:0 0 20px #00ffc3;
 }
 
 .hero button{
   margin-top:10px;
   padding:10px 20px;
   border:none;
-  background:white;
+  background:#00ffc3;
+  color:#000;
   cursor:pointer;
 }
 
+/* 🎬 EFECTO CINE */
+@keyframes cinema{
+  0%{transform:scale(1.2);filter:blur(8px)}
+  100%{transform:scale(1);filter:blur(0)}
+}
+
+/* APP */
+.hidden{display:none}
+#app{padding:20px;max-width:900px;margin:auto}
+
 /* PERFIL */
-.perfil{
-  display:none;
-  padding:20px;
-  background:rgba(0,0,0,0.7);
-}
+.perfil{text-align:center}
+.avatar{width:120px;border-radius:10px}
 
-.avatar{
-  width:120px;
-  display:block;
-  margin:auto;
-}
+/* INFO */
+.info{margin-top:20px}
 
-.info{
-  margin-top:20px;
-}
-
-/* SERVERS */
-.servers{
+/* GRID */
+.grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   gap:15px;
-  margin-top:20px;
-  align-items:center;
 }
 
-.server{
-  background:rgba(0,0,0,0.6);
+/* CARD */
+.card{
+  background:rgba(0,0,0,.6);
+  padding:10px;
   border-radius:10px;
-  padding:15px;
   text-align:center;
-  transition:0.3s;
+  transition:.3s;
+  backdrop-filter:blur(5px);
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.05);
+  box-shadow:0 0 25px #00ffc3;
+}
+
+.card img{
+  width:60px;
+  height:60px;
+}
+
+/* 💸 BILLETES */
+.money-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
   overflow:hidden;
 }
 
-.server:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px #00ffcc;
+.bill{
+  position:absolute;
+  top:-50px;
+  animation:fall linear forwards;
+  filter:drop-shadow(0 0 10px #00ffc3);
 }
 
-.server img{
-  width:100%;
-  max-width:90px;
-  height:90px;
-  object-fit:contain;
-  display:block;
-  margin:auto;
+@keyframes fall{
+  0%{transform:translateY(-50px) rotate(0)}
+  50%{transform:translateY(50vh) rotate(180deg)}
+  100%{transform:translateY(110vh) rotate(360deg)}
 }
 
-.server h4{
-  color:#00ffcc;
-  margin:8px 0;
-  font-size:14px;
+/* FADE */
+.fade{
+  animation:fade .6s forwards;
 }
-
-.server p{
-  font-size:11px;
-  color:#ccc;
-}
-
-/* FIX ESPECIAL PARA IMÁGENES GRANDES */
-.server img[src*="minedark"]{
-  max-width:70px;
+@keyframes fade{
+  to{opacity:0}
 }
