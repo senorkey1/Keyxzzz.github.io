@@ -14,6 +14,28 @@ background:url("images/mi_fondo.jpg") no-repeat center/cover;
 overflow-x:hidden;
 }
 
+/* PARTICULAS */
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+.dot{
+position:absolute;
+width:6px;
+height:6px;
+background:cyan;
+border-radius:50%;
+animation:float 6s linear infinite;
+opacity:0.7;
+}
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
 /* ENTRADA */
 #entrada{
 height:100vh;
@@ -23,32 +45,32 @@ align-items:center;
 background:rgba(0,0,0,0.7);
 }
 
-.entrada-box{
+.caja{
 background:rgba(120,120,120,0.6);
 padding:30px;
 border-radius:20px;
 text-align:center;
-max-width:400px;
+max-width:350px;
+backdrop-filter:blur(10px);
 }
 
-.entrada-box h1{
-font-size:40px;
-margin-bottom:15px;
+.caja h1{
+font-size:35px;
 }
 
-.entrada-box p{
-margin-bottom:15px;
+.caja p{
+font-size:14px;
 }
 
 /* BOTON */
 .boton{
-padding:15px 40px;
+margin-top:15px;
+padding:12px 30px;
 border:none;
 border-radius:15px;
-font-size:18px;
 background:linear-gradient(45deg,#00f2ff,#0066ff);
 color:white;
-transition:0.3s;
+font-size:16px;
 }
 .boton:active{
 transform:scale(0.95);
@@ -67,9 +89,11 @@ background:rgba(0,0,0,0.7);
 padding:20px;
 border-radius:20px;
 margin-bottom:25px;
+position:relative;
+z-index:1;
 }
 
-/* ANIMACION */
+/* FADE */
 .fade{
 opacity:0;
 transform:translateY(40px);
@@ -90,9 +114,8 @@ margin-bottom:10px;
 
 /* HABILIDADES BONITAS */
 .skill{
-margin-bottom:10px;
+margin-bottom:15px;
 }
-
 .bar{
 width:100%;
 height:10px;
@@ -100,10 +123,9 @@ background:#333;
 border-radius:10px;
 overflow:hidden;
 }
-
 .fill{
 height:100%;
-background:linear-gradient(90deg,#00f2ff,#0066ff);
+background:linear-gradient(90deg,#00f2ff,#004cff);
 box-shadow:0 0 10px cyan;
 }
 
@@ -113,7 +135,6 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
 }
-
 .server{
 background:#111;
 padding:15px;
@@ -121,8 +142,8 @@ border-radius:15px;
 text-align:center;
 transition:0.3s;
 }
-.server:hover{
-transform:scale(1.08);
+.server:active{
+transform:scale(0.95);
 box-shadow:0 0 20px cyan;
 }
 .server img{
@@ -149,14 +170,16 @@ a{color:cyan;text-decoration:none;}
 
 <body>
 
-<!-- MUSICA -->
+<div id="particles"></div>
+
+<!-- MUSICA (YA ARREGLADA) -->
 <audio id="musica" loop>
-<source src="images/eoo.mp3">
+<source src="music/eoo.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ENTRADA -->
 <div id="entrada">
-<div class="entrada-box">
+<div class="caja">
 <h1>Bienvenido</h1>
 
 <p>
@@ -186,7 +209,7 @@ Trabajo creando sistemas profesionales, optimizados y listos para producción.
 <h2>⚡ Habilidades</h2>
 
 <div class="skill">Configuración
-<div class="bar"><div class="fill" style="width:100%"></div></div>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
 </div>
 
 <div class="skill">Optimización
@@ -194,7 +217,7 @@ Trabajo creando sistemas profesionales, optimizados y listos para producción.
 </div>
 
 <div class="skill">Plugins
-<div class="bar"><div class="fill" style="width:95%"></div></div>
+<div class="bar"><div class="fill" style="width:92%"></div></div>
 </div>
 
 <div class="skill">Builder
@@ -249,14 +272,26 @@ Trabajo creando sistemas profesionales, optimizados y listos para producción.
 
 <script>
 
-/* ENTRAR + MUSICA */
+/* ENTRAR + MUSICA (ARREGLADO PARA CELULARES) */
 function entrar(){
 document.getElementById("entrada").style.display="none";
 document.getElementById("contenido").style.display="block";
 
 let audio = document.getElementById("musica");
 audio.volume = 0.5;
-audio.play().catch(()=>{});
+
+audio.play().catch(()=>{
+document.addEventListener("click", ()=>audio.play(), {once:true});
+});
+}
+
+/* PARTICULAS */
+for(let i=0;i<30;i++){
+let dot=document.createElement("div");
+dot.className="dot";
+dot.style.left=Math.random()*100+"%";
+dot.style.animationDuration=(3+Math.random()*5)+"s";
+document.getElementById("particles").appendChild(dot);
 }
 
 /* SCROLL */
@@ -277,20 +312,19 @@ info.innerHTML=`
 <h2 style="color:#00ffe1">🔥 MineDark</h2>
 
 <p>
-Servidor PvP configurado completamente por mí, enfocado en rendimiento extremo y estabilidad total.
-Cada sistema fue optimizado para evitar lag incluso con muchos jugadores activos.
+Servidor PvP competitivo optimizado al máximo para estabilidad total.
+Cada sistema fue ajustado para evitar lag incluso con muchos jugadores.
 </p>
 
 <p>
-Se implementaron configuraciones avanzadas y ajustes profesionales para lograr una experiencia fluida,
-rápida y competitiva.
+Configuración avanzada y rendimiento extremo para una experiencia profesional.
 </p>
 
 <ul style="color:#00ffe1">
 <li>✔ BoxPvP avanzado</li>
 <li>✔ Optimización extrema</li>
-<li>✔ Plugins configurados</li>
-<li>✔ Rendimiento alto</li>
+<li>✔ Plugins personalizados</li>
+<li>✔ Alto rendimiento</li>
 </ul>`;
 }
 
@@ -299,19 +333,18 @@ info.innerHTML=`
 <h2 style="color:#00ff99">⚡ HyperCommunity</h2>
 
 <p>
-Servidor optimizado con enfoque en estabilidad y jugabilidad limpia.
-Todo fue configurado para evitar errores y mejorar la experiencia del usuario.
+Servidor enfocado en estabilidad y jugabilidad limpia sin errores.
 </p>
 
 <p>
-Ideal para comunidades activas que buscan rendimiento constante y sistemas funcionales.
+Optimizado para comunidades activas con alto rendimiento.
 </p>
 
 <ul style="color:#00ff99">
-<li>✔ Sistemas optimizados</li>
-<li>✔ Configuración limpia</li>
+<li>✔ Sistemas personalizados</li>
 <li>✔ Estabilidad total</li>
-<li>✔ Buen rendimiento</li>
+<li>✔ Configuración limpia</li>
+<li>✔ Rendimiento alto</li>
 </ul>`;
 }
 
@@ -320,17 +353,17 @@ info.innerHTML=`
 <h2 style="color:#ff00ff">💎 TortrixLand</h2>
 
 <p>
-Proyecto donde trabajé como configurador y builder, mejorando mapas y rendimiento general.
+Proyecto trabajado como configurador y builder con mapas optimizados.
 </p>
 
 <p>
-Se logró una experiencia equilibrada entre estética y optimización del servidor.
+Balance perfecto entre estética y rendimiento.
 </p>
 
 <ul style="color:#ff00ff">
 <li>✔ Mapas optimizados</li>
-<li>✔ Organización mejorada</li>
-<li>✔ Buen rendimiento</li>
+<li>✔ Organización avanzada</li>
+<li>✔ Configuración equilibrada</li>
 <li>✔ Experiencia fluida</li>
 </ul>`;
 }
@@ -340,22 +373,21 @@ info.innerHTML=`
 <h2 style="color:#ff6600">🔥 WarpOnMC</h2>
 
 <p>
-Servidor enfocado en rapidez y eficiencia en sistemas de warps.
+Servidor enfocado en rapidez y eficiencia en sistemas warp.
 </p>
 
 <p>
-Configurado para mantener estabilidad y velocidad en todo momento.
+Configurado para máximo rendimiento y estabilidad constante.
 </p>
 
 <ul style="color:#ff6600">
-<li>✔ Sistema warp rápido</li>
-<li>✔ Rendimiento estable</li>
+<li>✔ Sistema warp optimizado</li>
+<li>✔ Alto rendimiento</li>
 <li>✔ Configuración pro</li>
-<li>✔ Fluidez total</li>
+<li>✔ Estabilidad total</li>
 </ul>`;
 }
 }
-
 </script>
 
 </body>
