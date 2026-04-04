@@ -6,255 +6,327 @@
 <title>Keyxzzz</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: center;
-    background: url('images/mi_fondo.jpg') no-repeat center center fixed;
-    background-size: cover;
+body{
+margin:0;
+font-family:Arial;
+color:white;
+background:black;
+overflow-x:hidden;
+}
+
+/* Fondo */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:url("images/mi_fondo.jpg") no-repeat center/cover;
+filter:brightness(0.25);
+z-index:-1;
+}
+
+/* Fuego */
+.fire{
+position:fixed;
+bottom:0;
+width:100%;
+height:150px;
+background:linear-gradient(transparent,orange,red);
+opacity:0.4;
+animation:fuego 2s infinite alternate;
+}
+@keyframes fuego{
+to{transform:scaleY(1.3);}
 }
 
 /* Inicio */
-#inicio {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#inicio{
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
 
-.logo {
-    width: 120px;
-    border-radius: 50%;
-    margin-bottom: 15px;
+/* Logo */
+.logo{
+width:120px;
+border-radius:50%;
+box-shadow:0 0 30px #00ffd5;
 }
 
-h1 {
-    color: #00ffd5;
-    text-shadow: 0 0 20px #00ffd5;
+/* Título */
+h1{
+color:#00ffd5;
+text-shadow:0 0 30px #00ffd5;
 }
 
-button {
-    padding: 12px 25px;
-    background: #00ffd5;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
+/* Botón */
+button{
+padding:15px 30px;
+background:#00ffd5;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{
+transform:scale(1.1);
 }
 
 /* Contenido */
-#contenido {
-    display: none;
-    padding: 20px;
+#contenido{
+display:none;
+padding:20px;
 }
 
-.card {
-    background: rgba(0,0,0,0.7);
-    margin: 15px;
-    padding: 20px;
-    border-radius: 15px;
-    animation: fadeIn 1s ease;
+/* Cards */
+.card{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+border-radius:15px;
+padding:20px;
+margin:15px;
+transition:0.2s;
+transform-style:preserve-3d;
+}
+.card:hover{
+box-shadow:0 0 25px #00ffd5;
 }
 
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
+/* Grid */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 }
 
 /* Servidores */
-.servers {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.server {
-    background: #111;
-    padding: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.server img {
-    width: 80px;
+.server{
+cursor:pointer;
 }
 
 /* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: black;
-    padding: 20px;
-    border-radius: 15px;
-    width: 80%;
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.7);
+background:black;
+padding:20px;
+border-radius:15px;
+width:90%;
+max-width:400px;
+animation:pop 0.3s forwards;
+box-shadow:0 0 30px #00ffd5;
+}
+@keyframes pop{
+to{transform:translate(-50%,-50%) scale(1);}
 }
 
-/* Billetes */
-.money {
-    position: fixed;
-    top: -50px;
-    width: 40px;
-    animation: caer 6s linear infinite;
+/* Cubo 3D */
+.cubo{
+width:80px;
+height:80px;
+position:relative;
+transform-style:preserve-3d;
+animation:girar 5s infinite linear;
+margin:20px auto;
+}
+.cubo div{
+position:absolute;
+width:80px;
+height:80px;
+background:rgba(0,255,213,0.3);
+border:2px solid #00ffd5;
+}
+.front{transform:translateZ(40px);}
+.back{transform:rotateY(180deg) translateZ(40px);}
+.left{transform:rotateY(-90deg) translateZ(40px);}
+.right{transform:rotateY(90deg) translateZ(40px);}
+.top{transform:rotateX(90deg) translateZ(40px);}
+.bottom{transform:rotateX(-90deg) translateZ(40px);}
+@keyframes girar{
+to{transform:rotateX(360deg) rotateY(360deg);}
 }
 
-@keyframes caer {
-    0% {transform: translateY(-50px);}
-    100% {transform: translateY(100vh);}
+/* Diamante */
+.item{
+width:50px;
+animation:floatItem 3s infinite;
+display:block;
+margin:10px auto;
+}
+@keyframes floatItem{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+/* Dinero */
+.money{
+position:fixed;
+width:40px;
+animation:fall 6s linear;
+}
+@keyframes fall{
+from{top:-50px;}
+to{top:100vh;}
+}
+
+/* Partículas */
+.particle{
+position:fixed;
+width:5px;
+height:5px;
+background:#00ffd5;
+border-radius:50%;
+animation:float 6s linear;
+}
+@keyframes float{
+from{top:100vh;}
+to{top:-10vh;}
+}
+
+/* Música */
+.music-btn{
+position:fixed;
+top:10px;
+right:10px;
+background:#00ffd5;
+padding:10px;
+border-radius:10px;
+cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="music" src="music/eoo.mp3" loop></audio>
+<div class="fire"></div>
 
-<!-- Inicio -->
+<audio id="music" src="music/eoo.mp3" loop></audio>
+<div class="music-btn" onclick="toggleMusic()">🎧</div>
+
+<!-- INICIO -->
 <div id="inicio">
-    <img src="images/keyxzzz_logo.png" class="logo">
-    <h1>KEYXZZZ</h1>
-    <p>Keyxzzz | Configurador</p>
-    <button onclick="entrar()">ENTRAR</button>
+<img src="images/keyxzzz_logo.png" class="logo">
+<h1>KEYXZZZ</h1>
+<p>Configurador & Developer</p>
+<button onclick="entrar()">ENTRAR</button>
 </div>
 
-<!-- Contenido -->
+<!-- CONTENIDO -->
 <div id="contenido">
 
 <div class="card">
 <h2>📌 Sobre mí</h2>
+
+<div class="cubo">
+<div class="front"></div>
+<div class="back"></div>
+<div class="left"></div>
+<div class="right"></div>
+<div class="top"></div>
+<div class="bottom"></div>
+</div>
+
+<img src="images/diamond.png" class="item">
+
 <p>
-Desarrollador de 16 años de Ecuador especializado en Minecraft y Discord.<br><br>
-+1 año como Builder creando mapas PvP optimizados.<br>
-+1.5 años como Configurador profesional.<br><br>
-Experto en Box PvP, economía avanzada, optimización extrema y sistemas personalizados.
+Especialista en servidores Minecraft, configuraciones avanzadas, BoxPvP,
+economía y optimización extrema.
 </p>
 </div>
 
 <div class="card">
+<h2>🛡️ Staff</h2>
+<p>Experiencia moderando y gestionando servidores.</p>
+✔ Moderación<br>
+✔ Control<br>
+✔ Organización<br>
+✔ Resolución conflictos
+</div>
+
 <h2>🔥 Servidores</h2>
 
-<div class="servers">
+<div class="grid">
 
-<div class="server" onclick="openServer('minedark')">
-<img src="images/minedark_logo.png">
-<p>MineDark</p>
-</div>
-
-<div class="server" onclick="openServer('hyper')">
-<img src="images/hypercommunity_logo.png">
-<p>HyperCommunity</p>
-</div>
-
-<div class="server" onclick="openServer('tortrix')">
-<img src="images/tortrixland_logo.png">
-<p>TortrixLand</p>
-</div>
-
-<div class="server" onclick="openServer('warp')">
-<img src="images/warponmc_logo.png">
-<p>WarpOnMC</p>
-</div>
+<div class="card server" onclick="openServer('minedark')"><h3>MineDark</h3></div>
+<div class="card server" onclick="openServer('hyper')"><h3>HyperCommunity</h3></div>
+<div class="card server" onclick="openServer('tortrix')"><h3>TortrixLand</h3></div>
+<div class="card server" onclick="openServer('warp')"><h3>WarpOnMC</h3></div>
 
 </div>
-</div>
 
-<!-- CONTACTO 🔥 -->
 <div class="card">
-<h2>📞 Contacto</h2>
-
-<div style="display:flex;flex-direction:column;gap:10px;">
-
-<a href="https://discord.com/users/1072608933249822720" target="_blank"
-style="background:#5865F2;padding:12px;border-radius:10px;color:white;text-decoration:none;">
-💬 Discord
-</a>
-
-<a href="mailto:senorkey1@gmail.com"
-style="background:#ff4d4d;padding:12px;border-radius:10px;color:white;text-decoration:none;">
-📧 Correo
-</a>
-
-</div>
+<h2>📩 Contacto</h2>
+<a href="https://discord.com/users/1072608933249822720">💬 Discord</a><br>
+<a href="mailto:senorkey1@gmail.com">📧 Correo</a>
 </div>
 
 </div>
 
 <!-- POPUPS -->
-
-<div id="minedark" class="popup">
-<h2>MineDark</h2>
-<p>
-Soy el dueño de mi servidor MineDark enfocado en Box PvP competitivo.<br><br>
-✔ BoxPvP<br>
-✔ Economía<br>
-✔ Kits<br>
-✔ Plugins desde 0
-</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
-
-<div id="hyper" class="popup">
-<h2>HyperCommunity</h2>
-<p>
-Developer creando bots y sistemas personalizados.<br><br>
-✔ Bots<br>
-✔ Sistemas<br>
-✔ Moderación
-</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
-
-<div id="tortrix" class="popup">
-<h2>TortrixLand</h2>
-<p>
-Owner y configurador del servidor.<br><br>
-✔ Kits<br>
-✔ Protección<br>
-✔ Config completa
-</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
-
-<div id="warp" class="popup">
-<h2>WarpOnMC</h2>
-<p>
-Manager de servidor survival.<br><br>
-✔ Optimización<br>
-✔ Rendimiento<br>
-✔ Economía
-</p>
-<button onclick="closePop()">Cerrar</button>
-</div>
+<div id="minedark" class="popup"><h2>MineDark</h2><p>Servidor completo PvP.</p><button onclick="closePop()">Cerrar</button></div>
+<div id="hyper" class="popup"><h2>Hyper</h2><p>Developer bots.</p><button onclick="closePop()">Cerrar</button></div>
+<div id="tortrix" class="popup"><h2>Tortrix</h2><p>Owner config.</p><button onclick="closePop()">Cerrar</button></div>
+<div id="warp" class="popup"><h2>Warp</h2><p>Manager survival.</p><button onclick="closePop()">Cerrar</button></div>
 
 <script>
-function entrar() {
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
-    document.getElementById("music").play();
+let playing=false;
+
+function entrar(){
+document.getElementById("inicio").style.display="none";
+document.getElementById("contenido").style.display="block";
+document.getElementById("music").play();
+playing=true;
 }
 
-function openServer(id) {
-    document.getElementById(id).style.display = "block";
+function toggleMusic(){
+let m=document.getElementById("music");
+if(playing){m.pause();playing=false;}else{m.play();playing=true;}
 }
 
-function closePop() {
-    document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+function openServer(id){
+document.getElementById(id).style.display="block";
 }
 
-/* Billetes */
-setInterval(() => {
-    let img = document.createElement("img");
-    img.src = "images/money.png";
-    img.className = "money";
-    img.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(img);
+function closePop(){
+document.querySelectorAll(".popup").forEach(p=>p.style.display="none");
+}
 
-    setTimeout(() => img.remove(), 6000);
-}, 800);
+/* Dinero */
+setInterval(()=>{
+let img=document.createElement("img");
+img.src="images/money.png";
+img.className="money";
+img.style.left=Math.random()*100+"vw";
+document.body.appendChild(img);
+setTimeout(()=>img.remove(),6000);
+},700);
+
+/* Partículas */
+setInterval(()=>{
+let p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"vw";
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),6000);
+},300);
+
+/* 3D mouse */
+document.querySelectorAll(".card").forEach(card=>{
+card.addEventListener("mousemove",e=>{
+let r=card.getBoundingClientRect();
+let x=e.clientX-r.left;
+let y=e.clientY-r.top;
+let rx=-(y-r.height/2)/10;
+let ry=(x-r.width/2)/10;
+card.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;
+});
+card.addEventListener("mouseleave",()=>card.style.transform="rotateX(0) rotateY(0)");
+});
 </script>
 
 </body>
