@@ -9,82 +9,112 @@
 
 <body>
 
+<!-- 💸 BILLETES -->
+<div class="money-layer"></div>
+
 <!-- 🎬 HERO -->
 <section class="hero">
-  <h1>KEYXZZZ</h1>
-  <p>THE WORLD IS YOURS</p>
-  <button onclick="entrar()">ENTRAR</button>
+  <div class="hero-content">
+    <h1>KEYXZZZ</h1>
+    <p>THE WORLD IS YOURS</p>
+    <button onclick="enter()">ENTRAR</button>
+  </div>
 </section>
 
-<!-- 🎧 MÚSICA -->
-<audio id="musica" src="music/eoo.mp3" loop></audio>
+<!-- 🎧 AUDIO -->
+<audio id="music" src="music/eoo.mp3" loop></audio>
 
 <!-- 👤 PERFIL -->
-<section class="perfil" id="perfil">
+<section id="app" class="hidden">
 
-  <img src="images/keyxzzz_logo.png" class="avatar">
-
-  <h2>KEYXZZZ</h2>
-  <p>Desarrollador Box PvP & Discord</p>
+  <div class="perfil">
+    <img src="images/keyxzzz_logo.png" class="avatar">
+    <h2>KEYXZZZ</h2>
+    <p>Desarrollador Box PvP & Discord</p>
+  </div>
 
   <div class="info">
     <h3>📌 Sobre mí</h3>
-    <p>Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord. Creo experiencias competitivas Box PvP y sistemas avanzados para comunidades.</p>
+    <p>Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.</p>
+  </div>
 
+  <div class="info">
     <h3>🔥 Experiencia</h3>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/minedark_logo.png?v=6">
+        <h4>MineDark</h4>
+        <p>Box PvP completo</p>
+      </div>
+
+      <div class="card">
+        <img src="images/hypercommunity_logo.png?v=6">
+        <h4>HyperCommunity</h4>
+        <p>Bots y sistemas</p>
+      </div>
+
+      <div class="card">
+        <img src="images/tortrixland_logo.png?v=6">
+        <h4>TortrixLand</h4>
+        <p>Red con Velocity</p>
+      </div>
+
+      <div class="card">
+        <img src="images/warponmc_logo.png?v=6">
+        <h4>WarpOnMC</h4>
+        <p>Optimización</p>
+      </div>
+
+    </div>
   </div>
 
-  <!-- 🖼️ SERVERS -->
-  <div class="servers">
-
-    <div class="server">
-      <img src="images/minedark_logo.png">
-      <h4>MineDark</h4>
-      <p>Box PvP completo con economía, kits y progresión avanzada.</p>
-    </div>
-
-    <div class="server">
-      <img src="images/hypercommunity_logo.png">
-      <h4>HyperCommunity</h4>
-      <p>Bots Discord, sistemas automáticos y herramientas avanzadas.</p>
-    </div>
-
-    <div class="server">
-      <img src="images/tortrixland_logo.png">
-      <h4>TortrixLand</h4>
-      <p>Red escalable con Velocity y Bungeecord.</p>
-    </div>
-
-    <div class="server">
-      <img src="images/warponmc_logo.png">
-      <h4>WarpOnMC</h4>
-      <p>Optimización, economía y crecimiento de comunidad.</p>
-    </div>
-
-  </div>
-
-  <!-- ⚡ HABILIDADES -->
   <div class="info">
     <h3>⚡ Habilidades</h3>
     <ul>
-      <li>✔ Box PvP avanzado</li>
-      <li>✔ Paper / Velocity / Bungeecord</li>
-      <li>✔ Bots Discord (discord.js)</li>
-      <li>✔ Optimización y rendimiento</li>
+      <li>Box PvP avanzado</li>
+      <li>Velocity / Bungeecord</li>
+      <li>Discord Bots</li>
+      <li>Optimización</li>
     </ul>
   </div>
 
 </section>
 
 <script>
-function entrar(){
-  document.getElementById("perfil").style.display = "block";
-  document.querySelector(".hero").style.display = "none";
+const app = document.getElementById("app");
+const hero = document.querySelector(".hero");
+const music = document.getElementById("music");
 
-  let musica = document.getElementById("musica");
-  musica.volume = 0.4;
-  musica.play();
+function enter(){
+  hero.classList.add("fade");
+  setTimeout(()=>{
+    hero.style.display="none";
+    app.classList.remove("hidden");
+    music.volume = 0.4;
+    music.play();
+  },600);
 }
+
+/* 💸 BILLETES */
+const layer = document.querySelector(".money-layer");
+
+function createBill(){
+  const bill = document.createElement("img");
+  bill.src = "images/money.png";
+  bill.className = "bill";
+
+  bill.style.left = Math.random()*100 + "vw";
+  bill.style.width = (20 + Math.random()*30) + "px";
+  bill.style.animationDuration = (5 + Math.random()*5) + "s";
+
+  layer.appendChild(bill);
+
+  setTimeout(()=> bill.remove(), 10000);
+}
+
+setInterval(createBill, 250);
 </script>
 
 </body>
