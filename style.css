@@ -1,54 +1,175 @@
-/* Estilos Generales */
+/* ===== ESTILOS GENERALES ===== */
 body {
     font-family: 'Inter', sans-serif;
-    color: #e0e0e0; /* Color de texto general */
+    color: #e0e0e0;
     line-height: 1.6;
-    margin: 0 !important; /* Forzado */
-    padding: 0 !important; /* Forzado */
-    
-    /* Configuración de la imagen de fondo directamente en el body */
-    background-image: url('images/mi_fondo.jpg') !important; /* <<-- ¡TU IMAGEN! Forzado */
-    background-size: cover !important; /* Cubre toda la pantalla. Forzado */
-    background-position: center center !important; /* Centra la imagen. Forzado */
-    background-repeat: no-repeat !important; /* Evita que la imagen se repita. Forzado */
-    background-attachment: fixed !important; /* Fija la imagen para que no se mueva con el scroll. Forzado */
-    
-    min-height: 100vh !important; /* Asegura que el body ocupe al menos el 100% del viewport. Forzado */
-    width: 100% !important; /* Asegura que el body ocupe todo el ancho. Forzado */
-    overflow-x: hidden !important; /* Evita barras de scroll horizontales. Forzado */
-    position: relative !important; /* Necesario para que el overlay funcione. Forzado */
+    margin: 0;
+    padding: 0;
+
+    background-image: url('images/mi_fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* FIX MOBILE */
+
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Estilos para el div de overlay (capa oscura y filtros) */
+/* ===== OVERLAY ===== */
 .background-overlay {
-    position: fixed !important; /* Forzado */
-    top: 0 !important; /* Forzado */
-    left: 0 !important; /* Forzado */
-    width: 100% !important; /* Forzado */
-    height: 100% !important; /* Forzado */
-    /* Ajustamos la opacidad: de 0.7 (70% negro) a 0.5 (50% negro) o 0.6 (60% negro)
-       Puedes probar 0.5 para más visibilidad del fondo, o 0.6 si aún necesitas más contraste */
-    background-color: rgba(0, 0, 0, 0.6) !important; /* **AJUSTA ESTE VALOR (0.5 a 0.7)** para la intensidad del gris. Forzado */
-    z-index: -1 !important; /* Encima de la imagen de fondo del body, debajo del contenido. Forzado */
-    filter: brightness(0.6) grayscale(100%) !important; /* Aplicamos el filtro a la capa para afectar la imagen de abajo. Forzado */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0; /* FIX */
 }
 
-/* Contenedor principal de contenido */
+/* ===== CONTENEDOR ===== */
 .container {
-    width: 90% !important; /* Ancho relativo para el contenedor. Forzado */
-    max-width: 900px !important; /* Limita el ancho máximo para pantallas grandes. Forzado */
-    margin: 30px auto !important; /* ¡Centrado clásico y robusto! ESTO DEBE CENTRARLO TODO. Forzado */
-    padding: 30px !important; /* Forzado */
-    background-color: rgba(29, 29, 29, 0.9) !important; /* Fondo semitransparente para ver el overlay. Forzado */
-    border-radius: 8px !important; /* Forzado */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important; /* Forzado */
-    position: relative !important; /* Asegura que esté por encima del overlay. Forzado */
-    z-index: 1 !important; /* Asegura que el container esté sobre el overlay. Forzado */
-    text-align: left !important; /* Asegura la alineación general del texto dentro del container. Forzado */
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+
+    background-color: rgba(29, 29, 29, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+    z-index: 1;
 }
 
-/* Estilos de las secciones */
+/* ===== PERFIL ===== */
+.profile-section {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.section-tag {
+    font-size: 12px;
+    color: #00bcd4;
+    letter-spacing: 1px;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.description {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* ===== SECCIONES ===== */
 section {
-    padding: 0 !important; /* Quitado padding horizontal. Forzado */
-    margin-bottom: 30px !important; /* Espacio entre secciones
-    
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: #00e5ff;
+}
+
+h4 {
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+/* ===== LISTAS ===== */
+ul {
+    padding-left: 20px;
+}
+
+/* ===== TARJETAS DE PROYECTO ===== */
+.project-card {
+    background: #1f1f1f;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+.project-logo {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* ===== SKILLS ===== */
+.skill-category {
+    margin-top: 15px;
+}
+
+/* ===== CONTACTO ===== */
+.centered-icons {
+    text-align: center;
+}
+
+.social-links {
+    margin: 15px 0;
+}
+
+.social-icon {
+    font-size: 28px;
+    margin: 0 10px;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: #00e5ff;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ===== RESPONSIVE (CELULAR) ===== */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .profile-avatar {
+        width: 110px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .project-logo {
+        max-width: 150px;
+    }
+}
