@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keyxzzz Cartel</title>
+<title>Keyxzzz Legend</title>
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -11,83 +11,80 @@
 
 <body>
 
-<!-- 🎬 INTRO -->
+<!-- 🎬 INTRO NETFLIX -->
 <div id="intro">
-    <h1 class="intro-text">KEYXZZZ CARTEL</h1>
+    <h1 class="intro-text">KEYXZZZ</h1>
     <p class="intro-sub">THE WORLD IS YOURS</p>
     <button onclick="enterSite()">ENTRAR</button>
 </div>
 
-<!-- 🎵 MÚSICA -->
+<!-- 🎵 AUDIO -->
 <audio id="bgMusic" loop>
     <source src="music/eoo.mp3" type="audio/mpeg">
 </audio>
 
-<!-- CONTENIDO -->
 <div id="mainContent">
 
-<div class="background-overlay"></div>
+<div class="overlay"></div>
 <div class="money-rain"></div>
 
-<div class="hud">🔴 LIVE • CARTEL MODE</div>
+<div class="hud">🔴 LIVE • LEGEND MODE</div>
 
 <div class="container">
 
-    <!-- PERFIL -->
-    <header>
-        <img src="images/keyxzzz_logo.png" class="profile-avatar">
-        <h1>KEYXZZZ</h1>
-        <h2>Desarrollador Box PvP & Discord</h2>
-        <p>Especialista en servidores competitivos y comunidades avanzadas</p>
-    </header>
+<header>
+<img src="images/keyxzzz_logo.png" class="avatar">
+<h1 class="glow">KEYXZZZ</h1>
+<h2>Desarrollador Box PvP & Discord</h2>
+<p>Especialista en servidores competitivos y comunidades avanzadas</p>
+</header>
 
-    <!-- SOBRE MI -->
-    <section>
-        <h3>💼 Sobre mí</h3>
-        <p>
-            Soy desarrollador de 16 años de Ecuador enfocado en crear experiencias
-            competitivas en Minecraft y sistemas avanzados en Discord.
-        </p>
-    </section>
+<section>
+<h3>💼 Sobre mí</h3>
+<p>
+Desarrollador de 16 años de Ecuador enfocado en Minecraft y Discord.
+Creo experiencias competitivas Box PvP y sistemas avanzados para comunidades.
+</p>
+</section>
 
-    <!-- EXPERIENCIA -->
-    <section>
-        <h3>🔥 Experiencia</h3>
+<section>
+<h3>🔥 Experiencia</h3>
 
-        <div class="card">
-            <h4>🎮 MineDark</h4>
-            <p>Creador y desarrollador principal de un servidor Box PvP con sistemas personalizados, economía, kits y recompensas.</p>
-        </div>
+<div class="card">
+<h4>🎮 MineDark</h4>
+<p>Servidor Box PvP completo con sistemas personalizados, economía, kits y progresión avanzada.</p>
+</div>
 
-        <div class="card">
-            <h4>🌐 HyperComunity</h4>
-            <p>Desarrollador de bots Discord con sistemas de moderación, roles automáticos y herramientas avanzadas.</p>
-        </div>
+<div class="card">
+<h4>🌐 HyperComunity</h4>
+<p>Desarrollo de bots Discord con moderación automática, roles, sistemas personalizados y herramientas comunitarias.</p>
+</div>
 
-        <div class="card">
-            <h4>🛡️ TortrixLand</h4>
-            <p>Owner de red de servidores con infraestructura Velocity/Bungeecord y gestión completa del proyecto.</p>
-        </div>
+<div class="card">
+<h4>🛡️ TortrixLand</h4>
+<p>Owner de red de servidores con infraestructura escalable usando Velocity y Bungeecord.</p>
+</div>
 
-        <div class="card">
-            <h4>⚔️ WarponMC</h4>
-            <p>Manager y optimizador de servidor survival con crecimiento estable y comunidad activa.</p>
-        </div>
+<div class="card">
+<h4>⚔️ WarponMC</h4>
+<p>Manager especializado en optimización, economía y crecimiento de comunidad activa.</p>
+</div>
 
-    </section>
+</section>
 
-    <!-- SKILLS -->
-    <section>
-        <h3>🚀 Habilidades</h3>
-        <ul>
-            <li>⚔️ Box PvP avanzado</li>
-            <li>⚙️ Configuración Paper / Velocity</li>
-            <li>🤖 Bots Discord (discord.js)</li>
-            <li>📊 Optimización de servidores</li>
-        </ul>
-    </section>
+<section>
+<h3>🚀 Habilidades</h3>
+<ul>
+<li>⚔️ Box PvP avanzado</li>
+<li>⚙️ Paper / Velocity / Bungeecord</li>
+<li>🤖 Bots Discord (discord.js)</li>
+<li>📊 Optimización y rendimiento</li>
+</ul>
+</section>
 
 </div>
+
+<button id="musicBtn">🔊</button>
 
 </div>
 
@@ -97,35 +94,40 @@ const main = document.getElementById("mainContent");
 main.style.display = "none";
 
 function enterSite() {
-    document.getElementById("intro").style.display = "none";
-    main.style.display = "block";
+document.getElementById("intro").style.display = "none";
+main.style.display = "block";
 
-    music.currentTime = 40;
-    music.volume = 0;
-    music.play();
+music.currentTime = 40;
+music.volume = 0;
+music.play();
 
-    let vol = 0;
-    let fade = setInterval(() => {
-        if (vol < 1) {
-            vol += 0.05;
-            music.volume = vol;
-        } else clearInterval(fade);
-    }, 200);
+let vol = 0;
+let fade = setInterval(() => {
+if (vol < 1) {
+vol += 0.05;
+music.volume = vol;
+} else clearInterval(fade);
+}, 200);
 
-    document.body.classList.add("shake");
-    setTimeout(() => document.body.classList.remove("shake"), 500);
+document.body.classList.add("boom");
+setTimeout(()=>document.body.classList.remove("boom"),400);
 }
 
-/* LLUVIA */
+/* 💸 LLUVIA */
 const rain = document.querySelector(".money-rain");
-setInterval(() => {
-    const money = document.createElement("div");
-    money.classList.add("money");
-    money.innerText = "💵";
-    money.style.left = Math.random() * 100 + "vw";
-    rain.appendChild(money);
-    setTimeout(() => money.remove(), 5000);
-}, 300);
+setInterval(()=>{
+const m = document.createElement("div");
+m.classList.add("money");
+m.innerText="💵";
+m.style.left=Math.random()*100+"vw";
+rain.appendChild(m);
+setTimeout(()=>m.remove(),5000);
+},200);
+
+/* 🎵 BOTON */
+document.getElementById("musicBtn").onclick=()=>{
+if(music.paused){music.play()}else{music.pause()}
+}
 </script>
 
 </body>
