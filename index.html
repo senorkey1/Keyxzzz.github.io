@@ -78,14 +78,6 @@ background:rgba(0,0,0,0.6);
 padding:12px;
 border-radius:12px;
 font-size:13px;
-transition:0.3s;
-}
-.cat:active{
-transform:scale(0.95);
-box-shadow:0 0 15px cyan;
-}
-.cat:hover{
-box-shadow:0 0 15px cyan;
 }
 
 /* BOTON */
@@ -160,11 +152,6 @@ background:#111;
 padding:15px;
 border-radius:15px;
 text-align:center;
-transition:0.3s;
-}
-.server:active{
-transform:scale(0.95);
-box-shadow:0 0 20px cyan;
 }
 .server img{
 width:70px;
@@ -335,9 +322,93 @@ function mostrar(s){
 let info=document.getElementById("info");
 info.style.display="block";
 
-/* (mantengo tu info igual) */
+if(s=="minedark"){
+info.innerHTML=`
+<h2 style="color:#00ffe1">🔥 MineDark</h2>
 
-info.innerHTML="<h2>Servidor</h2><p>Info cargada correctamente.</p>";
+<p>
+Servidor enfocado en PvP competitivo tipo BoxPvP.
+Optimizado al máximo para evitar lag y mantener estabilidad incluso con muchos jugadores activos.
+</p>
+
+<p>
+Se implementaron configuraciones avanzadas y plugins personalizados,
+logrando una experiencia fluida, rápida y totalmente profesional.
+</p>
+
+<ul style="color:#00ffe1">
+<li>✔ BoxPvP avanzado</li>
+<li>✔ Optimización extrema</li>
+<li>✔ Plugins personalizados</li>
+<li>✔ Alto rendimiento</li>
+</ul>`;
+}
+
+if(s=="hyper"){
+info.innerHTML=`
+<h2 style="color:#00ff99">⚡ HyperCommunity</h2>
+
+<p>
+Servidor configurado para ofrecer estabilidad y jugabilidad limpia.
+Todos los sistemas fueron probados para evitar errores y mejorar la experiencia.
+</p>
+
+<p>
+Se trabajó en optimización avanzada logrando un entorno fluido y estable
+ideal para comunidades activas.
+</p>
+
+<ul style="color:#00ff99">
+<li>✔ Sistemas personalizados</li>
+<li>✔ Alto rendimiento</li>
+<li>✔ Configuración limpia</li>
+<li>✔ Estabilidad total</li>
+</ul>`;
+}
+
+if(s=="tortrix"){
+info.innerHTML=`
+<h2 style="color:#ff00ff">💎 TortrixLand</h2>
+
+<p>
+Proyecto donde trabajé como configurador y builder.
+Se diseñaron mapas optimizados para mejorar rendimiento y estética.
+</p>
+
+<p>
+Se mejoró la organización del servidor logrando una experiencia equilibrada
+entre jugabilidad y diseño visual.
+</p>
+
+<ul style="color:#ff00ff">
+<li>✔ Mapas optimizados</li>
+<li>✔ Organización avanzada</li>
+<li>✔ Configuración equilibrada</li>
+<li>✔ Experiencia fluida</li>
+</ul>`;
+}
+
+if(s=="warp"){
+info.innerHTML=`
+<h2 style="color:#ff6600">🔥 WarpOnMC</h2>
+
+<p>
+Servidor enfocado en rapidez y eficiencia en sistemas de warps.
+Optimizado para mantener rendimiento constante.
+</p>
+
+<p>
+Se logró una experiencia rápida, estable y profesional
+ideal para usuarios activos.
+</p>
+
+<ul style="color:#ff6600">
+<li>✔ Sistema warp optimizado</li>
+<li>✔ Rendimiento alto</li>
+<li>✔ Configuración pro</li>
+<li>✔ Estabilidad total</li>
+</ul>`;
+}
 }
 </script>
 
