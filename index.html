@@ -11,7 +11,7 @@ margin:0;
 font-family:Arial;
 color:white;
 background:url("images/mi_fondo.jpg") no-repeat center/cover;
-overflow-x:hidden;
+overflow:hidden;
 }
 
 /* PARTICULAS */
@@ -43,148 +43,78 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:rgba(0,0,0,0.7);
+padding:20px;
 }
 
 .caja{
 background:rgba(120,120,120,0.6);
-padding:30px;
+padding:25px;
 border-radius:20px;
 text-align:center;
-max-width:380px;
+max-width:400px;
+width:100%;
 backdrop-filter:blur(10px);
 }
 
 .caja h1{
 font-size:40px;
-margin-bottom:5px;
 }
 
 .caja h3{
 color:cyan;
-margin-bottom:15px;
-}
-
-/* CATALOGOS */
-.catalogos{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:15px;
-margin-bottom:15px;
-}
-
-.cat{
-background:rgba(0,0,0,0.6);
-padding:12px;
-border-radius:12px;
-font-size:13px;
-transition:0.3s;
-}
-.cat:active{
-transform:scale(0.95);
-box-shadow:0 0 15px cyan;
-}
-.cat:hover{
-box-shadow:0 0 15px cyan;
-}
-
-/* BOTON */
-.boton{
-margin-top:10px;
-padding:12px 30px;
-border:none;
-border-radius:15px;
-background:linear-gradient(45deg,#00f2ff,#0066ff);
-color:white;
-font-size:16px;
-}
-
-/* CONTENIDO */
-#contenido{
-display:none;
-padding:20px;
-}
-
-/* CARDS */
-.card{
-background:rgba(0,0,0,0.7);
-padding:20px;
-border-radius:20px;
-margin-bottom:25px;
-position:relative;
-z-index:1;
-}
-
-/* ANIMACION */
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:0.6s;
-}
-.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* SKIN */
-.skin{
-width:120px;
-display:block;
-margin:auto;
 margin-bottom:10px;
 }
 
-/* HABILIDADES */
-.skill{margin-bottom:15px;}
-.bar{
-width:100%;
-height:10px;
-background:#333;
-border-radius:10px;
-overflow:hidden;
-}
-.fill{
-height:100%;
-background:linear-gradient(90deg,#00f2ff,#004cff);
-box-shadow:0 0 10px cyan;
+/* CATALOGOS GRANDES */
+.catalogos{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:15px;
 }
 
-/* SERVERS */
-.servers{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-.server{
+.cat{
 background:#111;
-padding:15px;
+padding:18px;
 border-radius:15px;
-text-align:center;
+font-size:16px;
 transition:0.3s;
 }
-.server:active{
+
+.cat:active{
 transform:scale(0.95);
 box-shadow:0 0 20px cyan;
 }
-.server img{
-width:70px;
-}
 
-/* INFO */
-#info{
+/* PANTALLA INFO */
+#panel{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
 display:none;
-margin-top:20px;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 padding:20px;
-border-radius:20px;
-background:rgba(0,0,0,0.85);
-animation:fadeIn 0.4s;
-}
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
+text-align:center;
+z-index:5;
 }
 
-a{color:cyan;text-decoration:none;}
+#panel h2{
+color:cyan;
+}
+
+#cerrar{
+margin-top:20px;
+padding:10px 25px;
+border:none;
+border-radius:10px;
+background:cyan;
+color:black;
+}
 </style>
 </head>
 
@@ -194,7 +124,7 @@ a{color:cyan;text-decoration:none;}
 
 <!-- MUSICA -->
 <audio id="musica" loop>
-<source src="music/eoo.mp3" type="audio/mpeg">
+<source src="music/eoo.mp3">
 </audio>
 
 <!-- ENTRADA -->
@@ -210,108 +140,34 @@ creando servidores Minecraft optimizados y profesionales.
 </p>
 
 <div class="catalogos">
-<div class="cat">💻 Devloper | Staff</div>
-<div class="cat">🛠️ Manager | Staff</div>
-<div class="cat">👥 Equipo | Staff</div>
-<div class="cat">🏗️ Builder | Semi experto</div>
-</div>
 
-<button class="boton" onclick="entrar()">ENTRAR</button>
+<div class="cat" onclick="abrir('dev')">💻 Developer | Staff</div>
 
-</div>
-</div>
+<div class="cat" onclick="abrir('manager')">🛠️ Manager | Staff</div>
 
-<!-- CONTENIDO -->
-<div id="contenido">
+<div class="cat" onclick="abrir('equipo')">👥 Equipo | Staff</div>
 
-<div class="card fade">
-<h2>🔥 Sobre mí</h2>
-<img src="images/keyxzzz_logo.png" class="skin">
-
-<p>
-Soy configurador y builder con más de 1 año de experiencia en servidores Minecraft.
-Trabajo creando sistemas profesionales, optimizados y listos para producción.
-</p>
-</div>
-
-<div class="card fade">
-<h2>⚡ Habilidades</h2>
-
-<div class="skill">Configuración
-<div class="bar"><div class="fill" style="width:95%"></div></div>
-</div>
-
-<div class="skill">Optimización
-<div class="bar"><div class="fill" style="width:90%"></div></div>
-</div>
-
-<div class="skill">Plugins
-<div class="bar"><div class="fill" style="width:92%"></div></div>
-</div>
-
-<div class="skill">Builder
-<div class="bar"><div class="fill" style="width:85%"></div></div>
-</div>
+<div class="cat" onclick="abrir('builder')">🏗️ Builder | Semi experto</div>
 
 </div>
 
-<div class="card fade">
-<h2>🛡️ Staff</h2>
-✔ Moderación<br>
-✔ Control<br>
-✔ Organización<br>
-✔ Resolución de conflictos<br>
-✔ Gestión completa
+</div>
 </div>
 
-<div class="card fade">
-<h2>🔥 Servidores</h2>
-
-<div class="servers">
-
-<div class="server" onclick="mostrar('minedark')">
-<img src="images/minedark_logo.png"><br>MineDark
-</div>
-
-<div class="server" onclick="mostrar('hyper')">
-<img src="images/hypercommunity_logo.png"><br>HyperCommunity
-</div>
-
-<div class="server" onclick="mostrar('tortrix')">
-<img src="images/tortrixland_logo.png"><br>TortrixLand
-</div>
-
-<div class="server" onclick="mostrar('warp')">
-<img src="images/warponmc_logo.png"><br>WarpOnMC
-</div>
-
-</div>
-
-<div id="info"></div>
-
-</div>
-
-<div class="card fade">
-<h2>📩 Contacto</h2>
-💬 <a href="https://discord.com/users/1072608933249822720" target="_blank">Discord</a><br>
-📧 <a href="mailto:senorkey1@gmail.com">senorkey1@gmail.com</a>
-</div>
-
+<!-- PANEL INFO -->
+<div id="panel">
+<div id="contenidoPanel"></div>
+<button id="cerrar" onclick="cerrar()">Cerrar</button>
 </div>
 
 <script>
 
-/* ENTRAR + MUSICA */
-function entrar(){
-document.getElementById("entrada").style.display="none";
-document.getElementById("contenido").style.display="block";
-
-let audio = document.getElementById("musica");
-audio.volume = 0.5;
-audio.play().catch(()=>{
-document.addEventListener("click", ()=>audio.play(), {once:true});
-});
-}
+/* MUSICA AL PRIMER CLICK */
+document.addEventListener("click", ()=>{
+let audio=document.getElementById("musica");
+audio.volume=0.5;
+audio.play().catch(()=>{});
+},{once:true});
 
 /* PARTICULAS */
 for(let i=0;i<30;i++){
@@ -322,23 +178,100 @@ dot.style.animationDuration=(3+Math.random()*5)+"s";
 document.getElementById("particles").appendChild(dot);
 }
 
-/* SCROLL */
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".fade").forEach(el=>{
-let top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-50){el.classList.add("show");}
-});
-});
+/* ABRIR PANEL */
+function abrir(tipo){
+let panel=document.getElementById("panel");
+let cont=document.getElementById("contenidoPanel");
 
-/* INFO SERVERS */
-function mostrar(s){
-let info=document.getElementById("info");
-info.style.display="block";
+panel.style.display="flex";
 
-/* (mantengo tu info igual) */
+if(tipo=="dev"){
+cont.innerHTML=`
+<h2>💻 Developer</h2>
 
-info.innerHTML="<h2>Servidor</h2><p>Info cargada correctamente.</p>";
+<p>
+Especialista en desarrollo y configuración avanzada de servidores.
+Implemento sistemas personalizados y optimización profesional.
+</p>
+
+<p>
+Trabajo asegurando estabilidad, rendimiento alto y experiencia fluida.
+</p>
+
+<ul>
+<li>✔ Plugins avanzados</li>
+<li>✔ Sistemas únicos</li>
+<li>✔ Optimización pro</li>
+</ul>`;
 }
+
+if(tipo=="manager"){
+cont.innerHTML=`
+<h2>🛠️ Manager</h2>
+
+<p>
+Encargado de la gestión completa del servidor y su funcionamiento.
+Organización, control y administración profesional.
+</p>
+
+<p>
+Aseguro estabilidad del staff y crecimiento del servidor.
+</p>
+
+<ul>
+<li>✔ Gestión total</li>
+<li>✔ Organización</li>
+<li>✔ Control de staff</li>
+</ul>`;
+}
+
+if(tipo=="equipo"){
+cont.innerHTML=`
+<h2>👥 Equipo</h2>
+
+<p>
+Trabajo en equipo manteniendo comunicación y coordinación constante.
+Resolución de problemas y apoyo a la comunidad.
+</p>
+
+<p>
+Experiencia manejando usuarios y conflictos dentro del servidor.
+</p>
+
+<ul>
+<li>✔ Trabajo en equipo</li>
+<li>✔ Soporte activo</li>
+<li>✔ Resolución de conflictos</li>
+</ul>`;
+}
+
+if(tipo=="builder"){
+cont.innerHTML=`
+<h2>🏗️ Builder</h2>
+
+<p>
+Builder semi experto enfocado en estructuras optimizadas y funcionales.
+Creación de mapas ligeros y bien diseñados.
+</p>
+
+<p>
+Equilibrio entre estética y rendimiento.
+</p>
+
+<ul>
+<li>✔ Mapas optimizados</li>
+<li>✔ Diseño funcional</li>
+<li>✔ Buen rendimiento</li>
+</ul>`;
+}
+
+}
+
+/* CERRAR */
+function cerrar(){
+document.getElementById("panel").style.display="none";
+}
+
 </script>
 
 </body>
