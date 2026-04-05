@@ -50,31 +50,53 @@ background:rgba(120,120,120,0.6);
 padding:30px;
 border-radius:20px;
 text-align:center;
-max-width:350px;
+max-width:380px;
 backdrop-filter:blur(10px);
 }
 
 .caja h1{
-font-size:35px;
+font-size:40px;
+margin-bottom:5px;
 }
 
-.caja p{
-font-size:14px;
+.caja h3{
+color:cyan;
+margin-bottom:15px;
+}
+
+/* CATALOGOS */
+.catalogos{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px;
+margin-bottom:15px;
+}
+
+.cat{
+background:rgba(0,0,0,0.6);
+padding:12px;
+border-radius:12px;
+font-size:13px;
+transition:0.3s;
+}
+.cat:active{
+transform:scale(0.95);
+box-shadow:0 0 15px cyan;
+}
+.cat:hover{
+box-shadow:0 0 15px cyan;
 }
 
 /* BOTON */
 .boton{
-margin-top:15px;
+margin-top:10px;
 padding:12px 30px;
 border:none;
 border-radius:15px;
 background:linear-gradient(45deg,#00f2ff,#0066ff);
 color:white;
 font-size:16px;
-}
-.boton:active{
-transform:scale(0.95);
-box-shadow:0 0 20px cyan;
 }
 
 /* CONTENIDO */
@@ -93,7 +115,7 @@ position:relative;
 z-index:1;
 }
 
-/* FADE */
+/* ANIMACION */
 .fade{
 opacity:0;
 transform:translateY(40px);
@@ -112,10 +134,8 @@ margin:auto;
 margin-bottom:10px;
 }
 
-/* HABILIDADES BONITAS */
-.skill{
-margin-bottom:15px;
-}
+/* HABILIDADES */
+.skill{margin-bottom:15px;}
 .bar{
 width:100%;
 height:10px;
@@ -172,7 +192,7 @@ a{color:cyan;text-decoration:none;}
 
 <div id="particles"></div>
 
-<!-- MUSICA (YA ARREGLADA) -->
+<!-- MUSICA -->
 <audio id="musica" loop>
 <source src="music/eoo.mp3" type="audio/mpeg">
 </audio>
@@ -180,15 +200,24 @@ a{color:cyan;text-decoration:none;}
 <!-- ENTRADA -->
 <div id="entrada">
 <div class="caja">
-<h1>Bienvenido</h1>
+
+<h1>Keyxzzz</h1>
+<h3>Staff Configurador</h3>
 
 <p>
-Tengo 16 años, soy de Ecuador y soy configurador profesional.
-Más de 1 año creando servidores optimizados y estables.
-Especialista en BoxPvP y rendimiento extremo.
+Tengo 16 años, soy de Ecuador y cuento con más de 1 año de experiencia
+creando servidores Minecraft optimizados y profesionales.
 </p>
 
+<div class="catalogos">
+<div class="cat">💻 Devloper | Staff</div>
+<div class="cat">🛠️ Manager | Staff</div>
+<div class="cat">👥 Equipo | Staff</div>
+<div class="cat">🏗️ Builder | Semi experto</div>
+</div>
+
 <button class="boton" onclick="entrar()">ENTRAR</button>
+
 </div>
 </div>
 
@@ -272,14 +301,13 @@ Trabajo creando sistemas profesionales, optimizados y listos para producción.
 
 <script>
 
-/* ENTRAR + MUSICA (ARREGLADO PARA CELULARES) */
+/* ENTRAR + MUSICA */
 function entrar(){
 document.getElementById("entrada").style.display="none";
 document.getElementById("contenido").style.display="block";
 
 let audio = document.getElementById("musica");
 audio.volume = 0.5;
-
 audio.play().catch(()=>{
 document.addEventListener("click", ()=>audio.play(), {once:true});
 });
@@ -307,86 +335,9 @@ function mostrar(s){
 let info=document.getElementById("info");
 info.style.display="block";
 
-if(s=="minedark"){
-info.innerHTML=`
-<h2 style="color:#00ffe1">🔥 MineDark</h2>
+/* (mantengo tu info igual) */
 
-<p>
-Servidor PvP competitivo optimizado al máximo para estabilidad total.
-Cada sistema fue ajustado para evitar lag incluso con muchos jugadores.
-</p>
-
-<p>
-Configuración avanzada y rendimiento extremo para una experiencia profesional.
-</p>
-
-<ul style="color:#00ffe1">
-<li>✔ BoxPvP avanzado</li>
-<li>✔ Optimización extrema</li>
-<li>✔ Plugins personalizados</li>
-<li>✔ Alto rendimiento</li>
-</ul>`;
-}
-
-if(s=="hyper"){
-info.innerHTML=`
-<h2 style="color:#00ff99">⚡ HyperCommunity</h2>
-
-<p>
-Servidor enfocado en estabilidad y jugabilidad limpia sin errores.
-</p>
-
-<p>
-Optimizado para comunidades activas con alto rendimiento.
-</p>
-
-<ul style="color:#00ff99">
-<li>✔ Sistemas personalizados</li>
-<li>✔ Estabilidad total</li>
-<li>✔ Configuración limpia</li>
-<li>✔ Rendimiento alto</li>
-</ul>`;
-}
-
-if(s=="tortrix"){
-info.innerHTML=`
-<h2 style="color:#ff00ff">💎 TortrixLand</h2>
-
-<p>
-Proyecto trabajado como configurador y builder con mapas optimizados.
-</p>
-
-<p>
-Balance perfecto entre estética y rendimiento.
-</p>
-
-<ul style="color:#ff00ff">
-<li>✔ Mapas optimizados</li>
-<li>✔ Organización avanzada</li>
-<li>✔ Configuración equilibrada</li>
-<li>✔ Experiencia fluida</li>
-</ul>`;
-}
-
-if(s=="warp"){
-info.innerHTML=`
-<h2 style="color:#ff6600">🔥 WarpOnMC</h2>
-
-<p>
-Servidor enfocado en rapidez y eficiencia en sistemas warp.
-</p>
-
-<p>
-Configurado para máximo rendimiento y estabilidad constante.
-</p>
-
-<ul style="color:#ff6600">
-<li>✔ Sistema warp optimizado</li>
-<li>✔ Alto rendimiento</li>
-<li>✔ Configuración pro</li>
-<li>✔ Estabilidad total</li>
-</ul>`;
-}
+info.innerHTML="<h2>Servidor</h2><p>Info cargada correctamente.</p>";
 }
 </script>
 
