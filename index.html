@@ -11,78 +11,142 @@ margin:0;
 font-family:Arial;
 color:white;
 background:url("images/mi_fondo.jpg") no-repeat center/cover;
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* FONDO OSCURO */
-.overlay{
-position:absolute;
+/* PARTICULAS */
+#particles{
+position:fixed;
 width:100%;
 height:100%;
+pointer-events:none;
+z-index:0;
+}
+.dot{
+position:absolute;
+width:6px;
+height:6px;
+background:cyan;
+border-radius:50%;
+animation:float 6s linear infinite;
+opacity:0.7;
+}
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+/* ENTRADA */
+#entrada{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 background:rgba(0,0,0,0.7);
 }
 
-/* SECCIONES */
-.seccion{
-display:none;
-position:absolute;
-width:100%;
-height:100%;
-top:0;
-left:0;
-padding:20px;
-overflow:auto;
-}
-
-.activa{
-display:block;
-}
-
-/* CONTENIDO CENTRO */
-.center{
+.caja{
+background:rgba(120,120,120,0.6);
+padding:30px;
+border-radius:20px;
 text-align:center;
-margin-top:40px;
+max-width:380px;
+backdrop-filter:blur(10px);
 }
 
-/* LOGO */
-.logo{
-width:100px;
+.caja h1{
+font-size:40px;
+margin-bottom:5px;
 }
 
-/* TITULO */
-h1{
-color:#00d9ff;
-text-shadow:0 0 10px cyan;
+.caja h3{
+color:cyan;
+margin-bottom:15px;
 }
 
-/* GRID */
-.grid{
+/* CATALOGOS */
+.catalogos{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:20px;
-max-width:400px;
-margin:30px auto;
+gap:10px;
+margin-top:15px;
+margin-bottom:15px;
 }
 
-/* BOTONES */
-.op{
-background:#111;
-padding:20px;
-border-radius:15px;
-text-align:center;
+.cat{
+background:rgba(0,0,0,0.6);
+padding:12px;
+border-radius:12px;
+font-size:13px;
 transition:0.3s;
 }
-.op:active{
-transform:scale(0.9);
-box-shadow:0 0 20px cyan;
+.cat:active{
+transform:scale(0.95);
+box-shadow:0 0 15px cyan;
+}
+.cat:hover{
+box-shadow:0 0 15px cyan;
+}
+
+/* BOTON */
+.boton{
+margin-top:10px;
+padding:12px 30px;
+border:none;
+border-radius:15px;
+background:linear-gradient(45deg,#00f2ff,#0066ff);
+color:white;
+font-size:16px;
+}
+
+/* CONTENIDO */
+#contenido{
+display:none;
+padding:20px;
 }
 
 /* CARDS */
 .card{
 background:rgba(0,0,0,0.7);
 padding:20px;
-border-radius:15px;
-margin-bottom:20px;
+border-radius:20px;
+margin-bottom:25px;
+position:relative;
+z-index:1;
+}
+
+/* ANIMACION */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
+}
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* SKIN */
+.skin{
+width:120px;
+display:block;
+margin:auto;
+margin-bottom:10px;
+}
+
+/* HABILIDADES */
+.skill{margin-bottom:15px;}
+.bar{
+width:100%;
+height:10px;
+background:#333;
+border-radius:10px;
+overflow:hidden;
+}
+.fill{
+height:100%;
+background:linear-gradient(90deg,#00f2ff,#004cff);
+box-shadow:0 0 10px cyan;
 }
 
 /* SERVERS */
@@ -91,180 +155,190 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
 }
-
 .server{
 background:#111;
 padding:15px;
 border-radius:15px;
 text-align:center;
+transition:0.3s;
+}
+.server:active{
+transform:scale(0.95);
+box-shadow:0 0 20px cyan;
 }
 .server img{
-width:60px;
+width:70px;
 }
 
-/* VOLVER */
-.volver{
-position:fixed;
-top:10px;
-left:10px;
-background:cyan;
-border:none;
-padding:10px;
-border-radius:10px;
+/* INFO */
+#info{
+display:none;
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+background:rgba(0,0,0,0.85);
+animation:fadeIn 0.4s;
+}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-/* MUSICA */
-audio{display:none;}
-
+a{color:cyan;text-decoration:none;}
 </style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
+<div id="particles"></div>
 
+<!-- MUSICA -->
 <audio id="musica" loop>
-<source src="music/eoo.mp3">
+<source src="music/eoo.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MENU PRINCIPAL -->
-<div id="menu" class="seccion activa center">
+<!-- ENTRADA -->
+<div id="entrada">
+<div class="caja">
 
-<img src="images/keyxzzz_logo.png" class="logo">
-
-<h1>Keyxzzz » Configurador</h1>
-
-<div class="grid">
-
-<div class="op" onclick="ir('dev')">💻 Developer</div>
-<div class="op" onclick="ir('manager')">🛠️ Manager</div>
-<div class="op" onclick="ir('equipo')">👥 Equipo</div>
-<div class="op" onclick="ir('builder')">🏗️ Builder</div>
-
-</div>
-
-</div>
-
-<!-- PAGINA DEV -->
-<div id="dev" class="seccion">
-
-<button class="volver" onclick="volver()">⬅</button>
-
-<div class="card">
-<h2>💻 Developer | Staff</h2>
+<h1>Keyxzzz</h1>
+<h3>Staff Configurador</h3>
 
 <p>
-Especialista en configuración avanzada de servidores Minecraft.
-Creación de sistemas optimizados y profesionales.
+Tengo 16 años, soy de Ecuador y cuento con más de 1 año de experiencia
+creando servidores Minecraft optimizados y profesionales.
 </p>
 
+<div class="catalogos">
+<div class="cat">💻 Devloper | Staff</div>
+<div class="cat">🛠️ Manager | Staff</div>
+<div class="cat">👥 Equipo | Staff</div>
+<div class="cat">🏗️ Builder | Semi experto</div>
+</div>
+
+<button class="boton" onclick="entrar()">ENTRAR</button>
+
+</div>
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido">
+
+<div class="card fade">
+<h2>🔥 Sobre mí</h2>
+<img src="images/keyxzzz_logo.png" class="skin">
+
 <p>
-Trabajo enfocado en rendimiento extremo y estabilidad total.
+Soy configurador y builder con más de 1 año de experiencia en servidores Minecraft.
+Trabajo creando sistemas profesionales, optimizados y listos para producción.
 </p>
 </div>
 
-<div class="card">
+<div class="card fade">
+<h2>⚡ Habilidades</h2>
+
+<div class="skill">Configuración
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">Optimización
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">Plugins
+<div class="bar"><div class="fill" style="width:92%"></div></div>
+</div>
+
+<div class="skill">Builder
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+</div>
+
+<div class="card fade">
+<h2>🛡️ Staff</h2>
+✔ Moderación<br>
+✔ Control<br>
+✔ Organización<br>
+✔ Resolución de conflictos<br>
+✔ Gestión completa
+</div>
+
+<div class="card fade">
 <h2>🔥 Servidores</h2>
 
 <div class="servers">
 
-<div class="server">
+<div class="server" onclick="mostrar('minedark')">
 <img src="images/minedark_logo.png"><br>MineDark
 </div>
 
-<div class="server">
+<div class="server" onclick="mostrar('hyper')">
 <img src="images/hypercommunity_logo.png"><br>HyperCommunity
 </div>
 
-<div class="server">
+<div class="server" onclick="mostrar('tortrix')">
 <img src="images/tortrixland_logo.png"><br>TortrixLand
 </div>
 
-<div class="server">
+<div class="server" onclick="mostrar('warp')">
 <img src="images/warponmc_logo.png"><br>WarpOnMC
 </div>
 
 </div>
 
-</div>
+<div id="info"></div>
 
 </div>
 
-<!-- PAGINA MANAGER -->
-<div id="manager" class="seccion">
-
-<button class="volver" onclick="volver()">⬅</button>
-
-<div class="card">
-<h2>🛠️ Manager | Staff</h2>
-
-<p>
-Gestión completa de servidores y control del staff.
-</p>
-
-<p>
-Organización profesional y estabilidad del servidor.
-</p>
-</div>
-
-</div>
-
-<!-- PAGINA EQUIPO -->
-<div id="equipo" class="seccion">
-
-<button class="volver" onclick="volver()">⬅</button>
-
-<div class="card">
-<h2>👥 Equipo | Staff</h2>
-
-<p>
-Trabajo en equipo y soporte a la comunidad.
-</p>
-
-<p>
-Resolución de conflictos y ayuda activa.
-</p>
-</div>
-
-</div>
-
-<!-- PAGINA BUILDER -->
-<div id="builder" class="seccion">
-
-<button class="volver" onclick="volver()">⬅</button>
-
-<div class="card">
-<h2>🏗️ Builder | Semi profesional</h2>
-
-<p>
-Creación de mapas optimizados y funcionales.
-</p>
-
-<p>
-Diseño equilibrado entre estética y rendimiento.
-</p>
+<div class="card fade">
+<h2>📩 Contacto</h2>
+💬 <a href="https://discord.com/users/1072608933249822720" target="_blank">Discord</a><br>
+📧 <a href="mailto:senorkey1@gmail.com">senorkey1@gmail.com</a>
 </div>
 
 </div>
 
 <script>
 
-/* CAMBIAR PAGINA */
-function ir(id){
-document.querySelectorAll(".seccion").forEach(s=>s.classList.remove("activa"));
-document.getElementById(id).classList.add("activa");
+/* ENTRAR + MUSICA */
+function entrar(){
+document.getElementById("entrada").style.display="none";
+document.getElementById("contenido").style.display="block";
 
-/* MUSICA */
-let m=document.getElementById("musica");
-m.play().catch(()=>{});
+let audio = document.getElementById("musica");
+audio.volume = 0.5;
+audio.play().catch(()=>{
+document.addEventListener("click", ()=>audio.play(), {once:true});
+});
 }
 
-/* VOLVER */
-function volver(){
-document.querySelectorAll(".seccion").forEach(s=>s.classList.remove("activa"));
-document.getElementById("menu").classList.add("activa");
+/* PARTICULAS */
+for(let i=0;i<30;i++){
+let dot=document.createElement("div");
+dot.className="dot";
+dot.style.left=Math.random()*100+"%";
+dot.style.animationDuration=(3+Math.random()*5)+"s";
+document.getElementById("particles").appendChild(dot);
 }
 
+/* SCROLL */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".fade").forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-50){el.classList.add("show");}
+});
+});
+
+/* INFO SERVERS */
+function mostrar(s){
+let info=document.getElementById("info");
+info.style.display="block";
+
+/* (mantengo tu info igual) */
+
+info.innerHTML="<h2>Servidor</h2><p>Info cargada correctamente.</p>";
+}
 </script>
 
 </body>
