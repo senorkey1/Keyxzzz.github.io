@@ -14,79 +14,63 @@ background:url("images/mi_fondo.jpg") no-repeat center/cover;
 overflow:hidden;
 }
 
-/* PARTICULAS */
-#particles{
-position:fixed;
+/* OSCURECER */
+.overlay{
+position:absolute;
 width:100%;
 height:100%;
-pointer-events:none;
-z-index:0;
-}
-.dot{
-position:absolute;
-width:6px;
-height:6px;
-background:cyan;
-border-radius:50%;
-animation:float 6s linear infinite;
-opacity:0.7;
-}
-@keyframes float{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-10vh);}
+background:rgba(0,0,0,0.6);
 }
 
-/* ENTRADA */
-#entrada{
+/* CONTENIDO CENTRAL */
+.main{
+position:relative;
+z-index:2;
 height:100vh;
 display:flex;
-justify-content:center;
+flex-direction:column;
 align-items:center;
-background:rgba(0,0,0,0.7);
-padding:20px;
-}
-
-.caja{
-background:rgba(120,120,120,0.6);
-padding:25px;
-border-radius:20px;
+justify-content:center;
 text-align:center;
-max-width:400px;
-width:100%;
-backdrop-filter:blur(10px);
 }
 
-.caja h1{
-font-size:40px;
-}
-
-.caja h3{
-color:cyan;
+/* LOGO */
+.logo{
+width:100px;
 margin-bottom:10px;
 }
 
-/* CATALOGOS GRANDES */
-.catalogos{
-display:flex;
-flex-direction:column;
-gap:12px;
-margin-top:15px;
+/* TITULO */
+h1{
+color:#00aaff;
+font-size:28px;
+margin-bottom:30px;
 }
 
-.cat{
-background:#111;
-padding:18px;
+/* GRID OPCIONES */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+width:80%;
+max-width:400px;
+}
+
+/* BOTONES */
+.op{
+background:rgba(0,0,0,0.7);
+padding:20px;
 border-radius:15px;
-font-size:16px;
+font-size:14px;
 transition:0.3s;
 }
 
-.cat:active{
-transform:scale(0.95);
+.op:active{
+transform:scale(0.9);
 box-shadow:0 0 20px cyan;
 }
 
-/* PANTALLA INFO */
+/* PANEL INFO */
 #panel{
 position:fixed;
 top:0;
@@ -98,8 +82,8 @@ display:none;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:20px;
 text-align:center;
+padding:20px;
 z-index:5;
 }
 
@@ -107,9 +91,9 @@ z-index:5;
 color:cyan;
 }
 
-#cerrar{
+.btn{
 margin-top:20px;
-padding:10px 25px;
+padding:10px 20px;
 border:none;
 border-radius:10px;
 background:cyan;
@@ -120,147 +104,139 @@ color:black;
 
 <body>
 
-<div id="particles"></div>
+<div class="overlay"></div>
 
 <!-- MUSICA -->
 <audio id="musica" loop>
 <source src="music/eoo.mp3">
 </audio>
 
-<!-- ENTRADA -->
-<div id="entrada">
-<div class="caja">
+<div class="main">
 
-<h1>Keyxzzz</h1>
-<h3>Staff Configurador</h3>
+<img src="images/keyxzzz_logo.png" class="logo">
 
-<p>
-Tengo 16 años, soy de Ecuador y cuento con más de 1 año de experiencia
-creando servidores Minecraft optimizados y profesionales.
-</p>
+<h1>Keyxzzz » Configurador</h1>
 
-<div class="catalogos">
+<div class="grid">
 
-<div class="cat" onclick="abrir('dev')">💻 Developer | Staff</div>
+<div class="op" onclick="abrir('dev')">
+💻 Developer | Staff
+</div>
 
-<div class="cat" onclick="abrir('manager')">🛠️ Manager | Staff</div>
+<div class="op" onclick="abrir('manager')">
+🛠️ Manager | Staff
+</div>
 
-<div class="cat" onclick="abrir('equipo')">👥 Equipo | Staff</div>
+<div class="op" onclick="abrir('equipo')">
+👥 Equipo | Staff
+</div>
 
-<div class="cat" onclick="abrir('builder')">🏗️ Builder | Semi experto</div>
-
+<div class="op" onclick="abrir('builder')">
+🏗️ Builder | Semi profesional
 </div>
 
 </div>
+
 </div>
 
-<!-- PANEL INFO -->
+<!-- PANEL -->
 <div id="panel">
-<div id="contenidoPanel"></div>
-<button id="cerrar" onclick="cerrar()">Cerrar</button>
+<div id="contenido"></div>
+<button class="btn" onclick="cerrar()">Cerrar</button>
 </div>
 
 <script>
 
-/* MUSICA AL PRIMER CLICK */
+/* MUSICA */
 document.addEventListener("click", ()=>{
-let audio=document.getElementById("musica");
-audio.volume=0.5;
-audio.play().catch(()=>{});
+let a=document.getElementById("musica");
+a.volume=0.5;
+a.play().catch(()=>{});
 },{once:true});
 
-/* PARTICULAS */
-for(let i=0;i<30;i++){
-let dot=document.createElement("div");
-dot.className="dot";
-dot.style.left=Math.random()*100+"%";
-dot.style.animationDuration=(3+Math.random()*5)+"s";
-document.getElementById("particles").appendChild(dot);
-}
-
-/* ABRIR PANEL */
+/* ABRIR INFO */
 function abrir(tipo){
 let panel=document.getElementById("panel");
-let cont=document.getElementById("contenidoPanel");
+let cont=document.getElementById("contenido");
 
 panel.style.display="flex";
 
 if(tipo=="dev"){
 cont.innerHTML=`
-<h2>💻 Developer</h2>
+<h2>💻 Developer | Staff</h2>
 
 <p>
-Especialista en desarrollo y configuración avanzada de servidores.
-Implemento sistemas personalizados y optimización profesional.
+Especialista en desarrollo y configuración avanzada de servidores Minecraft.
+Implementación de sistemas únicos y optimización extrema.
 </p>
 
 <p>
-Trabajo asegurando estabilidad, rendimiento alto y experiencia fluida.
+Experiencia creando servidores estables, rápidos y profesionales.
 </p>
 
 <ul>
-<li>✔ Plugins avanzados</li>
-<li>✔ Sistemas únicos</li>
-<li>✔ Optimización pro</li>
+<li>✔ Plugins personalizados</li>
+<li>✔ Sistemas avanzados</li>
+<li>✔ Rendimiento alto</li>
 </ul>`;
 }
 
 if(tipo=="manager"){
 cont.innerHTML=`
-<h2>🛠️ Manager</h2>
+<h2>🛠️ Manager | Staff</h2>
 
 <p>
-Encargado de la gestión completa del servidor y su funcionamiento.
+Encargado de la gestión completa del servidor.
 Organización, control y administración profesional.
 </p>
 
 <p>
-Aseguro estabilidad del staff y crecimiento del servidor.
+Experiencia liderando equipos y manteniendo estabilidad del servidor.
 </p>
 
 <ul>
 <li>✔ Gestión total</li>
-<li>✔ Organización</li>
 <li>✔ Control de staff</li>
+<li>✔ Organización</li>
 </ul>`;
 }
 
 if(tipo=="equipo"){
 cont.innerHTML=`
-<h2>👥 Equipo</h2>
+<h2>👥 Equipo | Staff</h2>
 
 <p>
-Trabajo en equipo manteniendo comunicación y coordinación constante.
-Resolución de problemas y apoyo a la comunidad.
+Trabajo en equipo y soporte a la comunidad.
+Resolución de problemas y asistencia activa.
 </p>
 
 <p>
-Experiencia manejando usuarios y conflictos dentro del servidor.
+Buena comunicación y manejo de usuarios.
 </p>
 
 <ul>
-<li>✔ Trabajo en equipo</li>
 <li>✔ Soporte activo</li>
 <li>✔ Resolución de conflictos</li>
+<li>✔ Trabajo en equipo</li>
 </ul>`;
 }
 
 if(tipo=="builder"){
 cont.innerHTML=`
-<h2>🏗️ Builder</h2>
+<h2>🏗️ Builder | Semi profesional</h2>
 
 <p>
-Builder semi experto enfocado en estructuras optimizadas y funcionales.
-Creación de mapas ligeros y bien diseñados.
+Builder enfocado en mapas optimizados y funcionales.
+Diseño equilibrado entre estética y rendimiento.
 </p>
 
 <p>
-Equilibrio entre estética y rendimiento.
+Experiencia creando estructuras para servidores.
 </p>
 
 <ul>
 <li>✔ Mapas optimizados</li>
-<li>✔ Diseño funcional</li>
+<li>✔ Diseño limpio</li>
 <li>✔ Buen rendimiento</li>
 </ul>`;
 }
