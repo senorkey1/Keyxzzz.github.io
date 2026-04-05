@@ -14,24 +14,24 @@ background:url("images/mi_fondo.jpg") no-repeat center/cover;
 overflow:hidden;
 }
 
-/* OSCURECER */
-.overlay{
+/* GENERAL */
+.seccion{
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.6);
+top:0;
+left:0;
+display:none;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:rgba(0,0,0,0.7);
+padding:20px;
 }
 
-/* CONTENIDO CENTRAL */
-.main{
-position:relative;
-z-index:2;
-height:100vh;
+.activa{
 display:flex;
 flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
 }
 
 /* LOGO */
@@ -43,55 +43,32 @@ margin-bottom:10px;
 /* TITULO */
 h1{
 color:#00aaff;
-font-size:28px;
 margin-bottom:30px;
 }
 
-/* GRID OPCIONES */
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
+gap:20px;
 width:80%;
 max-width:400px;
 }
 
 /* BOTONES */
 .op{
-background:rgba(0,0,0,0.7);
+background:#111;
 padding:20px;
 border-radius:15px;
-font-size:14px;
 transition:0.3s;
 }
-
 .op:active{
 transform:scale(0.9);
 box-shadow:0 0 20px cyan;
 }
 
-/* PANEL INFO */
-#panel{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:none;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-z-index:5;
-}
-
-#panel h2{
-color:cyan;
-}
-
-.btn{
+/* BOTON VOLVER */
+.volver{
 margin-top:20px;
 padding:10px 20px;
 border:none;
@@ -104,14 +81,13 @@ color:black;
 
 <body>
 
-<div class="overlay"></div>
-
 <!-- MUSICA -->
 <audio id="musica" loop>
 <source src="music/eoo.mp3">
 </audio>
 
-<div class="main">
+<!-- PANTALLA PRINCIPAL -->
+<div id="inicio" class="seccion activa">
 
 <img src="images/keyxzzz_logo.png" class="logo">
 
@@ -119,55 +95,25 @@ color:black;
 
 <div class="grid">
 
-<div class="op" onclick="abrir('dev')">
-💻 Developer | Staff
-</div>
+<div class="op" onclick="ir('dev')">💻 Developer | Staff</div>
 
-<div class="op" onclick="abrir('manager')">
-🛠️ Manager | Staff
-</div>
+<div class="op" onclick="ir('manager')">🛠️ Manager | Staff</div>
 
-<div class="op" onclick="abrir('equipo')">
-👥 Equipo | Staff
-</div>
+<div class="op" onclick="ir('equipo')">👥 Equipo | Staff</div>
 
-<div class="op" onclick="abrir('builder')">
-🏗️ Builder | Semi profesional
-</div>
+<div class="op" onclick="ir('builder')">🏗️ Builder | Semi profesional</div>
 
 </div>
 
 </div>
 
-<!-- PANEL -->
-<div id="panel">
-<div id="contenido"></div>
-<button class="btn" onclick="cerrar()">Cerrar</button>
-</div>
-
-<script>
-
-/* MUSICA */
-document.addEventListener("click", ()=>{
-let a=document.getElementById("musica");
-a.volume=0.5;
-a.play().catch(()=>{});
-},{once:true});
-
-/* ABRIR INFO */
-function abrir(tipo){
-let panel=document.getElementById("panel");
-let cont=document.getElementById("contenido");
-
-panel.style.display="flex";
-
-if(tipo=="dev"){
-cont.innerHTML=`
-<h2>💻 Developer | Staff</h2>
+<!-- DEV -->
+<div id="dev" class="seccion">
+<h1>💻 Developer</h1>
 
 <p>
 Especialista en desarrollo y configuración avanzada de servidores Minecraft.
-Implementación de sistemas únicos y optimización extrema.
+Implemento sistemas únicos y optimización extrema.
 </p>
 
 <p>
@@ -177,33 +123,37 @@ Experiencia creando servidores estables, rápidos y profesionales.
 <ul>
 <li>✔ Plugins personalizados</li>
 <li>✔ Sistemas avanzados</li>
-<li>✔ Rendimiento alto</li>
-</ul>`;
-}
+<li>✔ Alto rendimiento</li>
+</ul>
 
-if(tipo=="manager"){
-cont.innerHTML=`
-<h2>🛠️ Manager | Staff</h2>
+<button class="volver" onclick="volver()">⬅ Volver</button>
+</div>
+
+<!-- MANAGER -->
+<div id="manager" class="seccion">
+<h1>🛠️ Manager</h1>
 
 <p>
 Encargado de la gestión completa del servidor.
-Organización, control y administración profesional.
+Organización y control total del staff.
 </p>
 
 <p>
-Experiencia liderando equipos y manteniendo estabilidad del servidor.
+Experiencia liderando equipos y manteniendo estabilidad.
 </p>
 
 <ul>
 <li>✔ Gestión total</li>
-<li>✔ Control de staff</li>
+<li>✔ Control staff</li>
 <li>✔ Organización</li>
-</ul>`;
-}
+</ul>
 
-if(tipo=="equipo"){
-cont.innerHTML=`
-<h2>👥 Equipo | Staff</h2>
+<button class="volver" onclick="volver()">⬅ Volver</button>
+</div>
+
+<!-- EQUIPO -->
+<div id="equipo" class="seccion">
+<h1>👥 Equipo</h1>
 
 <p>
 Trabajo en equipo y soporte a la comunidad.
@@ -216,14 +166,16 @@ Buena comunicación y manejo de usuarios.
 
 <ul>
 <li>✔ Soporte activo</li>
-<li>✔ Resolución de conflictos</li>
+<li>✔ Resolución conflictos</li>
 <li>✔ Trabajo en equipo</li>
-</ul>`;
-}
+</ul>
 
-if(tipo=="builder"){
-cont.innerHTML=`
-<h2>🏗️ Builder | Semi profesional</h2>
+<button class="volver" onclick="volver()">⬅ Volver</button>
+</div>
+
+<!-- BUILDER -->
+<div id="builder" class="seccion">
+<h1>🏗️ Builder</h1>
 
 <p>
 Builder enfocado en mapas optimizados y funcionales.
@@ -238,14 +190,30 @@ Experiencia creando estructuras para servidores.
 <li>✔ Mapas optimizados</li>
 <li>✔ Diseño limpio</li>
 <li>✔ Buen rendimiento</li>
-</ul>`;
+</ul>
+
+<button class="volver" onclick="volver()">⬅ Volver</button>
+</div>
+
+<script>
+
+/* MUSICA */
+document.addEventListener("click", ()=>{
+let a=document.getElementById("musica");
+a.volume=0.5;
+a.play().catch(()=>{});
+},{once:true});
+
+/* IR A SECCION */
+function ir(id){
+document.querySelectorAll(".seccion").forEach(s=>s.classList.remove("activa"));
+document.getElementById(id).classList.add("activa");
 }
 
-}
-
-/* CERRAR */
-function cerrar(){
-document.getElementById("panel").style.display="none";
+/* VOLVER */
+function volver(){
+document.querySelectorAll(".seccion").forEach(s=>s.classList.remove("activa"));
+document.getElementById("inicio").classList.add("activa");
 }
 
 </script>
