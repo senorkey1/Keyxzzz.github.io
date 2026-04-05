@@ -14,36 +14,45 @@ background:url("images/mi_fondo.jpg") no-repeat center/cover;
 overflow:hidden;
 }
 
-/* GENERAL */
+/* FONDO OSCURO */
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+}
+
+/* SECCIONES */
 .seccion{
+display:none;
 position:absolute;
 width:100%;
 height:100%;
 top:0;
 left:0;
-display:none;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:rgba(0,0,0,0.7);
 padding:20px;
+overflow:auto;
 }
 
 .activa{
-display:flex;
-flex-direction:column;
+display:block;
+}
+
+/* CONTENIDO CENTRO */
+.center{
+text-align:center;
+margin-top:40px;
 }
 
 /* LOGO */
 .logo{
 width:100px;
-margin-bottom:10px;
 }
 
 /* TITULO */
 h1{
-color:#00aaff;
-margin-bottom:30px;
+color:#00d9ff;
+text-shadow:0 0 10px cyan;
 }
 
 /* GRID */
@@ -51,8 +60,8 @@ margin-bottom:30px;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
-width:80%;
 max-width:400px;
+margin:30px auto;
 }
 
 /* BOTONES */
@@ -60,6 +69,7 @@ max-width:400px;
 background:#111;
 padding:20px;
 border-radius:15px;
+text-align:center;
 transition:0.3s;
 }
 .op:active{
@@ -67,27 +77,58 @@ transform:scale(0.9);
 box-shadow:0 0 20px cyan;
 }
 
-/* BOTON VOLVER */
-.volver{
-margin-top:20px;
-padding:10px 20px;
-border:none;
-border-radius:10px;
-background:cyan;
-color:black;
+/* CARDS */
+.card{
+background:rgba(0,0,0,0.7);
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
 }
+
+/* SERVERS */
+.servers{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.server{
+background:#111;
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+.server img{
+width:60px;
+}
+
+/* VOLVER */
+.volver{
+position:fixed;
+top:10px;
+left:10px;
+background:cyan;
+border:none;
+padding:10px;
+border-radius:10px;
+}
+
+/* MUSICA */
+audio{display:none;}
+
 </style>
 </head>
 
 <body>
 
-<!-- MUSICA -->
+<div class="overlay"></div>
+
 <audio id="musica" loop>
 <source src="music/eoo.mp3">
 </audio>
 
-<!-- PANTALLA PRINCIPAL -->
-<div id="inicio" class="seccion activa">
+<!-- MENU PRINCIPAL -->
+<div id="menu" class="seccion activa center">
 
 <img src="images/keyxzzz_logo.png" class="logo">
 
@@ -95,125 +136,133 @@ color:black;
 
 <div class="grid">
 
-<div class="op" onclick="ir('dev')">💻 Developer | Staff</div>
-
-<div class="op" onclick="ir('manager')">🛠️ Manager | Staff</div>
-
-<div class="op" onclick="ir('equipo')">👥 Equipo | Staff</div>
-
-<div class="op" onclick="ir('builder')">🏗️ Builder | Semi profesional</div>
+<div class="op" onclick="ir('dev')">💻 Developer</div>
+<div class="op" onclick="ir('manager')">🛠️ Manager</div>
+<div class="op" onclick="ir('equipo')">👥 Equipo</div>
+<div class="op" onclick="ir('builder')">🏗️ Builder</div>
 
 </div>
 
 </div>
 
-<!-- DEV -->
+<!-- PAGINA DEV -->
 <div id="dev" class="seccion">
-<h1>💻 Developer</h1>
+
+<button class="volver" onclick="volver()">⬅</button>
+
+<div class="card">
+<h2>💻 Developer | Staff</h2>
 
 <p>
-Especialista en desarrollo y configuración avanzada de servidores Minecraft.
-Implemento sistemas únicos y optimización extrema.
+Especialista en configuración avanzada de servidores Minecraft.
+Creación de sistemas optimizados y profesionales.
 </p>
 
 <p>
-Experiencia creando servidores estables, rápidos y profesionales.
+Trabajo enfocado en rendimiento extremo y estabilidad total.
 </p>
-
-<ul>
-<li>✔ Plugins personalizados</li>
-<li>✔ Sistemas avanzados</li>
-<li>✔ Alto rendimiento</li>
-</ul>
-
-<button class="volver" onclick="volver()">⬅ Volver</button>
 </div>
 
-<!-- MANAGER -->
+<div class="card">
+<h2>🔥 Servidores</h2>
+
+<div class="servers">
+
+<div class="server">
+<img src="images/minedark_logo.png"><br>MineDark
+</div>
+
+<div class="server">
+<img src="images/hypercommunity_logo.png"><br>HyperCommunity
+</div>
+
+<div class="server">
+<img src="images/tortrixland_logo.png"><br>TortrixLand
+</div>
+
+<div class="server">
+<img src="images/warponmc_logo.png"><br>WarpOnMC
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGINA MANAGER -->
 <div id="manager" class="seccion">
-<h1>🛠️ Manager</h1>
+
+<button class="volver" onclick="volver()">⬅</button>
+
+<div class="card">
+<h2>🛠️ Manager | Staff</h2>
 
 <p>
-Encargado de la gestión completa del servidor.
-Organización y control total del staff.
+Gestión completa de servidores y control del staff.
 </p>
 
 <p>
-Experiencia liderando equipos y manteniendo estabilidad.
+Organización profesional y estabilidad del servidor.
 </p>
-
-<ul>
-<li>✔ Gestión total</li>
-<li>✔ Control staff</li>
-<li>✔ Organización</li>
-</ul>
-
-<button class="volver" onclick="volver()">⬅ Volver</button>
 </div>
 
-<!-- EQUIPO -->
+</div>
+
+<!-- PAGINA EQUIPO -->
 <div id="equipo" class="seccion">
-<h1>👥 Equipo</h1>
+
+<button class="volver" onclick="volver()">⬅</button>
+
+<div class="card">
+<h2>👥 Equipo | Staff</h2>
 
 <p>
 Trabajo en equipo y soporte a la comunidad.
-Resolución de problemas y asistencia activa.
 </p>
 
 <p>
-Buena comunicación y manejo de usuarios.
+Resolución de conflictos y ayuda activa.
 </p>
-
-<ul>
-<li>✔ Soporte activo</li>
-<li>✔ Resolución conflictos</li>
-<li>✔ Trabajo en equipo</li>
-</ul>
-
-<button class="volver" onclick="volver()">⬅ Volver</button>
 </div>
 
-<!-- BUILDER -->
+</div>
+
+<!-- PAGINA BUILDER -->
 <div id="builder" class="seccion">
-<h1>🏗️ Builder</h1>
+
+<button class="volver" onclick="volver()">⬅</button>
+
+<div class="card">
+<h2>🏗️ Builder | Semi profesional</h2>
 
 <p>
-Builder enfocado en mapas optimizados y funcionales.
+Creación de mapas optimizados y funcionales.
+</p>
+
+<p>
 Diseño equilibrado entre estética y rendimiento.
 </p>
+</div>
 
-<p>
-Experiencia creando estructuras para servidores.
-</p>
-
-<ul>
-<li>✔ Mapas optimizados</li>
-<li>✔ Diseño limpio</li>
-<li>✔ Buen rendimiento</li>
-</ul>
-
-<button class="volver" onclick="volver()">⬅ Volver</button>
 </div>
 
 <script>
 
-/* MUSICA */
-document.addEventListener("click", ()=>{
-let a=document.getElementById("musica");
-a.volume=0.5;
-a.play().catch(()=>{});
-},{once:true});
-
-/* IR A SECCION */
+/* CAMBIAR PAGINA */
 function ir(id){
 document.querySelectorAll(".seccion").forEach(s=>s.classList.remove("activa"));
 document.getElementById(id).classList.add("activa");
+
+/* MUSICA */
+let m=document.getElementById("musica");
+m.play().catch(()=>{});
 }
 
 /* VOLVER */
 function volver(){
 document.querySelectorAll(".seccion").forEach(s=>s.classList.remove("activa"));
-document.getElementById("inicio").classList.add("activa");
+document.getElementById("menu").classList.add("activa");
 }
 
 </script>
